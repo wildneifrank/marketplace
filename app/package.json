@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server.js"
+    "dev": "nodemon index.js"
   },
   "keywords": [],
   "author": "Wildnei Frank e Maycon Thiago",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.2",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
     "nodemon": "^3.0.1"
