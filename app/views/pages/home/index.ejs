@@ -5,10 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <div class="text-blue-900 font-bold text-lg w-full text-center">
+    <%- include('../../components/header'); %>
+    <div class="text-blue-900 font-bold text-lg w-full h-screen text-center">
       Teste EJS
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
+    <%- include('../../components/footer'); %>
   </body>
 </html>
