@@ -17,7 +17,7 @@ const moveCarousel = (currentPosition, direction, carouselContainer) => {
 };
 
 const arrowsRestaurant = document.querySelectorAll(".restaurants")
-const carouselRestaurant = document.querySelector("#restaurants");
+const carouselRestaurant = document.querySelector("#restaurantsCarousel");
 arrowsRestaurant.forEach(arrow => {
   let currentPosition = 0;
   arrow.addEventListener("click", () =>{
@@ -31,7 +31,7 @@ arrowsRestaurant.forEach(arrow => {
 })
 
 const arrowsProduct = document.querySelectorAll(".products")
-const carouselProduct = document.querySelector("#products");
+const carouselProduct = document.querySelector("#productsCarousel");
 arrowsProduct.forEach(arrow => {
   let currentPosition = 0;
   arrow.addEventListener("click", () =>{
