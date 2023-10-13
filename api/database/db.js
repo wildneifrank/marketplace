@@ -8,4 +8,12 @@ const db = mysql.createConnection({
   database: "railway",
 });
 
+db.connect(function (err) {
+  if (err) {
+    console.error("Erro ao conectar ao banco de dados:", err);
+  } else {
+    console.log("Conexão bem-sucedida ao banco de dados");
+  }
+});
+
 module.exports = db;

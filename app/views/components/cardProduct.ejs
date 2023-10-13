@@ -1,0 +1,26 @@
+<div class="w-64 h-80 flex flex-col overflow-hidden items-center rounded-xl shadow-lg relative group">
+    <div class="w-full h-full">
+        <div
+            class="bg-purple-800 h-2/3 w-full rounded-t-xl skew-y-[345deg] absolute -top-[30%] group-hover:-top-[35%] hover group-hover:skew-y-[375deg] duration-500 ease-in-out">
+        </div>
+    </div>
+    <div class="w-full h-full absolute flex justify-center items-center ">
+        <div
+            class="text-center flex justify-center items-center flex-col pt-10 group-hover:pt-0 z-10 overflow-y-hidden duration-500 ease-in-out">
+            <img src="<%= imageLink %>" alt=""
+                class="rounded-full border-2 border-purple-800 p-1 bg-white w-1/2 h-1/2" />
+            <div class="flex flex-col gap-2 justify-center items-center">
+                <div class="text-lg font-medium">
+                    <%= title %>
+                </div>
+                <div class="font-normal">
+                    $<%= price %>
+                </div>
+                <button
+                    class="bg-purple-800 w-full hover:bg-purple-900 duration-500 ease-in-out px-5 py-2 rounded-lg text-white translate-y-28 group-hover:translate-y-0">
+                    Ver Restaurante
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

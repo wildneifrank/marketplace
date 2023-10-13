@@ -2,8 +2,11 @@ const express = require("express");
 const app = express();
 const PORT = 3000;
 const bodyParser = require("body-parser");
+const path = require("path");
+const staticPath = path.join(__dirname, "/public");
 const routes = require("./routes/routes");
 
+app.use(express.static(staticPath));
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(routes);
