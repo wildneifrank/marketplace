@@ -15,127 +15,130 @@
 
 <body>
   <%- include('../../components/header'); %>
-    <div class="w-full h-screen justify-center flex items-center relative" id="home">
-      <img src="images/bg.png" class="w-full h-screen absolute top-14" alt="Background">
-      <div class="md:w-5/12 w-3/5 flex flex-col gap-2 text-center text-lg font-medium z-10">
-        <div class="text-3xl text-purple-800 font-semibold ">Quer conhecer um restaurante novo?</div>
-        <div class="text-lg text-purple-800 font-medium">
-          Pesquise as suas comidas preferidas e veja um novo mundo!
-        </div>
-        <div class="px-3 py-1 w-full justify-center items-center flex gap-3 border-purple-800 rounded-md border">
-          <i class="fa-solid fa-magnifying-glass text-purple-800 cursor-pointer"></i>
-          <input type="text" class="border-0 focus:ring-0 flex-1 w-2/4 text-purple-800 text-lg font-medium"
-            placeholder="Pizza, Sushi, Sorvete..." />
+    <main>
+      <div class="w-full h-screen justify-center flex items-center relative" id="home">
+        <img src="images/bg.png" class="w-full h-screen absolute top-14" alt="Background">
+        <div class="md:w-5/12 w-3/5 flex flex-col gap-2 text-center text-lg font-medium z-10">
+          <div class="text-3xl text-purple-800 font-semibold ">Quer conhecer um restaurante novo?</div>
+          <div class="text-lg text-purple-800 font-medium">
+            Pesquise as suas comidas preferidas e veja um novo mundo!
+          </div>
+          <div class="px-3 py-1 w-full justify-center items-center flex gap-3 border-purple-800 rounded-md border">
+            <i class="fa-solid fa-magnifying-glass text-purple-800 cursor-pointer"></i>
+            <input type="text" class="border-0 focus:ring-0 flex-1 w-2/4 text-purple-800 text-lg font-medium"
+              placeholder="Pizza, Sushi, Sorvete..." />
+          </div>
         </div>
       </div>
-    </div>
-    <div class="h-auto flex flex-col px-12 py-7 gap-5 overflow-x-hidden" id="restaurants">
-      <%- include('../../components/title', {title:"Melhores Restaurantes"}); %>
+      <div class="h-auto flex flex-col px-12 py-7 gap-5 overflow-x-hidden" id="restaurants">
+        <%- include('../../components/title', {title:"Melhores Restaurantes"}); %>
 
-        <div class="h-auto flex gap-5 w-fit duration-500 ease-in-out" id="restaurantsCarousel">
-          <% for(let k=0; k < 7; k++ ) { %>
-            <%- include('../../components/cardRestaurant', { imageLink: 'https://picsum.photos/200/200' ,
-              companyTitle: 'GTi Engenharia jr.' , companyDescription: 'Empresa de desenvolvimento web' }) %>
-              <% } %>
-        </div>
-        <div class="w-full flex justify-center gap-3">
-          <div
-            class="bg-purple-800 w-10 h-10 flex justify-center items-center rounded-full hover:bg-purple-900 duration-500 ease-in-out cursor-pointer restaurants"
-            id="leftRestaurant">
-            <i class="fa-solid fa-angle-left text-white"></i>
+          <div class="h-auto flex gap-5 w-fit duration-500 ease-in-out" id="restaurantsCarousel">
+            <% for(let k=0; k < 7; k++ ) { %>
+              <%- include('../../components/cardRestaurant', { imageLink: 'https://picsum.photos/200/200' ,
+                companyTitle: 'GTi Engenharia jr.' , companyDescription: 'Empresa de desenvolvimento web' }) %>
+                <% } %>
           </div>
-          <div
-            class="bg-purple-800 w-10 h-10 flex justify-center items-center rounded-full hover:bg-purple-900 duration-500 ease-in-out cursor-pointer restaurants"
-            id="rightRestaurant">
-            <i class="fa-solid fa-angle-right text-white"></i>
-          </div>
-        </div>
-    </div>
-
-    <div class="h-auto w-full flex flex-col px-12 py-7 gap-5 overflow-x-hidden" id="products">
-      <%- include('../../components/title', {title:"Produtos"}); %>
-        <div class=" h-auto flex gap-5 w-fit duration-500 ease-in-out" id="productsCarousel">
-          <% for(let k=0; k < 7; k++ ) { %>
-            <%- include('../../components/cardProduct', { imageLink: 'https://picsum.photos/200/200' , title: 'Pizza' ,
-              price: '25.00' }) %>
-              <% } %>
-        </div>
-        <div class="w-full flex justify-center gap-3">
-          <div
-            class="bg-purple-800 w-10 h-10 flex justify-center items-center rounded-full hover:bg-purple-900 duration-500 ease-in-out cursor-pointer products"
-            id="leftProduct">
-            <i class="fa-solid fa-angle-left text-white "></i>
-          </div>
-          <div
-            class="bg-purple-800 w-10 h-10 flex justify-center items-center rounded-full hover:bg-purple-900 duration-500 ease-in-out cursor-pointer products"
-            id="rightProduct">
-            <i class="fa-solid fa-angle-right text-white "></i>
-          </div>
-        </div>
-    </div>
-
-    <div class="w-full h-auto flex px-12 mb-10 flex-col gap-2" id="contacts">
-      <%- include('../../components/title', {title:"Contate-nos"})%>
-        <div class="w-full h-auto flex flex-wrap">
-          <form action="" class="md:w-2/3 w-full flex flex-col gap-2 md:p-6 mb-5 md:mb-0" autocomplete="off">
-            <div class="w-full flex flex-col gap-2">
-              <label for="name" class="text-lg text-purple-800 font-semibold">Nome Completo</label>
-              <input type="text" name="name" id="name" placeholder="Nome"
-                class="rounded-md font-medium text-purple-800 border-purple-800 focus:border-purple-800 focus:ring-0">
+          <div class="w-full flex justify-center gap-3">
+            <div
+              class="bg-purple-800 w-10 h-10 flex justify-center items-center rounded-full hover:bg-purple-900 duration-500 ease-in-out cursor-pointer restaurants"
+              id="leftRestaurant">
+              <i class="fa-solid fa-angle-left text-white"></i>
             </div>
-            <div class="w-full flex gap-3 flex-wrap md:flex-nowrap">
-              <div class="md:w-1/2 w-full flex flex-col gap-2">
-                <label for="email" class="text-lg text-purple-800 font-semibold">Email</label>
-                <input type="email" name="email" id="email" placeholder="Email"
+            <div
+              class="bg-purple-800 w-10 h-10 flex justify-center items-center rounded-full hover:bg-purple-900 duration-500 ease-in-out cursor-pointer restaurants"
+              id="rightRestaurant">
+              <i class="fa-solid fa-angle-right text-white"></i>
+            </div>
+          </div>
+      </div>
+
+      <div class="h-auto w-full flex flex-col px-12 py-7 gap-5 overflow-x-hidden" id="products">
+        <%- include('../../components/title', {title:"Produtos"}); %>
+          <div class=" h-auto flex gap-5 w-fit duration-500 ease-in-out" id="productsCarousel">
+            <% for(let k=0; k < 7; k++ ) { %>
+              <%- include('../../components/cardProduct', { imageLink: 'https://picsum.photos/200/200' , title: 'Pizza'
+                , price: '25.00' }) %>
+                <% } %>
+          </div>
+          <div class="w-full flex justify-center gap-3">
+            <div
+              class="bg-purple-800 w-10 h-10 flex justify-center items-center rounded-full hover:bg-purple-900 duration-500 ease-in-out cursor-pointer products"
+              id="leftProduct">
+              <i class="fa-solid fa-angle-left text-white "></i>
+            </div>
+            <div
+              class="bg-purple-800 w-10 h-10 flex justify-center items-center rounded-full hover:bg-purple-900 duration-500 ease-in-out cursor-pointer products"
+              id="rightProduct">
+              <i class="fa-solid fa-angle-right text-white "></i>
+            </div>
+          </div>
+      </div>
+
+      <div class="w-full h-auto flex px-12 mb-10 flex-col gap-2" id="contacts">
+        <%- include('../../components/title', {title:"Contate-nos"})%>
+          <div class="w-full h-auto flex flex-wrap gap-7">
+            <form action="" class="md:w-3/5 w-full flex flex-col gap-2 md:py-6 mb-5 md:mb-0" autocomplete="off">
+              <div class="w-full flex flex-col gap-2">
+                <label for="name" class="text-lg text-purple-800 font-semibold">Nome Completo</label>
+                <input type="text" name="name" id="name" placeholder="Nome"
                   class="rounded-md font-medium text-purple-800 border-purple-800 focus:border-purple-800 focus:ring-0">
               </div>
-              <div class="md:w-1/2 w-full flex flex-col gap-2">
-                <label for="phone" class="text-lg text-purple-800 font-semibold">Telefone</label>
-                <input type="tel" name="phone" id="phone" placeholder="Telefone"
-                  class="rounded-md font-medium text-purple-800 border-purple-800 focus:border-purple-800 focus:ring-0">
+              <div class="w-full flex gap-3 flex-wrap md:flex-nowrap">
+                <div class="md:w-1/2 w-full flex flex-col gap-2">
+                  <label for="email" class="text-lg text-purple-800 font-semibold">Email</label>
+                  <input type="email" name="email" id="email" placeholder="Email"
+                    class="rounded-md font-medium text-purple-800 border-purple-800 focus:border-purple-800 focus:ring-0">
+                </div>
+                <div class="md:w-1/2 w-full flex flex-col gap-2">
+                  <label for="phone" class="text-lg text-purple-800 font-semibold">Telefone</label>
+                  <input type="tel" name="phone" id="phone" placeholder="Telefone"
+                    class="rounded-md font-medium text-purple-800 border-purple-800 focus:border-purple-800 focus:ring-0">
+                </div>
               </div>
-            </div>
-            <div class="w-full flex flex-col gap-2">
-              <label for="message" class="text-lg text-purple-800 font-semibold">Mensagem</label>
-              <textarea name="message" id="message"
-                class="rounded-md font-medium h-56 p-3 text-purple-800 border-purple-800 focus:border-purple-800 focus:ring-0"
-                placeholder="Digite uma mensagem..."></textarea>
+              <div class="w-full flex flex-col gap-2">
+                <label for="message" class="text-lg text-purple-800 font-semibold">Mensagem</label>
+                <textarea name="message" id="message"
+                  class="rounded-md font-medium h-56 p-3 text-purple-800 border-purple-800 focus:border-purple-800 focus:ring-0"
+                  placeholder="Digite uma mensagem..."></textarea>
 
-            </div>
-            <button type="submit"
-              class="border bg-white text-lg font-semibold rounded-md shadow-md px-3 py-2 border-purple-800 text-purple-800 hover:text-white hover:bg-purple-800 duration-500 ease-in-out sm:w-2/5 md:w-1/5 w-full mt-2">Enviar</button>
-          </form>
-          <div class="flex-1 flex flex-col gap-3 text-white text-lg font-medium">
-            <div class="bg-purple-800 flex flex-col gap-2 rounded-md p-7 shadow-md">
-              Informações de Contatos
-              <div class="flex gap-3 items-center justify-start">
-                <div class="w-10 h-10 bg-white rounded-full flex justify-center items-center">
-                  <i class="fa-solid fa-envelope text-purple-800"></i>
-                </div>
-                <div class="flex-1">contato@marketplace.com</div>
               </div>
-              <div class="flex gap-3 items-center justify-start">
-                <div class="w-10 h-10 bg-white rounded-full flex justify-center items-center">
-                  <i class="fa-solid fa-location-dot text-purple-800"></i>
+              <button type="submit"
+                class="border bg-white text-lg font-semibold rounded-md shadow-md px-3 py-2 border-purple-800 text-purple-800 hover:text-white hover:bg-purple-800 duration-500 ease-in-out sm:w-2/5 md:w-1/5 w-full mt-2">Enviar</button>
+            </form>
+            <div class="flex-1 flex flex-col gap-3 text-white text-lg font-medium">
+              <div class="bg-purple-800 flex flex-col gap-2 rounded-md p-7 shadow-md">
+                Informações de Contatos
+                <div class="flex gap-3 items-center justify-start">
+                  <div class="w-10 h-10 bg-white rounded-full flex justify-center items-center">
+                    <i class="fa-solid fa-envelope text-purple-800"></i>
+                  </div>
+                  <div class="flex-1">contato@marketplace.com</div>
                 </div>
-                <div class="flex-1">Av. da Universidade, 2853 - Benfica, Fortaleza - CE, 60020-181</div>
+                <div class="flex gap-3 items-center justify-start">
+                  <div class="w-10 h-10 bg-white rounded-full flex justify-center items-center">
+                    <i class="fa-solid fa-location-dot text-purple-800"></i>
+                  </div>
+                  <div class="flex-1">Av. da Universidade, 2853 - Benfica, Fortaleza - CE, 60020-181</div>
+                </div>
+                <div class="flex gap-3 items-center justify-start">
+                  <div class="w-10 h-10 bg-white rounded-full flex justify-center items-center">
+                    <i class="fa-solid fa-phone text-purple-800"></i>
+                  </div>
+                  <div class="flex-1">+55 (85) 91234-5678</div>
+                </div>
               </div>
-              <div class="flex gap-3 items-center justify-start">
-                <div class="w-10 h-10 bg-white rounded-full flex justify-center items-center">
-                  <i class="fa-solid fa-phone text-purple-800"></i>
-                </div>
-                <div class="flex-1">+55 (85) 91234-5678</div>
+              <div class="w-full h-full">
+                <iframe class="w-full h-full rounded-md" frameborder="0" style="border:0"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.4860813962075!2d-38.548648784438295!3d-3.7198741973353175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7b8114f9c80eaa7%3A0x82b87644a6898663f!2sAv.%20da%20Universidade%2C%202853%20-%20Benfica%2C%20Fortaleza%20-%20CE%2C%2060020-181!5e0!3m2!1sen!2sbr!4v1664131929477!5m2!1sen!2sbr"
+                  allowfullscreen="" loading="lazy"></iframe>
               </div>
             </div>
-            <div class="w-full h-full">
-              <iframe class="w-full h-full rounded-md" frameborder="0" style="border:0"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.4860813962075!2d-38.548648784438295!3d-3.7198741973353175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7b8114f9c80eaa7%3A0x82b87644a6898663f!2sAv.%20da%20Universidade%2C%202853%20-%20Benfica%2C%20Fortaleza%20-%20CE%2C%2060020-181!5e0!3m2!1sen!2sbr!4v1664131929477!5m2!1sen!2sbr"
-                allowfullscreen="" loading="lazy"></iframe>
-            </div>
+
           </div>
+      </div>
+    </main>
 
-        </div>
-    </div>
 
     <%- include('../../components/footer'); %>
       <script src="js/index.js"></script>
