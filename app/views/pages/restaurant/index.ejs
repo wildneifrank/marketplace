@@ -1,12 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Restaurante</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body>
-    restaurante
-  </body>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restaurante</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="images/ufc.png" type="image/png">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <%- include('../../components/header'); %>
+    <main>
+      <div class="w-full h-auto mt-24 static px-12 flex flex-wrap gap-6">
+        <aside class="sm:w-64 w-full flex items-center gap-3 flex-col text-purple-800">
+          <img src="https://picsum.photos/150/150" class="rounded-full w-52 h-auto border-2 border-purple-800 shadow-md"
+            alt="Logo do restaurante" />
+          <div class="flex flex-col gap-1 w-full">
+            <div class="text-xl font-semibold text-center">GTi Engenharia Jr.</div>
+            <div class="flex gap-3 items-center justify-between">
+              <div class="w-10 h-10 bg-white rounded-full flex justify-center items-center">
+                <i class="fa-solid fa-envelope "></i>
+              </div>
+              <div class="flex-1 text-md font-medium text-start">gtiengenhariajr@gmail.com</div>
+            </div>
+            <div class="flex gap-3 items-center justify-between">
+              <div class="w-10 h-10 bg-white rounded-full flex justify-center items-center">
+                <i class="fa-solid fa-location-dot "></i>
+              </div>
+              <div class="flex-1 text-md font-medium text-start "> Av. Humberto Monte, Campus do Pici (UFC) - Bloco 725
+                -
+                Pici,
+                Fortaleza - CE,
+                60440-593
+              </div>
+            </div>
+            <div class="flex gap-3 items-center justify-between">
+              <div class="w-10 h-10 bg-white rounded-full flex justify-center items-center">
+                <i class="fa-solid fa-phone "></i>
+              </div>
+              <div class="flex-1 text-md font-medium text-start">(88) 99665-9102</div>
+            </div>
+          </div>
+
+        </aside>
+        <div class="flex-1 flex flex-col gap-3">
+          <%- include('../../components/title', {title:"Sobre Nós"}); %>
+            <div class="text-lg font-medium text-purple-800 text-justify">Lorem ipsum dolor sit amet consectetur
+              adipisicing elit.
+              Odio, vitae eaque? Voluptate pariatur, aut expedita eaque non facere autem corporis voluptatem quis odio
+              molestiae deleniti, obcaecati, consectetur dignissimos ad libero.
+
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore eius ut eveniet a ea quasi tenetur,
+              alias ducimus incidunt animi at quia officia laboriosam possimus, quo nihil odit maiores. Amet?
+              <br /> <br />
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Odio, vitae eaque? Voluptate pariatur, aut expedita eaque non facere autem corporis voluptatem quis odio
+              molestiae deleniti, obcaecati, consectetur dignissimos ad libero.
+
+            </div>
+        </div>
+      </div>
+    </main>
+    <%- include('../../components/footer'); %>
+      <script src="js/index.js"></script>
+</body>
+
 </html>
