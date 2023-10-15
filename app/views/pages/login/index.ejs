@@ -1,12 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/style.css">
+    <script defer src="/js/ocultar.js"></script>
     <title>Login</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body>
-    login
-  </body>
+</head>
+<body>
+    <div class="main-login">
+        <div class="left-login">
+            <h1>Faça login<br>E sirva-se</h1>
+            <img src="images/pizza.svg" class="left-login-image" alt="pizza">
+        </div>
+        <div class="right-login">
+            <div class="card-login face">
+                <div class="front" id="minhaDiv">
+                    <h1>LOGIN</h1>
+                    <form method="post" class="textfield">
+                        <div class="textfield">
+                            <label for="usuario">Usuário</label>
+                            <input type="text" name="usuario" placeholder="Usuário">
+                        </div>
+                        <div class="textfield">
+                            <label for="senha">Senha</label>
+                            <input type="password" name="senha" placeholder="Senha">
+                        </div>
+                    </form>
+                    <button class="btn-login">Logar</button>
+                    <p>Ainda não tem uma conta?<a href="#"id="ocultarLink">Crie uma aqui</a></p>
+                </div>
+
+                <div class="back" id="minhaDiv2">
+                    <h1>CADASTRO</h1>
+                    <form method="post" class="textfield">
+                        <div class="textfield">
+                            <label for="usuario">Usuário</label>
+                            <input type="text" name="usuario" placeholder="Usuário">
+                        </div>
+                        <div class="textfield">
+                            <label for="senha">Senha</label>
+                            <input type="password" name="senha" placeholder="Senha">
+                        </div>
+                    </form>
+                    <button class="btn-login">Cadastro</button>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
 </html>
