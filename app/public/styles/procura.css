@@ -12,6 +12,7 @@ body{
 .wrapper{
     width: 95%;
     margin: 0 auto;
+    margin-top: 80px;
 }
 #search-container{
     margin: 1em 0;
@@ -23,12 +24,12 @@ body{
     padding: 1em 0.3em;
 }
 #search-container input:focus{
-    background-color: #6759ff;
+    background-color: #805ad5;
 }
 #search-container button{
     padding: 1em 2em;
     margin-left: 1em;
-    background-color: #6759ff;
+    background-color:  #805ad5;
     color: #ffffff;
     border-radius: 5px;
     margin-top: 0.5em;
@@ -36,15 +37,15 @@ body{
 
 /* -------------filtro -------------*/
 .button-value{
-    border: 2px solid #6759ff;
+    border: 2px solid #553c9a;
     padding: 1em 2.2em;
     border-radius: 3em;
     background-color: transparent;
-    color: #6759ff;
+    color: #553c9a;
     cursor: pointer;
 }
 .active{
-    background-color: #6759ff;
+    background-color: #553c9a;
     color: #ffffff;
 }
 
@@ -74,7 +75,7 @@ img{
     padding-top: 1em;
     color: #110f29;
 }
-.container>h5{
+.container h5{
     font-weight: 500;
 }
 .hide {
