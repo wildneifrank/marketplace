@@ -1,69 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
+
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>User</title>
-  <link rel="stylesheet" href="/styles/usuario.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-  <script src="/js/user.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="images/ufc.png" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
-  <div class="container">
-    <nav>
-      <ul>
-        <li><a href="#">
-          <i class="fas fa-tachometer-alt"></i>
-          <span class="nav-item">Dashboard</span>
-        </a></li>
-        <li><a href="#">
-          <i class="fas fa-message"></i>
-          <span class="nav-item">Feedbacks</span>
-        </a></li>
-        <li><a href="#">
-          <i class="fas fa-database"></i>
-          <span class="nav-item">Produtos</span>
-        </a></li>
-        <li><a href="#">
-          <i class="fas fa-cog"></i>
-          <span class="nav-item">Configurações</span>
-        </a></li>
-        <li><a href="#" class="logout">
-          <i class="fas fa-sign-out-alt"></i>
-          <span class="nav-item">Logout</span>
-        </a></li>
-      </ul>
-    </nav>
-    
-    <div class="main--content">
-      <div class="header--wrapper">
-        <div class="header--title">
-          <span>Primary</span>
-          <h2>Dashboard</h2>
+  <main class="w-full h-screen flex">
+    <aside class="duration-500 ease-in-out hover:w-3/6 w-1/6 h-full fixed bg-purple-800 text-white shadow-xl flex flex-col text-lg font-medium justify-between pt-32 pb-10 sm:w-1/12 sm:hover:w-4/12 lg:w-[5%] lg:hover:w-2/12 group">
+      <div class="w-full h-3/6 flex flex-col gap-1 items-center justify-center">
+        <div class="flex gap-3 w-3/4 items-center bg-purple-500 px-4 py-3 rounded-lg shadow-md cursor-pointer">
+          <i class="fa-solid fa-gauge text-white"></i>
+          <span class="group-hover:text-lg duration-500 ease-in-out text-[0px]">Dashboard</span>
         </div>
-        <div class="user--info">
-          <div class="search--box">
-            <h5>Olá, GTi Lanches.</h5>
-          </div>
-          <img src="/images/ufc.png" alt="">
+        <div class="flex gap-3 w-3/4 px-4 py-3 items-center hover:bg-purple-500 duration-500 ease-in-out rounded-lg hover:shadow-md cursor-pointer">
+          <i class="fa-solid fa-message text-white"></i>
+          <span class="group-hover:text-lg duration-500 ease-in-out text-[0px]">Feedbacks</span>
+        </div>
+        <div class="flex gap-3 w-3/4 px-4 py-3 items-center hover:bg-purple-500 duration-500 ease-in-out rounded-lg hover:shadow-md cursor-pointer">
+          <i class="fa-solid fa-database text-white"></i>
+          <span class="group-hover:text-lg duration-500 ease-in-out text-[0px]">Produtos</span>
+        </div>
+        <div class="flex gap-3 w-3/4 px-4 py-3 items-center hover:bg-purple-500 duration-500 ease-in-out rounded-lg hover:shadow-md cursor-pointer">
+          <i class="fa-solid fa-gear text-white"></i>
+          <span class="group-hover:text-lg duration-500 ease-in-out text-[0px]">Configurações</span>
         </div>
       </div>
-      <div class="card--container">
-        <h3 class="main--title">Today data</h3>
-        <div class="card--warpper">
-          <div class="payment--card">
-            <div class="card--header">
-              <div class="amount">
-                <span class="title">
-                  Pizza
-                </span>
-                <span class="amount-value">$25.00</span>
-              </div>
+      <div class="flex w-full justify-center items-center">
+        <div class="w-3/4 px-4 py-3 flex gap-3 items-center hover:bg-purple-500 duration-500 ease-in-out rounded-lg hover:shadow-md cursor-pointer">
+          <i class="fa-solid fa-right-from-bracket text-white"></i>
+          <span class="group-hover:text-lg duration-500 ease-in-out text-[0px]">Logout</span>
+        </div>
+      </div>
+    </aside>
+    <div class="flex-1 flex flex-col gap-5 pl-20 pr-8 py-5">
+      <div class="rounded-md bg-white shadow-lg py-3 h-auto sm:py-0 sm:h-1/6 flex items-center px-6 border-slate-100 border flex-wrap">
+        <div class="w-full h-auto flex flex-col sm:w-2/3 lg:w-3/4">
+          <div class="text-md text-slate-400 font-medium">Principal</div>
+          <div class="text-xl text-purple-800 font-semibold">Dashboard</div>
+        </div>
+        <div class="flex-1 flex gap-3 items-center">
+          <div class="text-lg text-purple-800 font-medium">Olá, GTi Engenharia Jr.</div>
+          <img src="images/ufc.png" class="w-11 h-11 rounded-full border border-purple-800 shadow-lg" alt="Imagem do Admin">
+        </div>
+      </div>
+      <div class="rounded-md bg-white shadow-lg h-auto lg:h-2/6 p-6 border-slate-100 border">
+        <div class="w-full text-purple-800 text-lg font-medium h-auto">Estatísticas</div>
+        <div class="w-full flex gap-4 flex-1 flex-wrap">
+          <div class="flex w-full sm:w-2/5 lg:flex-1 gap-1 rounded-lg h-full text-white border border-purple-800 p-5 shadow-md">
+            <div class="w-3/4 h-auto flex flex-col gap-1 font-semibold">
+              <div class="text-xs text-slate-500">Quantidade de Produtos</div>
+              <div class="text-2xl text-purple-800">34</div>
             </div>
-            <!-- <span class="card-detail">**** **** **** 3456</span> -->
+            <div class="w-14 h-14 p-5 flex justify-center items-center rounded-full bg-purple-800">
+              <i class="fa-solid fa-database text-white"></i>
+            </div>
+          </div>
+          <div class="flex w-full sm:w-2/5 lg:flex-1 gap-1 rounded-lg h-full text-white border border-purple-800 p-5 shadow-md">
+            <div class="w-3/4 h-auto flex flex-col gap-1 font-semibold">
+              <div class="text-xs text-slate-500">Feedbacks</div>
+              <div class="text-2xl text-purple-800">7</div>
+            </div>
+            <div class="w-14 h-14 p-5 flex justify-center items-center rounded-full bg-purple-800">
+              <i class="fa-solid fa-message text-white"></i>
+            </div>
           </div>
         </div>
       </div>
-      </div>
+      <div class="rounded-md bg-white shadow-lg h-3/6 px-6 border-slate-100 border"></div>
     </div>
+  </main>
 </body>
+
 </html>
