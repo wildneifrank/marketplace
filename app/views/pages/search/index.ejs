@@ -13,12 +13,57 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/styles/search.css">
+    <!-- <link rel="stylesheet" href="/styles/search.css"> -->
     <script defer src="/js/filter.js"></script>
 </head>
 <body>
   <%- include('../../components/header'); %>
-    <div class="wrapper">
+      <div class="border-none outline-none font-sans bg-white w-95 mx-auto mt-20 pl-5">
+        <div class="my-4">
+          <input type="search" class="bg-transparent w-40 border-b-2 border-purple-900 p-4" placeholder="O que voçê procura?"/>
+          <button class="p-4 ml-4 bg-purple-900 text-white rounded-md mt-2">Buscar</button>
+        </div>
+        <div id="buttons">
+          <button class="border-2 border-purple-900 p-4 pl-8 pr-8 rounded-full text-purple-900 cursor-pointer" onclick="filterProduct('all')">All<button>
+          <button class="border-2 border-purple-900 p-4 pl-8 pr-8 rounded-full text-purple-900 cursor-pointer" onclick="filterProduct('esfira')">Esfira</button>
+          <button class="border-2 border-purple-900 p-4 pl-8 pr-8 rounded-full text-purple-900 cursor-pointer" onclick="filterProduct('chinesa')">Chinesa</button>
+          <button class="border-2 border-purple-900 p-4 pl-8 pr-8 rounded-full text-purple-900 cursor-pointer" onclick="filterProduct('italiana')">Italiana</button>
+          <button class="border-2 border-purple-900 p-4 pl-8 pr-8 rounded-full text-purple-900 cursor-pointer" onclick="filterProduct('ifood')">Ifood</button>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-6 gap-y-8 py-8">
+          <div class="justify-center bg-white max-w-18 mt-4 p-4 rounded-md shadow-md">
+            <!-- Conteúdo do card -->
+            <h3>Bife à Parmegiana com Molho</h3>
+            <p>$19.99</p>
+            <img src="images/ufc.png" alt="">
+          </div>
+          <div class="justify-center bg-white max-w-18 mt-4 p-4 rounded-md shadow-md">
+            <!-- Conteúdo do card -->
+            <h3>Bife à Parmegiana com Molho</h3>
+            <p>$19.99</p>
+            <img src="images/ufc.png" alt="">
+          </div>
+          <div class="justify-center bg-white max-w-18 mt-4 p-4 rounded-md shadow-md">
+            <!-- Conteúdo do card -->
+            <h3>Bife à Parmegiana com Molho</h3>
+            <p>$19.99</p>
+            <img src="images/ufc.png" alt="">
+          </div>
+          <div class="justify-center bg-white max-w-18 mt-4 p-4 rounded-md shadow-md">
+            <!-- Conteúdo do card -->
+            <h3>Bife à Parmegiana com Molho</h3>
+            <p>$19.99</p>
+            <img src="images/ufc.png" alt="">
+          </div>
+          <div class="justify-center bg-white max-w-18 mt-4 p-4 rounded-md shadow-md">
+            <!-- Conteúdo do card -->
+            <h3>Bife à Parmegiana com Molho</h3>
+            <p>$19.99</p>
+            <img src="images/ufc.png" alt="">
+          </div>
+        </div>
+     </div>
+    <!-- <div class="wrapper">
         <div id="search-container">
           <input type="search" id="search-input" placeholder="O que voçê procura?"/>
           <button id="search">Buscar</button>
@@ -31,7 +76,7 @@
           <button class="button-value" onclick="filterProduct('ifood')">Ifood</button>
         </div>
         <div id="products"></div>
-    </div>
+    </div> -->
   <%- include('../../components/footer'); %>
 </body>
 </html>
