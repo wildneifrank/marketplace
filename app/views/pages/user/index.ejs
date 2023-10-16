@@ -1,12 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>User</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body>
-    user
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <title>User</title>
+  <link rel="stylesheet" href="/styles/usuario.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <script src="/js/user.js"></script>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <ul>
+        <li><a href="#">
+          <i class="fas fa-tachometer-alt"></i>
+          <span class="nav-item">Dashboard</span>
+        </a></li>
+        <li><a href="#">
+          <i class="fas fa-message"></i>
+          <span class="nav-item">Feedbacks</span>
+        </a></li>
+        <li><a href="#">
+          <i class="fas fa-database"></i>
+          <span class="nav-item">Produtos</span>
+        </a></li>
+        <li><a href="#">
+          <i class="fas fa-cog"></i>
+          <span class="nav-item">Configurações</span>
+        </a></li>
+        <li><a href="#" class="logout">
+          <i class="fas fa-sign-out-alt"></i>
+          <span class="nav-item">Logout</span>
+        </a></li>
+      </ul>
+    </nav>
+    
+    <div class="main--content">
+      <div class="header--wrapper">
+        <div class="header--title">
+          <span>Primary</span>
+          <h2>Dashboard</h2>
+        </div>
+        <div class="user--info">
+          <div class="search--box">
+            <h5>Olá, GTi Lanches.</h5>
+          </div>
+          <img src="/images/ufc.png" alt="">
+        </div>
+      </div>
+      <div class="card--container">
+        <h3 class="main--title">Today data</h3>
+        <div class="card--warpper">
+          <div class="payment--card">
+            <div class="card--header">
+              <div class="amount">
+                <span class="title">
+                  Pizza
+                </span>
+                <span class="amount-value">$25.00</span>
+              </div>
+            </div>
+            <!-- <span class="card-detail">**** **** **** 3456</span> -->
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+</body>
 </html>
