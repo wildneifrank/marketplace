@@ -118,7 +118,7 @@
     </div>
 
     <div class="flex-1 hidden flex-col gap-5 pl-20 pr-8 py-5 scene" id="users">
-      <div class="rounded-md bg-white shadow-lg py-3 h-auto sm:py-0 sm:h-1/6 flex items-center px-6 border-slate-100 border flex-wrap">
+      <div class="rounded-md bg-white shadow-lg py-5 h-auto sm:py-3 sm:h-1/6 flex items-center px-6 border-slate-100 border flex-wrap">
         <div class="w-full h-auto flex flex-col sm:w-2/3 lg:w-3/4">
           <div class="text-md text-slate-400 font-medium">Secundário</div>
           <div class="text-xl text-purple-800 font-semibold">Usuários</div>
@@ -129,7 +129,13 @@
         </div>
       </div>
       <div class="rounded-md bg-white font-medium text-purple-800 shadow-lg h-auto px-6 py-5 flex flex-col gap-2 border-slate-100 border">
-        <div class="w-full text-lg h-auto">Lista de Usuários</div>
+        <div class="w-full text-lg h-auto flex items-center justify-between">
+          <div>Lista de Usuários</div>
+          <div class="px-4 py-2 border-purple-800 border rounded-xl items-center justify-center flex gap-3 group hover:bg-purple-800 duration-500 ease-in-out cursor-pointer">
+            <i class="fa-solid fa-plus text-purple-800 group-hover:text-white duration-500 ease-in-out"></i>
+            <div class="group-hover:text-white duration-500 ease-in-out">Usuário</div>
+          </div>
+        </div>
         <div class="w-full h-auto border border-purple-800 rounded-md shadow-md">
           <div class="w-full h-auto text-md flex gap-5 bg-purple-800 text-white py-2 px-3">
             <div class="w-1/6">Id</div>
@@ -139,7 +145,7 @@
             <div class="w-1/12 invisible">.</div>
             <div class="w-1/12 invisible">.</div>
           </div>
-          <% for( let k = 1; k <= 10; k++ ) { %>
+          <% for( let k = 1; k <= 9; k++ ) { %>
           <%- include("../../components/userRow", {id: k, email:`gti${k}@gmail.com`, user: `gtijt${k}`, amount:k*5}) %>
           <% } %>
 
