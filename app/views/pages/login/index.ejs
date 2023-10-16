@@ -3,48 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <link rel="stylesheet" href="/styles/style.css"> -->
     <script defer src="/js/ocultar.js"></script>
     <title>Login</title>
 </head>
-<body>
-    <div class="main-login">
-        <div class="left-login">
-            <h1>Faça login<br>E sirva-se</h1>
-            <img src="images/pizza.svg" class="left-login-image" alt="pizza">
+<body class="m-0 font-sans box-border">
+    <div class="w-screen h-screen bg-purple-600 flex justify-center items-center">
+        <div class="w-1/2 h-screen flex justify-center items-center flex-col">
+            <h1 class="text-5xl text-green-300">Faça login<br>E sirva-se</h1>
+            <img class="w-2/3" src="images/pizza.svg" alt="pizza">
         </div>
-        <div class="right-login">
-            <div class="card-login face">
-                <div class="front" id="minhaDiv">
-                    <h1>LOGIN</h1>
-                    <form method="post" class="textfield">
-                        <div class="textfield">
-                            <label for="usuario">Usuário</label>
-                            <input type="text" name="usuario" placeholder="Usuário">
+        <div class="w-1/2 h-screen flex justify-center items-center">
+            <div class="w-3/5 flex justify-center items-center flex-col p-8 bg-purple-900 rounded-lg shadow-lg">
+                <div class="flex justify-center items-center flex-col" id="minhaDiv">
+                    <h1 class="text-4xl text-green-400 font-bold m-0">LOGIN</h1>
+                    <form method="post" class="w-full flex flex-col items-start justify-center my-4">
+                        <div class="w-full flex flex-col items-start justify-center my-4">
+                            <label class="text-white mb-2" for="usuario">Usuário</label>
+                            <input class="w-full rounded-lg p-3 bg-gray-700 text-white text-base shadow-md focus:outline-none box-border placeholder-white::placeholder" type="text" name="usuario" placeholder="Usuário">
                         </div>
-                        <div class="textfield">
-                            <label for="senha">Senha</label>
-                            <input type="password" name="senha" placeholder="Senha">
+                        <div class="w-full flex flex-col items-start justify-center my-4">
+                            <label class="text-white mb-2" for="senha">Senha</label>
+                            <input class="w-full rounded-lg p-3 bg-gray-700 text-white text-base shadow-md focus:outline-none box-border placeholder-white::placeholder" type="password" name="senha" placeholder="Senha">
                         </div>
                     </form>
-                    <button class="btn-login">Logar</button>
-                    <p>Ainda não tem uma conta?<a href="#"id="ocultarLink">Crie uma aqui</a></p>
+                    <button class="w-full py-4 my-4 rounded-md focus:outline-none text-uppercase font-semibold tracking-wider text-purple-900 bg-green-400 cursor-pointer shadow-lg">Logar</button>
+                    <p class="text-blue-200">Ainda não tem uma conta?<a href="#"id="ocultarLink" class="text-blue-500 no-underline ml-4">Crie uma aqui</a></p>
                 </div>
 
-                <div class="back" id="minhaDiv2">
-                    <h1>CADASTRO</h1>
-                    <form method="post" class="textfield">
-                        <div class="textfield">
-                            <label for="usuario">Usuário</label>
-                            <input type="text" name="usuario" placeholder="Usuário">
+                <div class="justify-center items-center flex-col hidden" id="minhaDiv2">
+                    <h1 class="text-4xl text-green-400 font-bold m-0">CADASTRE-SE</h1>
+                    <form method="post" class="w-full flex flex-col items-start justify-center my-4">
+                        <div class="w-full flex flex-col items-start justify-center my-4">
+                            <label class="text-white mb-2" for="usuario">Email</label>
+                            <input class="w-full rounded-lg p-3 bg-gray-700 text-white text-base shadow-md focus:outline-none box-border placeholder-white::placeholder" type="text" name="email" placeholder="email">
                         </div>
-                        <div class="textfield">
-                            <label for="senha">Senha</label>
-                            <input type="password" name="senha" placeholder="Senha">
+                        <div class="w-full flex flex-col items-start justify-center my-4">
+                            <label class="text-white mb-2" for="senha">Senha</label>
+                            <input class="w-full rounded-lg p-3 bg-gray-700 text-white text-base shadow-md focus:outline-none box-border placeholder-white::placeholder" type="password" name="senha" placeholder="Senha">
+                        </div>
+                        <div class="w-full flex flex-col items-start justify-center my-4">
+                            <label class="text-white mb-2" for="senha">Confirmar senha</label>
+                            <input class="w-full rounded-lg p-3 bg-gray-700 text-white text-base shadow-md focus:outline-none box-border placeholder-white::placeholder" type="password" name="senha" placeholder="Confirmar senha">
                         </div>
                     </form>
-                    <button class="btn-login">Cadastro</button>
-                    
+                    <button class="w-full py-4 my-4 rounded-md focus:outline-none text-uppercase font-semibold tracking-wider text-purple-900 bg-green-400 cursor-pointer shadow-lg">Cadastro</button>
+                    <p class="text-blue-200">Já possui uma conta?<a href="#"id="ocultarLink2" class="text-blue-500 no-underline ml-4">Click aqui</a></p>
                 </div>
             </div>
         </div>
