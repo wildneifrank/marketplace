@@ -14,31 +14,31 @@
   <main class="w-full h-screen flex">
     <aside class="duration-500 ease-in-out hover:w-3/6 w-1/6 h-full fixed bg-purple-800 text-white shadow-xl flex flex-col text-lg font-medium justify-between pt-32 pb-10 sm:w-1/12 sm:hover:w-4/12 lg:w-[5%] lg:hover:w-2/12 group">
       <div class="w-full h-3/6 flex flex-col gap-1 items-center justify-center">
-        <div class="flex gap-3 w-3/4 items-center bg-purple-500 px-4 py-3 rounded-lg shadow-md cursor-pointer">
+        <div class="flex gap-3 w-3/4 px-4 py-3 items-center bg-purple-500 hover:bg-purple-500 duration-500 ease-in-out rounded-lg hover:shadow-md cursor-pointer sidebar" id="dashboard" onclick="setState('dashboard')">
           <i class="fa-solid fa-gauge text-white"></i>
           <span class="group-hover:text-lg duration-500 ease-in-out text-[0px]">Dashboard</span>
         </div>
-        <div class="flex gap-3 w-3/4 px-4 py-3 items-center hover:bg-purple-500 duration-500 ease-in-out rounded-lg hover:shadow-md cursor-pointer">
+        <div class="flex gap-3 w-3/4 px-4 py-3 items-center hover:bg-purple-500 duration-500 ease-in-out rounded-lg hover:shadow-md cursor-pointer sidebar" id="users" onclick="setState('users')">
           <i class="fa-solid fa-user text-white"></i>
           <span class="group-hover:text-lg duration-500 ease-in-out text-[0px]">Usuários</span>
         </div>
-        <div class="flex gap-3 w-3/4 px-4 py-3 items-center hover:bg-purple-500 duration-500 ease-in-out rounded-lg hover:shadow-md cursor-pointer">
+        <div class="flex gap-3 w-3/4 px-4 py-3 items-center hover:bg-purple-500 duration-500 ease-in-out rounded-lg hover:shadow-md cursor-pointer sidebar" id="solicitations" onclick="setState('solicitations')">
           <i class="fa-solid fa-file-invoice text-white"></i>
           <span class="group-hover:text-lg duration-500 ease-in-out text-[0px]">Solicitações</span>
         </div>
-        <div class="flex gap-3 w-3/4 px-4 py-3 items-center hover:bg-purple-500 duration-500 ease-in-out rounded-lg hover:shadow-md cursor-pointer">
+        <div class="flex gap-3 w-3/4 px-4 py-3 items-center hover:bg-purple-500 duration-500 ease-in-out rounded-lg hover:shadow-md cursor-pointer sidebar" id="rejects" onclick="setState('rejects')">
           <i class="fa-solid fa-trash text-white"></i>
           <span class="group-hover:text-lg duration-500 ease-in-out text-[0px]">Rejeitados</span>
         </div>
-        <div class="flex gap-3 w-3/4 px-4 py-3 items-center hover:bg-purple-500 duration-500 ease-in-out rounded-lg hover:shadow-md cursor-pointer">
+        <div class="flex gap-3 w-3/4 px-4 py-3 items-center hover:bg-purple-500 duration-500 ease-in-out rounded-lg hover:shadow-md cursor-pointer sidebar" id="feedbacks" onclick="setState('feedbacks')">
           <i class="fa-solid fa-message text-white"></i>
           <span class="group-hover:text-lg duration-500 ease-in-out text-[0px]">Feedbacks</span>
         </div>
-        <div class="flex gap-3 w-3/4 px-4 py-3 items-center hover:bg-purple-500 duration-500 ease-in-out rounded-lg hover:shadow-md cursor-pointer">
+        <div class="flex gap-3 w-3/4 px-4 py-3 items-center hover:bg-purple-500 duration-500 ease-in-out rounded-lg hover:shadow-md cursor-pointer sidebar" id="products" onclick="setState('products')">
           <i class="fa-solid fa-database text-white"></i>
           <span class="group-hover:text-lg duration-500 ease-in-out text-[0px]">Produtos</span>
         </div>
-        <div class="flex gap-3 w-3/4 px-4 py-3 items-center hover:bg-purple-500 duration-500 ease-in-out rounded-lg hover:shadow-md cursor-pointer">
+        <div class="flex gap-3 w-3/4 px-4 py-3 items-center hover:bg-purple-500 duration-500 ease-in-out rounded-lg hover:shadow-md cursor-pointer sidebar" id="settings" onclick="setState('settings')">
           <i class="fa-solid fa-gear text-white"></i>
           <span class="group-hover:text-lg duration-500 ease-in-out text-[0px]">Configurações</span>
         </div>
@@ -50,7 +50,7 @@
         </div>
       </div>
     </aside>
-    <div class="flex-1 flex flex-col gap-5 pl-20 pr-8 py-5">
+    <div class="flex-1 flex flex-col gap-5 pl-20 pr-8 py-5 scene" id="dashboard">
       <div class="rounded-md bg-white shadow-lg py-3 h-auto sm:py-0 sm:h-1/6 flex items-center px-6 border-slate-100 border flex-wrap">
         <div class="w-full h-auto flex flex-col sm:w-2/3 lg:w-3/4">
           <div class="text-md text-slate-400 font-medium">Principal</div>
@@ -102,45 +102,53 @@
           </div>
         </div>
       </div>
-      <div class="rounded-md bg-white font-medium text-purple-800 shadow-lg h-3/6 px-6 py-3 flex flex-col gap-2 border-slate-100 border">
-        <div class="w-full text-lg h-auto">Ultimas Atividades</div>
+      <div class="rounded-md bg-white font-medium text-purple-800 shadow-lg h-auto px-6 py-4 flex flex-col gap-2 border-slate-100 border">
+        <div class="w-full text-lg h-auto">Atividades Recentes</div>
         <div class="w-full h-auto border border-purple-800 rounded-md shadow-md">
           <div class="w-full h-auto text-md flex gap-5 bg-purple-800 text-white py-2 px-3">
-            <div class="flex-1">Data</div>
-            <div class="flex-1">Categoria</div>
-            <div class="flex-1">Ação</div>
+            <div class="w-2/6">Data</div>
+            <div class="w-2/6">Categoria</div>
+            <div class="w-2/6">Ação</div>
           </div>
-          <div class="w-full h-auto text-md flex gap-5 py-2 px-3 border-t border-purple-800">
-            <div class="flex-1">15/10/2023</div>
-            <div class="flex-1">Usuários</div>
-            <div class="flex-1">Adicionado</div>
-          </div>
-          <div class="w-full h-auto text-md flex gap-5 py-2 px-3 border-t border-purple-800">
-            <div class="flex-1">15/10/2023</div>
-            <div class="flex-1">Produtos</div>
-            <div class="flex-1">Editado</div>
-          </div>
-          <div class="w-full h-auto text-md flex gap-5 py-2 px-3 border-t border-purple-800">
-            <div class="flex-1">15/10/2023</div>
-            <div class="flex-1">Feedbacks</div>
-            <div class="flex-1">Excluido</div>
-          </div>
-          <div class="w-full h-auto text-md flex gap-5 py-2 px-3 border-t border-purple-800">
-            <div class="flex-1">15/10/2023</div>
-            <div class="flex-1">Usuários</div>
-            <div class="flex-1">Editado</div>
-          </div>
-          <div class="w-full h-auto text-md flex gap-5 py-2 px-3 border-t border-purple-800">
-            <div class="flex-1">15/10/2023</div>
-            <div class="flex-1">Solicitações</div>
-            <div class="flex-1">Adicionado</div>
-          </div>
+          <% for( let k = 1; k <= 5; k++ ) { %>
+          <%- include("../../components/activityRow", {date: `${k}/${k}/2023`, category:`${k%2 ? "Usuários": "Produtos"}`, action: `${k%2 ? "Deletar": "Atualizar"}`}) %>
+          <% } %>
+        </div>
+      </div>
+    </div>
 
+    <div class="flex-1 hidden flex-col gap-5 pl-20 pr-8 py-5 scene" id="users">
+      <div class="rounded-md bg-white shadow-lg py-3 h-auto sm:py-0 sm:h-1/6 flex items-center px-6 border-slate-100 border flex-wrap">
+        <div class="w-full h-auto flex flex-col sm:w-2/3 lg:w-3/4">
+          <div class="text-md text-slate-400 font-medium">Secundário</div>
+          <div class="text-xl text-purple-800 font-semibold">Usuários</div>
+        </div>
+        <div class="flex-1 flex gap-3 items-center">
+          <div class="text-lg text-purple-800 font-medium">Olá, GTi Engenharia Jr.</div>
+          <img src="images/ufc.png" class="w-11 h-11 rounded-full border border-purple-800 shadow-lg" alt="Imagem do Admin">
+        </div>
+      </div>
+      <div class="rounded-md bg-white font-medium text-purple-800 shadow-lg h-auto px-6 py-5 flex flex-col gap-2 border-slate-100 border">
+        <div class="w-full text-lg h-auto">Lista de Usuários</div>
+        <div class="w-full h-auto border border-purple-800 rounded-md shadow-md">
+          <div class="w-full h-auto text-md flex gap-5 bg-purple-800 text-white py-2 px-3">
+            <div class="w-1/6">Id</div>
+            <div class="w-3/6">Email</div>
+            <div class="w-2/6">Usuário</div>
+            <div class="sm:w-2/6 hidden">N° Produtos</div>
+            <div class="w-1/12 invisible">.</div>
+            <div class="w-1/12 invisible">.</div>
+          </div>
+          <% for( let k = 1; k <= 10; k++ ) { %>
+          <%- include("../../components/userRow", {id: k, email:`gti${k}@gmail.com`, user: `gtijt${k}`, amount:k*5}) %>
+          <% } %>
 
         </div>
       </div>
     </div>
+
   </main>
+  <script src="js/admin.js"></script>
 </body>
 
 </html>
