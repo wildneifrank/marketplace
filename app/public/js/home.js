@@ -13,33 +13,45 @@ const moveCarousel = (currentPosition, direction, carouselContainer) => {
   if (currentPosition > maxPosition) currentPosition = maxPosition;
 
   carouselContainer.style.transform = `translateX(-${currentPosition}px)`;
-  return currentPosition
+  return currentPosition;
 };
 
-const arrowsRestaurant = document.querySelectorAll(".restaurants")
+const arrowsRestaurant = document.querySelectorAll(".restaurants");
 const carouselRestaurant = document.querySelector("#restaurantsCarousel");
-arrowsRestaurant.forEach(arrow => {
+arrowsRestaurant.forEach((arrow) => {
   let currentPosition = 0;
-  arrow.addEventListener("click", () =>{
-    if(arrow.id  == "leftRestaurant"){
-      currentPosition = moveCarousel(currentPosition, -1, carouselRestaurant)
+  arrow.addEventListener("click", () => {
+    if (arrow.id == "leftRestaurant") {
+      currentPosition = moveCarousel(currentPosition, -1, carouselRestaurant);
+    } else {
+      currentPosition = moveCarousel(currentPosition, 1, carouselRestaurant);
     }
-    else{
-      currentPosition = moveCarousel(currentPosition, 1, carouselRestaurant)
-    }
-  })
-})
+  });
+});
 
-const arrowsProduct = document.querySelectorAll(".products")
+const arrowsProduct = document.querySelectorAll(".products");
 const carouselProduct = document.querySelector("#productsCarousel");
-arrowsProduct.forEach(arrow => {
+arrowsProduct.forEach((arrow) => {
   let currentPosition = 0;
-  arrow.addEventListener("click", () =>{
-    if(arrow.id  == "leftProduct"){
-      currentPosition = moveCarousel(currentPosition, -1, carouselProduct)
+  arrow.addEventListener("click", () => {
+    if (arrow.id == "leftProduct") {
+      currentPosition = moveCarousel(currentPosition, -1, carouselProduct);
+    } else {
+      currentPosition = moveCarousel(currentPosition, 1, carouselProduct);
     }
-    else{
-      currentPosition = moveCarousel(currentPosition, 1, carouselProduct)
-    }
-  })
-})
+  });
+});
+
+const toggle = document.querySelectorAll(".toggle");
+
+toggle.forEach((mode) => {
+  const state = document.querySelector("#mode");
+  console.log(state);
+  mode.addEventListener("click", () => {
+    toggle.forEach((item) => {
+      item.classList.toggle("hidden");
+    });
+    state.classList.toggle("dark");
+    console.log(state.classList);
+  });
+});
