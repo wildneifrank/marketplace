@@ -1,3 +1,4 @@
+// Carrossel de restaurantes e produtos
 const cardWidth = document.querySelector(".teste").offsetWidth;
 
 const moveCarousel = (currentPosition, direction, carouselContainer) => {
@@ -42,18 +43,31 @@ arrowsProduct.forEach((arrow) => {
   });
 });
 
+// Light e dark mode
 const toggle = document.querySelectorAll(".toggle");
+const state = document.querySelector("#mode");
+
+if (localStorage.mode == "dark") {
+  toggle.forEach((item) => {
+    item.classList.toggle("hidden");
+  });
+  state.classList.add("dark");
+}
 
 toggle.forEach((mode) => {
-  const state = document.querySelector("#mode");
   mode.addEventListener("click", () => {
     toggle.forEach((item) => {
       item.classList.toggle("hidden");
     });
     state.classList.toggle("dark");
+
+    if (state.classList.contains("dark")) {
+      localStorage.mode = "dark";
+    } else localStorage.mode = "light";
   });
 });
 
+// Aumentar e Diminuir Fonte
 document.querySelector("#increase-font").addEventListener("click", function () {
   changeFontSize(2);
 });
