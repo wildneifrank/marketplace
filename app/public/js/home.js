@@ -76,8 +76,16 @@ document.querySelector("#decrease-font").addEventListener("click", function () {
   changeFontSize(-2);
 });
 
+const root = document.documentElement;
+if (
+  localStorage.fontSize !=
+  window.getComputedStyle(root).getPropertyValue("font-size")
+) {
+  root.style.fontSize = `${localStorage.fontSize}px`;
+  console.log(root.style.fontSize);
+}
+
 function changeFontSize(change) {
-  const root = document.documentElement;
   const currentFontSize = parseInt(
     window.getComputedStyle(root).getPropertyValue("font-size")
   );
@@ -85,6 +93,7 @@ function changeFontSize(change) {
   const newFontSize = currentFontSize + change;
 
   if (newFontSize <= 22 && newFontSize >= 10) {
+    localStorage.fontSize = newFontSize;
     root.style.fontSize = `${newFontSize}px`;
   }
 }
