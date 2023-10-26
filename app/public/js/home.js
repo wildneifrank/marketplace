@@ -46,12 +46,31 @@ const toggle = document.querySelectorAll(".toggle");
 
 toggle.forEach((mode) => {
   const state = document.querySelector("#mode");
-  console.log(state);
   mode.addEventListener("click", () => {
     toggle.forEach((item) => {
       item.classList.toggle("hidden");
     });
     state.classList.toggle("dark");
-    console.log(state.classList);
   });
 });
+
+document.querySelector("#increase-font").addEventListener("click", function () {
+  changeFontSize(2);
+});
+
+document.querySelector("#decrease-font").addEventListener("click", function () {
+  changeFontSize(-2);
+});
+
+function changeFontSize(change) {
+  const root = document.documentElement;
+  const currentFontSize = parseInt(
+    window.getComputedStyle(root).getPropertyValue("font-size")
+  );
+
+  const newFontSize = currentFontSize + change;
+
+  if (newFontSize <= 22 && newFontSize >= 10) {
+    root.style.fontSize = `${newFontSize}px`;
+  }
+}
