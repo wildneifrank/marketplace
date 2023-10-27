@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="mode">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Admin</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+    }
+  </script>
   <link rel="icon" href="images/ufc.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -42,59 +47,70 @@
           <i class="fa-solid fa-gear text-white"></i>
           <span class="group-hover:text-lg duration-500 ease-in-out text-[0px]">Configurações</span>
         </div>
+        <div class="flex gap-3 w-3/4 px-2 py-3 items-center">
+          <div class="flex justify-center items-center">
+            <i class="fa-solid fa-sun w-8 p-2 text-center rounded-full bg-white text-purple-800 cursor-pointer hover:text-white hover:bg-purple-700 duration-500 ease-in-out toggle"></i>
+            <i class="fa-solid fa-moon w-8 p-2 text-center rounded-full bg-purple-800 text-white cursor-pointer hover:text-purple-800 hover:bg-white duration-500 ease-in-out toggle hidden"></i>
+          </div>
+          <div class="flex justify-center items-center gap-1 scale-0 duration-500 ease-in-out group-hover:scale-100">
+            <i class="fa-solid fa-a text-white"></i>
+            <i class="fa-solid fa-plus text-purple-800 p-1 rounded-full cursor-pointer duration-500 ease-in-out bg-white hover:text-white hover:bg-purple-700 dark:text-white dark:bg-purple-800 dark:hover:bg-white dark:hover:text-purple-800" id="increase-font"></i>
+            <i class="fa-solid fa-minus text-purple-800 p-1 rounded-full cursor-pointer duration-500 ease-in-out bg-white hover:text-white hover:bg-purple-700 dark:text-white dark:bg-purple-800 dark:hover:bg-white dark:hover:text-purple-800 " id="decrease-font"></i>
+          </div>
+        </div>
       </div>
-      <div class="flex w-full justify-center items-center">
+      <div class="flex flex-col w-full justify-center items-center">
         <div class="w-3/4 px-4 py-3 flex gap-3 items-center hover:bg-purple-500 duration-500 ease-in-out rounded-lg hover:shadow-md cursor-pointer">
           <i class="fa-solid fa-right-from-bracket text-white"></i>
           <span class="group-hover:text-lg duration-500 ease-in-out text-[0px]">Logout</span>
         </div>
       </div>
     </aside>
-    <div class="flex-1 flex flex-col gap-5 pl-20 pr-8 py-5 scene" id="dashboard">
-      <div class="rounded-md bg-white shadow-lg py-3 h-auto sm:py-0 sm:h-1/6 flex items-center px-6 border-slate-100 border flex-wrap">
+    <div class="flex-1 flex flex-col gap-5 pl-20 pr-8 py-5 scene dark:bg-slate-900 duration-500 ease-in-out" id="dashboard">
+      <div class="rounded-md bg-white shadow-lg py-3 h-auto sm:py-0 sm:h-1/6 flex items-center px-6 border-slate-100 dark:border-purple-800 border flex-wrap dark:bg-slate-800 duration-500 ease-in-out">
         <div class="w-full h-auto flex flex-col sm:w-2/3 lg:w-3/4">
           <div class="text-md text-slate-400 font-medium">Principal</div>
-          <div class="text-xl text-purple-800 font-semibold">Dashboard</div>
+          <div class="text-xl text-purple-800 dark:text-white duration-500 ease-in-out font-semibold">Dashboard</div>
         </div>
         <div class="flex-1 flex gap-3 items-center">
-          <div class="text-lg text-purple-800 font-medium">Olá, GTi Engenharia Jr.</div>
+          <div class="text-lg text-purple-800 dark:text-white duration-500 ease-in-out  font-medium">Olá, GTi Engenharia Jr.</div>
           <img src="images/ufc.png" class="w-11 h-11 rounded-full border border-purple-800 shadow-lg" alt="Imagem do Admin">
         </div>
       </div>
-      <div class="rounded-md bg-white shadow-lg h-auto lg:h-2/6 p-6 border-slate-100 border">
-        <div class="w-full text-purple-800 text-lg font-medium h-auto">Estatísticas</div>
+      <div class="rounded-md bg-white shadow-lg h-auto lg:h-2/6 p-6 border-slate-100 dark:border-purple-800 border dark:bg-slate-800 duration-500 ease-in-out">
+        <div class="w-full text-purple-800 text-lg font-medium h-auto dark:text-white duration-500 ease-in-out ">Estatísticas</div>
         <div class="w-full flex gap-4 flex-1 flex-wrap">
-          <div class="flex w-full sm:w-2/5 lg:flex-1 gap-1 rounded-lg h-full text-white border border-purple-800 p-5 shadow-md">
+          <div class="flex w-full sm:w-2/5 lg:flex-1 gap-1 rounded-lg h-full text-white border border-purple-800 p-5 shadow-md dark:border-white duration-500 ease-in-out ">
             <div class="w-3/4 h-auto flex flex-col gap-1 font-semibold">
               <div class="text-xs text-slate-500">Quantidade de Usuários</div>
-              <div class="text-2xl text-purple-800">20</div>
+              <div class="text-2xl text-purple-800 dark:text-white duration-500 ease-in-out ">20</div>
             </div>
             <div class="w-14 h-14 p-5 flex justify-center items-center rounded-full bg-purple-800">
               <i class="fa-solid fa-user text-white"></i>
             </div>
           </div>
-          <div class="flex w-full sm:w-2/5 lg:flex-1 gap-1 rounded-lg h-full text-white border border-purple-800 p-5 shadow-md">
+          <div class="flex w-full sm:w-2/5 lg:flex-1 gap-1 rounded-lg h-full text-white border border-purple-800 p-5 shadow-md dark:border-white duration-500 ease-in-out ">
             <div class="w-3/4 h-auto flex flex-col gap-1 font-semibold">
               <div class="text-xs text-slate-500">Número de Solicitações</div>
-              <div class="text-2xl text-purple-800">12</div>
+              <div class="text-2xl text-purple-800 dark:text-white duration-500 ease-in-out">12</div>
             </div>
             <div class="w-14 h-14 p-5 flex justify-center items-center rounded-full bg-purple-800">
               <i class="fa-solid fa-file-invoice text-white"></i>
             </div>
           </div>
-          <div class="flex w-full sm:w-2/5 lg:flex-1 gap-1 rounded-lg h-full text-white border border-purple-800 p-5 shadow-md">
+          <div class="flex w-full sm:w-2/5 lg:flex-1 gap-1 rounded-lg h-full text-white border border-purple-800 p-5 shadow-md dark:border-white duration-500 ease-in-out ">
             <div class="w-3/4 h-auto flex flex-col gap-1 font-semibold">
               <div class="text-xs text-slate-500">Quantidade de Produtos</div>
-              <div class="text-2xl text-purple-800">34</div>
+              <div class="text-2xl text-purple-800 dark:text-white duration-500 ease-in-out ">34</div>
             </div>
             <div class="w-14 h-14 p-5 flex justify-center items-center rounded-full bg-purple-800">
               <i class="fa-solid fa-database text-white"></i>
             </div>
           </div>
-          <div class="flex w-full sm:w-2/5 lg:flex-1 gap-1 rounded-lg h-full text-white border border-purple-800 p-5 shadow-md">
+          <div class="flex w-full sm:w-2/5 lg:flex-1 gap-1 rounded-lg h-full text-white border border-purple-800 p-5 shadow-md dark:border-white duration-500 ease-in-out ">
             <div class="w-3/4 h-auto flex flex-col gap-1 font-semibold">
               <div class="text-xs text-slate-500">Feedbacks</div>
-              <div class="text-2xl text-purple-800">7</div>
+              <div class="text-2xl text-purple-800 dark:text-white duration-500 ease-in-out ">7</div>
             </div>
             <div class="w-14 h-14 p-5 flex justify-center items-center rounded-full bg-purple-800">
               <i class="fa-solid fa-message text-white"></i>
@@ -102,8 +118,8 @@
           </div>
         </div>
       </div>
-      <div class="rounded-md bg-white font-medium text-purple-800 shadow-lg h-auto px-6 py-4 flex flex-col gap-2 border-slate-100 border">
-        <div class="w-full text-lg h-auto">Atividades Recentes</div>
+      <div class="rounded-md bg-white font-medium text-purple-800 shadow-lg h-auto px-6 py-4 flex flex-col gap-2 border-slate-100 dark:border-purple-800 border dark:bg-slate-800 duration-500 ease-in-out dark:text-white ">
+        <div class="w-full text-lg h-auto dark:text-white duration-500 ease-in-out ">Atividades Recentes</div>
         <div class="w-full h-auto border border-purple-800 rounded-md shadow-md">
           <div class="w-full h-auto text-md flex gap-5 bg-purple-800 text-white py-2 px-3">
             <div class="w-2/6">Data</div>
@@ -118,7 +134,7 @@
     </div>
 
     <div class="flex-1 hidden flex-col gap-5 pl-20 pr-8 py-5 scene" id="users">
-      <div class="rounded-md bg-white shadow-lg py-5 h-auto sm:py-3 sm:h-1/6 flex items-center px-6 border-slate-100 border flex-wrap">
+      <div class="rounded-md bg-white shadow-lg py-5 h-auto sm:py-3 sm:h-1/6 flex items-center px-6 border-slate-100 dark:border-purple-800 border flex-wrap dark:bg-slate-800 duration-500 ease-in-out">
         <div class="w-full h-auto flex flex-col sm:w-2/3 lg:w-3/4">
           <div class="text-md text-slate-400 font-medium">Secundário</div>
           <div class="text-xl text-purple-800 font-semibold">Usuários</div>
@@ -128,7 +144,7 @@
           <img src="images/ufc.png" class="w-11 h-11 rounded-full border border-purple-800 shadow-lg" alt="Imagem do Admin">
         </div>
       </div>
-      <div class="rounded-md bg-white font-medium text-purple-800 shadow-lg h-auto px-6 py-5 flex flex-col gap-2 border-slate-100 border">
+      <div class="rounded-md bg-white font-medium text-purple-800 shadow-lg h-auto px-6 py-5 flex flex-col gap-2 border-slate-100 dark:border-purple-800 border">
         <div class="w-full text-lg h-auto flex items-center justify-between">
           <div>Lista de Usuários</div>
           <div class="px-4 py-2 border-purple-800 border rounded-xl items-center justify-center flex gap-3 group hover:bg-purple-800 duration-500 ease-in-out cursor-pointer">
@@ -155,6 +171,7 @@
 
   </main>
   <script src="js/admin.js"></script>
+  <script src="js/accessibility.js"></script>
 </body>
 
 </html>
