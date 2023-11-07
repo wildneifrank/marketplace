@@ -1,6 +1,6 @@
 const routes = require("express").Router();
-const getData = require("../controller/test");
+const RestaurantController = require("../controller/restaurant_controller.js");
 
-routes.get("/", getData);
+routes.get("/restaurants", RestaurantController.getRestaurants);
 
 module.exports = routes;

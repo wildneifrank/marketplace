@@ -1,0 +1,15 @@
+[
+  {
+    "id": 1,
+    "name": "GTi Engenharia Jr.",
+    "email": "gtiengenhariajr@gmail.com",
+    "address": "Av. Humberto Monte, Campus do Pici (UFC) - Bloco 725 - Pici, Fortaleza - CE, 60440-593",
+    "number": "(88) 99665-9102",
+    "aboutUs": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, vitae eaque? Voluptate pariatur, aut expedita eaque non facere autem corporis voluptatem quis odio molestiae deleniti, obcaecati, consectetur dignissimos ad libero. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore eius ut eveniet a ea quasi tenetur, alias ducimus incidunt animi at quia officia laboriosam possimus, quo nihil odit maiores. Amet?Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, vitae eaque? Voluptate pariatur, aut expedita eaque non facere autem corporis voluptatem quis odio molestiae deleniti, obcaecati, consectetur dignissimos ad libero. Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita assumenda error ducimus nisi necessitatibus impedit facilis ipsam illum beatae ipsum non cum minus, cupiditate ex alias vel doloribus cumque maiores?Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, vitae eaque? Voluptate pariatur, aut expedita eaque non facere autem corporis voluptatem quis odio molestiae deleniti, obcaecati, consectetur dignissimos ad libero.",
+    "password": "123456789",
+    "image": "https://picsum.photos/150/150",
+    "products": [],
+    "feedbacks": [],
+    "status": "active"
+  }
+]
