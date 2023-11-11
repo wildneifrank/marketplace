@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Restaurante</title>
+  <title><%= name %></title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -21,55 +21,34 @@
   <main class="px-12 flex flex-col gap-5 mb-10">
     <div class="w-full h-auto mt-24 static flex flex-wrap gap-6">
       <aside class="sm:w-64 w-full flex items-center gap-3 flex-col text-purple-800">
-        <img src="https://picsum.photos/150/150" class="rounded-full w-52 h-auto border-2 border-purple-800 shadow-md" alt="Logo do restaurante" />
+        <img src="<%= image %>" class="rounded-full w-52 h-auto border-2 border-purple-800 shadow-md" alt="Logo do restaurante" />
         <div class="flex flex-col gap-1 w-full">
-          <div class="text-xl font-semibold text-center dark:text-white duration-500 ease-in-out">GTi Engenharia Jr.</div>
+          <div class="text-xl font-semibold text-center dark:text-white duration-500 ease-in-out"><%= name %></div>
           <div class="flex gap-3 items-center justify-between">
             <div class="w-10 h-10 bg-white rounded-full flex justify-center items-center">
               <i class="fa-solid fa-envelope "></i>
             </div>
-            <div class="flex-1 text-md font-medium text-start dark:text-white duration-500 ease-in-out">gtiengenhariajr@gmail.com</div>
+            <div class="flex-1 text-md font-medium text-start dark:text-white duration-500 ease-in-out"><%= email %></div>
           </div>
           <div class="flex gap-3 items-center justify-between">
             <div class="w-10 h-10 bg-white rounded-full flex justify-center items-center">
               <i class="fa-solid fa-location-dot "></i>
             </div>
-            <div class="flex-1 text-md font-medium text-start dark:text-white duration-500 ease-in-out"> Av. Humberto Monte, Campus do Pici (UFC) - Bloco 725
-              -
-              Pici,
-              Fortaleza - CE,
-              60440-593
+            <div class="flex-1 text-md font-medium text-start dark:text-white duration-500 ease-in-out"> <%= address %>
             </div>
           </div>
           <div class="flex gap-3 items-center justify-between">
             <div class="w-10 h-10 bg-white rounded-full flex justify-center items-center">
               <i class="fa-solid fa-phone "></i>
             </div>
-            <div class="flex-1 text-md font-medium text-start dark:text-white duration-500 ease-in-out">(88) 99665-9102</div>
+            <div class="flex-1 text-md font-medium text-start dark:text-white duration-500 ease-in-out"><%= number %></div>
           </div>
         </div>
 
       </aside>
       <div class="flex-1 flex flex-col gap-3">
         <%- include('../../components/title', {title:"Sobre Nós"}); %>
-        <div class="text-lg font-medium text-purple-800 text-justify dark:text-white duration-500 ease-in-out">Lorem ipsum dolor sit amet consectetur
-          adipisicing elit.
-          Odio, vitae eaque? Voluptate pariatur, aut expedita eaque non facere autem corporis voluptatem quis odio
-          molestiae deleniti, obcaecati, consectetur dignissimos ad libero.
-
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore eius ut eveniet a ea quasi tenetur,
-          alias ducimus incidunt animi at quia officia laboriosam possimus, quo nihil odit maiores. Amet?
-          <br /> <br />
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Odio, vitae eaque? Voluptate pariatur, aut expedita eaque non facere autem corporis voluptatem quis odio
-          molestiae deleniti, obcaecati, consectetur dignissimos ad libero.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita assumenda error ducimus nisi
-          necessitatibus impedit facilis ipsam illum beatae ipsum non cum minus, cupiditate ex alias vel doloribus
-          cumque maiores?
-          <br /> <br />
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Odio, vitae eaque? Voluptate pariatur, aut expedita eaque non facere autem corporis voluptatem quis odio
-          molestiae deleniti, obcaecati, consectetur dignissimos ad libero.
+        <div class="text-lg font-medium text-purple-800 text-justify dark:text-white duration-500 ease-in-out"><%= aboutUs %>>
         </div>
       </div>
     </div>
