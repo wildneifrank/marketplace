@@ -11,7 +11,6 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(routes);
 
-
 app.listen(PORT, () => {
   console.log(`Server is running at http://localhost:${PORT}`);
 });

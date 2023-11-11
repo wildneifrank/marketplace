@@ -9,6 +9,6 @@ routes.get("/registro", HomeController.register);
 routes.get("/admin", AuthController.admin);
 routes.get("/user", AuthController.user);
 routes.get("/pesquisa", RestaurantController.search);
-routes.get("/restaurante/:id", RestaurantController.template);
+routes.get("/:id", RestaurantController.template);
 
 module.exports = routes;
