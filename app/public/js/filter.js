@@ -26,49 +26,49 @@
 let products = {
   data: [
     {
-      productName: "Regular White T-Shirt",
+      productName: "Parmegiana de Frango",
       category: "esfira",
       price: "30",
       image: "images/ufc.png",
     },
     {
-      productName: "Beige Short Skirt",
+      productName: "Tapioca",
       category: "chinesa",
       price: "49",
       image: "images/ufc.png",
     },
     {
-      productName: "Sporty SmartWatch",
+      productName: "Salada",
       category: "ifood",
       price: "99",
       image: "images/ufc.png",
     },
     {
-      productName: "Basic Knitted Top",
+      productName: "Feijoada",
       category: "esfira",
       price: "29",
       image: "images/ufc.png",
     },
     {
-      productName: "Black Leather Jacket",
+      productName: "Vatapá",
       category: "italiana",
       price: "129",
       image: "images/ufc.png",
     },
     {
-      productName: "Stylish Pink Trousers",
+      productName: "Doces",
       category: "chinesa",
       price: "89",
       image: "images/ufc.png",
     },
     {
-      productName: "Brown Men's Jacket",
+      productName: "Misto",
       category: "italiana",
       price: "189",
       image: "images/ufc.png",
     },
     {
-      productName: "Comfy Gray Pants",
+      productName: "Coxinha",
       category: "chinesa",
       price: "49",
       image: "images/ufc.png",

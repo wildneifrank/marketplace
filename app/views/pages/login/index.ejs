@@ -6,6 +6,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="/js/hide.js"></script>
     <title>Login</title>
+    <script>
+        tailwind.config = {
+          darkMode: 'class',
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body class="m-0 font-sans box-border">
     <div class="w-screen h-screen bg-purple-600 flex justify-center items-center">
@@ -14,9 +20,11 @@
             <img class="w-2/3" src="images/pizza.svg" alt="pizza">
         </div>
         <div class="w-1/2 h-screen flex justify-center items-center">
+            
             <div class="w-3/5 flex justify-center items-center flex-col p-8 bg-purple-900 rounded-lg shadow-lg">
                 <div class="flex justify-center items-center flex-col" id="minhaDiv">
                     <h1 class="text-4xl text-green-400 font-bold m-0">LOGIN</h1>
+                    
                     <form method="post" class="w-full flex flex-col items-start justify-center my-4">
                         <div class="w-full flex flex-col items-start justify-center my-4">
                             <label class="text-white mb-2" for="usuario">Usuário</label>
