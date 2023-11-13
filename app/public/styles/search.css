@@ -71,7 +71,8 @@ body{
     padding: 2em 0;
 }
 .card{
-    background-color: #ffffff;
+    background-color: #6b46c1;
+    border-color: #6b46c1;
     max-width: 18em;
     margin-top: 1em;
     padding: 1em;
@@ -88,7 +89,11 @@ img{
 }
 .container{
     padding-top: 1em;
-    color: #110f29;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .container h5{
     font-weight: 500;

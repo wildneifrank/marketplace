@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" id="mode">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,10 +13,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+      }
+    </script>
     <link rel="stylesheet" href="/styles/search.css">
     <script defer src="/js/filter.js"></script>
 </head>
-<body>
+<body class="dark:bg-slate-900 duration-500 ease-in-out">
   <%- include('../../components/header'); %>
       
     <div class="wrapper">
@@ -25,14 +30,15 @@
           <button id="search">Buscar</button>
         </div>
         <div id="buttons">
-          <button class="button-value" onclick="filterProduct('all')">All<button>
-          <button class="button-value" onclick="filterProduct('esfira')">Esfira</button>
-          <button class="button-value" onclick="filterProduct('chinesa')">Chinesa</button>
-          <button class="button-value" onclick="filterProduct('italiana')">Italiana</button>
-          <button class="button-value" onclick="filterProduct('ifood')">Ifood</button>
+          <button class="button-value dark:text-white" onclick="filterProduct('all')">All<button>
+          <button class="button-value dark:text-white" onclick="filterProduct('esfira')">Esfira</button>
+          <button class="button-value dark:text-white" onclick="filterProduct('chinesa')">Chinesa</button>
+          <button class="button-value dark:text-white" onclick="filterProduct('italiana')">Italiana</button>
+          <button class="button-value dark:text-white" onclick="filterProduct('ifood')">Ifood</button>
         </div>
         <div id="products"></div>
     </div>
   <%- include('../../components/footer'); %>
+  <script src="js/accessibility.js"></script>
 </body>
 </html>
