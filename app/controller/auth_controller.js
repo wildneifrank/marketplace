@@ -15,7 +15,6 @@ class AuthController {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
         res.render("pages/admin/index", {
           users: data,
         });
@@ -23,6 +22,22 @@ class AuthController {
       .catch((error) => {
         console.error("Erro:", error);
         res.send("Restaurante não encontrado");
+      });
+  }
+  async getProducts(req, res) {
+    fetch(url + "products")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Erro na solicitação");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        res.status(200).send(data);
+      })
+      .catch((error) => {
+        console.error("Erro:", error);
+        res.send("Produtos não encontrados");
       });
   }
 }

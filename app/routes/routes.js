@@ -11,4 +11,7 @@ routes.get("/user", AuthController.user);
 routes.get("/pesquisa", RestaurantController.search);
 routes.get("/:id", RestaurantController.template);
 
+// Admin
+routes.get("/admin/products", AuthController.getProducts);
+
 module.exports = routes;
