@@ -133,37 +133,62 @@
       </div>
     </div>
 
-    <div class="flex-1 hidden flex-col gap-5 pl-20 pr-8 py-5 scene" id="users">
+    <div class="flex-1 hidden flex-col gap-5 pl-20 pr-8 py-5 scene dark:bg-slate-900 duration-500 ease-in-out" id="users">
       <div class="rounded-md bg-white shadow-lg py-5 h-auto sm:py-3 sm:h-1/6 flex items-center px-6 border-slate-100 dark:border-purple-800 border flex-wrap dark:bg-slate-800 duration-500 ease-in-out">
         <div class="w-full h-auto flex flex-col sm:w-2/3 lg:w-3/4">
           <div class="text-md text-slate-400 font-medium">Secundário</div>
-          <div class="text-xl text-purple-800 font-semibold">Usuários</div>
+          <div class="text-xl text-purple-800 font-semibold dark:text-white duration-500 ease-in-out">Usuários</div>
         </div>
         <div class="flex-1 flex gap-3 items-center">
-          <div class="text-lg text-purple-800 font-medium">Olá, GTi Engenharia Jr.</div>
+          <div class="text-lg text-purple-800 font-medium dark:text-white duration-500 ease-in-out">Olá, GTi Engenharia Jr.</div>
           <img src="images/ufc.png" class="w-11 h-11 rounded-full border border-purple-800 shadow-lg" alt="Imagem do Admin">
         </div>
       </div>
-      <div class="rounded-md bg-white font-medium text-purple-800 shadow-lg h-auto px-6 py-5 flex flex-col gap-2 border-slate-100 dark:border-purple-800 border">
+      <div class="rounded-md bg-white font-medium text-purple-800 shadow-lg h-auto px-6 py-5 flex flex-col gap-2 border-slate-100 dark:border-purple-800 border dark:bg-slate-800 duration-500 ease-in-out dark:text-white">
         <div class="w-full text-lg h-auto flex items-center justify-between">
           <div>Lista de Usuários</div>
-          <div class="px-4 py-2 border-purple-800 border rounded-xl items-center justify-center flex gap-3 group hover:bg-purple-800 duration-500 ease-in-out cursor-pointer">
-            <i class="fa-solid fa-plus text-purple-800 group-hover:text-white duration-500 ease-in-out"></i>
-            <div class="group-hover:text-white duration-500 ease-in-out">Usuário</div>
-          </div>
         </div>
         <div class="w-full h-auto border border-purple-800 rounded-md shadow-md">
           <div class="w-full h-auto text-md flex gap-5 bg-purple-800 text-white py-2 px-3">
             <div class="w-1/6">Id</div>
             <div class="w-3/6">Email</div>
             <div class="w-2/6">Usuário</div>
-            <div class="sm:w-2/6 hidden">N° Produtos</div>
             <div class="w-1/12 invisible">.</div>
             <div class="w-1/12 invisible">.</div>
           </div>
-          <% for( let k = 1; k <= 9; k++ ) { %>
-          <%- include("../../components/userRow", {id: k, email:`gti${k}@gmail.com`, user: `gtijt${k}`, amount:k*5}) %>
-          <% } %>
+          <% users.forEach(item => { %>
+          <%- include("../../components/userRow", {id: item.id, email:item.email, user: item.name}) %>
+          <% }) %>
+
+        </div>
+      </div>
+    </div>
+    <div class="flex-1 hidden flex-col gap-5 pl-20 pr-8 py-5 scene dark:bg-slate-900 duration-500 ease-in-out" id="products">
+      <div class="rounded-md bg-white shadow-lg py-5 h-auto sm:py-3 sm:h-1/6 flex items-center px-6 border-slate-100 dark:border-purple-800 border flex-wrap dark:bg-slate-800 duration-500 ease-in-out">
+        <div class="w-full h-auto flex flex-col sm:w-2/3 lg:w-3/4">
+          <div class="text-md text-slate-400 font-medium">Secundário</div>
+          <div class="text-xl text-purple-800 font-semibold dark:text-white duration-500 ease-in-out">Produtos</div>
+        </div>
+        <div class="flex-1 flex gap-3 items-center">
+          <div class="text-lg text-purple-800 font-medium dark:text-white duration-500 ease-in-out">Olá, GTi Engenharia Jr.</div>
+          <img src="images/ufc.png" class="w-11 h-11 rounded-full border border-purple-800 shadow-lg" alt="Imagem do Admin">
+        </div>
+      </div>
+      <div class="rounded-md bg-white font-medium text-purple-800 shadow-lg h-auto px-6 py-5 flex flex-col gap-2 border-slate-100 dark:border-purple-800 border dark:bg-slate-800 duration-500 ease-in-out dark:text-white">
+        <div class="w-full text-lg h-auto flex items-center justify-between">
+          <div>Lista de produtos</div>
+        </div>
+        <div class="w-full h-auto border border-purple-800 rounded-md shadow-md">
+          <div class="w-full h-auto text-md flex gap-5 bg-purple-800 text-white py-2 px-3">
+            <div class="w-1/6">Id</div>
+            <div class="w-3/6">Email</div>
+            <div class="w-2/6">Usuário</div>
+            <div class="w-1/12 invisible">.</div>
+            <div class="w-1/12 invisible">.</div>
+          </div>
+          <% users.forEach(item => { %>
+          <%- include("../../components/userRow", {id: item.id, email:item.email, user: item.name}) %>
+          <% }) %>
 
         </div>
       </div>
