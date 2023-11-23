@@ -13,6 +13,7 @@ routes.get("/restaurante/:id", RestaurantController.template);
 
 // Admin
 routes.get("/admin/products", AuthController.getProducts);
+routes.get("/admin/restaurants", AuthController.getRestaurants);
 routes.get("/admin/feedbacks", AuthController.getFeedbacks);
 
 module.exports = routes;

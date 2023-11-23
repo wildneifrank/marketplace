@@ -7,6 +7,9 @@ class AuthController {
     res.render("pages/user/index");
   }
   async admin(req, res) {
+    res.render("pages/admin/index");
+  }
+  async getRestaurants(req, res) {
     fetch(url + "restaurants")
       .then((response) => {
         if (!response.ok) {
@@ -15,9 +18,7 @@ class AuthController {
         return response.json();
       })
       .then((data) => {
-        res.render("pages/admin/index", {
-          users: data,
-        });
+        res.status(200).send(data);
       })
       .catch((error) => {
         console.error("Erro:", error);
