@@ -15,6 +15,6 @@
     "description": "Sabor Chocolate",
     "image_link": "",
     "restaurant_id": 1,
-    "status": "active"
+    "status": "inactive"
   }
 ]
