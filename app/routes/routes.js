@@ -9,9 +9,10 @@ routes.get("/registro", HomeController.register);
 routes.get("/admin", AuthController.admin);
 routes.get("/user", AuthController.user);
 routes.get("/pesquisa", RestaurantController.search);
-routes.get("/:id", RestaurantController.template);
+routes.get("/restaurante/:id", RestaurantController.template);
 
 // Admin
 routes.get("/admin/products", AuthController.getProducts);
+routes.get("/admin/feedbacks", AuthController.getFeedbacks);
 
 module.exports = routes;

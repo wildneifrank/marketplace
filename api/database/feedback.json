@@ -7,5 +7,14 @@
     "message": "Ola, tenho duvida sobre os preços",
     "restaurant_id": 1,
     "status": "active"
+  },
+  {
+    "id": 2,
+    "name": "Wildnei F. S. Silvaa",
+    "email": "wildneif2@gmail.com",
+    "tel": "8592412786",
+    "message": "Otimo restaurante",
+    "restaurant_id": 2,
+    "status": "active"
   }
 ]

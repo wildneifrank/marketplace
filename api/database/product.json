@@ -7,5 +7,14 @@
     "image_link": "",
     "restaurant_id": 1,
     "status": "active"
+  },
+  {
+    "id": 2,
+    "name": "Calzone",
+    "price": 15,
+    "description": "Sabor Chocolate",
+    "image_link": "",
+    "restaurant_id": 1,
+    "status": "active"
   }
 ]
