@@ -5,7 +5,9 @@ const FeedbackController = require("../controller/feedback_controller.js");
 
 routes.get("/restaurants", RestaurantController.getRestaurants);
 
+// Feedbacks
 routes.get("/feedbacks", FeedbackController.getFeedbacks);
+routes.delete("/feedbacks/:id", FeedbackController.deleteProduct);
 
 // Produtos
 routes.get("/products", ProductController.getProducts);

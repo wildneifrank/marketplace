@@ -21,5 +21,6 @@ routes.get("/admin/restaurants", RestaurantController.getRestaurants);
 
 // Admin - Feedbacks
 routes.get("/admin/feedbacks", FeedbackController.getFeedbacks);
+routes.delete("/admin/feedbacks/:id", FeedbackController.deletedFeedback);
 
 module.exports = routes;
