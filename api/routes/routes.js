@@ -8,9 +8,6 @@ const createProduct = require("../services/create_product.js");
 const editProduct = require("../services/edit_product.js");
 const deleteProduct = require("../services/delete_product.js");
 
-routes.get("/restaurants", RestaurantController.getRestaurants);
-routes.get("/products", ProductController.getProducts);
-routes.get("/feedbacks", FeedbackController.getFeedbacks);
 routes.post("/signin", SigninAccess);
 routes.post("/add", checkToken, createProduct);
 routes.post("/edit", checkToken, editProduct);
@@ -23,4 +20,8 @@ routes.delete("/feedbacks/:id", FeedbackController.deleteProduct);
 // Produtos
 routes.get("/products", ProductController.getProducts);
 routes.delete("/products/:id", ProductController.deleteProduct);
+
+// Restaurante
+routes.get("/restaurants", RestaurantController.getRestaurants);
+routes.delete("/restaurants/:id", RestaurantController.deleteRestaurant);
 module.exports = routes;

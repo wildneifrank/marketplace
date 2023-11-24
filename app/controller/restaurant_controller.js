@@ -50,6 +50,28 @@ class RestaurantController {
         res.send("Restaurante não encontrado");
       });
   }
+  async deletedRestaurant(req, res) {
+    const id = req.params.id;
+    fetch(url + `restaurants/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Erro na requisição: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        res.status(200).send(data);
+      })
+      .catch((error) => {
+        console.error("Erro durante a requisição:", error);
+        res.send("Erro ao deletar produto.");
+      });
+  }
 }
 
 module.exports = new RestaurantController();

@@ -24,7 +24,7 @@
     "image": "https://picsum.photos/150/150",
     "products": [],
     "feedbacks": [],
-    "status": "inactive",
+    "status": false,
     "deleted": false
   },
   {

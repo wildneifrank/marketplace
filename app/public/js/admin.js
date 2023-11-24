@@ -54,18 +54,9 @@ fetch(url + "feedbacks")
   .catch((error) => {
     console.error("Erro durante a requisição:", error);
   });
-function showDeletedFeedback(id) {
-  let newDiv = document.createElement("div");
-  newDiv.className =
-    "absolute top-[35%] left-1/3 w-4/12 h-auto bg-white rounded-lg shadow-xl dark:bg-slate-900 duration-500 ease-in-out flex flex-col gap-2 px-5 py-6 text-lg font-semibold";
-  newDiv.innerHTML = `<div class="w-6 py-1 flex justify-center items-center border border-purple-800 dark:border-white duration-500 ease-in-out cursor-pointer dark:hover:bg-slate-800 hover:bg-purple-800 group rounded-md" onclick="closeFeedback()"><i class="fa-solid fa-xmark text-purple-800 dark:text-white group-hover:text-white duration-500 ease-in-out"></i></div>
-    <div class="text-purple-800 dark:text-white duration-500 ease-in-out">
-      Tem certeza em excluir o feedback ${id}?
-    </div>
-    <div class="w-full h-auto px-4 py-2 text-center border border-purple-800 text-purple-800 text-lg font-semibold hover:text-white hover:bg-purple-800 duration-500 ease-in-out cursor-pointer rounded-lg  dark:border-white dark:text-white dark:hover:bg-slate-800 mt-2" onclick="deletedFeedback(${id})" >Excluir</div>  `;
-  feedbacksScene.appendChild(newDiv);
-}
+
 const feedbacksScene = document.querySelector("#feedbacks");
+
 function showFeedback(id) {
   const item = feedbacksData.find((item) => item.id == id);
   let newDiv = document.createElement("form");
@@ -97,6 +88,17 @@ function showFeedback(id) {
   feedbacksScene.appendChild(newDiv);
 }
 
+function showDeletedFeedback(id) {
+  let newDiv = document.createElement("div");
+  newDiv.className =
+    "absolute top-[35%] left-1/3 w-4/12 h-auto bg-white rounded-lg shadow-xl dark:bg-slate-900 duration-500 ease-in-out flex flex-col gap-2 px-5 py-6 text-lg font-semibold";
+  newDiv.innerHTML = `<div class="w-6 py-1 flex justify-center items-center border border-purple-800 dark:border-white duration-500 ease-in-out cursor-pointer dark:hover:bg-slate-800 hover:bg-purple-800 group rounded-md" onclick="closeFeedback()"><i class="fa-solid fa-xmark text-purple-800 dark:text-white group-hover:text-white duration-500 ease-in-out"></i></div>
+    <div class="text-purple-800 dark:text-white duration-500 ease-in-out">
+      Tem certeza em excluir o feedback ${id}?
+    </div>
+    <div class="w-full h-auto px-4 py-2 text-center border border-purple-800 text-purple-800 text-lg font-semibold hover:text-white hover:bg-purple-800 duration-500 ease-in-out cursor-pointer rounded-lg  dark:border-white dark:text-white dark:hover:bg-slate-800 mt-2" onclick="deletedFeedback(${id})" >Excluir</div>  `;
+  feedbacksScene.appendChild(newDiv);
+}
 function deletedFeedback(id) {
   fetch(url + `feedbacks/${id}`, {
     method: "DELETE",
@@ -174,7 +176,7 @@ fetch(url + "restaurants")
       <div class="w-3/6">${item.name}</div>
       <div class="w-2/6">${item.email}</div>
       <div class="w-1/12"><i class="fa-solid fa-pen-to-square cursor-pointer text-purple-800 hover:text-purple-950 duration-500 ease-in-out dark:text-white dark:hover:text-slate-300" onclick="showUser(${item.id})"></i></div>
-      <div class="w-1/12"><i class="fa-solid fa-trash cursor-pointer text-purple-800 hover:text-purple-950 duration-500 ease-in-out dark:text-white dark:hover:text-slate-300"></i></div>
+      <div class="w-1/12"><i class="fa-solid fa-trash cursor-pointer text-purple-800 hover:text-purple-950 duration-500 ease-in-out dark:text-white dark:hover:text-slate-300" onclick="showDeletedUser(${item.id})"></i></div>
     </div>`;
         usersDiv.appendChild(newDiv);
       }
@@ -234,6 +236,70 @@ function showUser(id) {
 
   <div class="w-full h-auto px-4 py-2 text-center border border-purple-800 text-purple-800 text-lg font-semibold hover:text-white hover:bg-purple-800 duration-500 ease-in-out cursor-pointer rounded-lg  dark:border-white dark:text-white dark:hover:bg-slate-800 mt-2" onclick="updatedUser()" >Atualizar</div>   `;
   usersScene.appendChild(newDiv);
+}
+
+function showDeletedUser(id) {
+  let newDiv = document.createElement("div");
+  newDiv.className =
+    "absolute top-[35%] left-1/3 w-4/12 h-auto bg-white rounded-lg shadow-xl dark:bg-slate-900 duration-500 ease-in-out flex flex-col gap-2 px-5 py-6 text-lg font-semibold";
+  newDiv.innerHTML = `<div class="w-6 py-1 flex justify-center items-center border border-purple-800 dark:border-white duration-500 ease-in-out cursor-pointer dark:hover:bg-slate-800 hover:bg-purple-800 group rounded-md" onclick="closeUser()"><i class="fa-solid fa-xmark text-purple-800 dark:text-white group-hover:text-white duration-500 ease-in-out"></i></div>
+    <div class="text-purple-800 dark:text-white duration-500 ease-in-out">
+      Tem certeza em excluir o restaurante ${id}?
+    </div>
+    <div class="w-full h-auto px-4 py-2 text-center border border-purple-800 text-purple-800 text-lg font-semibold hover:text-white hover:bg-purple-800 duration-500 ease-in-out cursor-pointer rounded-lg  dark:border-white dark:text-white dark:hover:bg-slate-800 mt-2" onclick="deletedUser(${id})" >Excluir</div>  `;
+  usersScene.appendChild(newDiv);
+}
+function deletedUser(id) {
+  fetch(url + `restaurants/${id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Erro na requisição: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data.message);
+    })
+    .catch((error) => {
+      console.error("Erro durante a requisição:", error);
+    });
+  closeUser();
+  updatedUser();
+}
+
+function updatedUser() {
+  usersDiv.innerHTML = "";
+  fetch(url + "restaurants")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Erro na requisição: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      usersData = data;
+      data.forEach((item) => {
+        if (!item.deleted) {
+          let newDiv = document.createElement("div");
+          newDiv.innerHTML = `<div class="w-full h-auto text-md flex gap-5 py-2 px-3 border-t border-purple-800">
+        <div class="w-1/6">${item.id}</div>
+        <div class="w-3/6">${item.name}</div>
+        <div class="w-2/6">${item.email}</div>
+        <div class="w-1/12"><i class="fa-solid fa-pen-to-square cursor-pointer text-purple-800 hover:text-purple-950 duration-500 ease-in-out dark:text-white dark:hover:text-slate-300" onclick="showUser(${item.id})"></i></div>
+        <div class="w-1/12"><i class="fa-solid fa-trash cursor-pointer text-purple-800 hover:text-purple-950 duration-500 ease-in-out dark:text-white dark:hover:text-slate-300" onclick="showDeletedUser(${item.id})"></i></div>
+      </div>`;
+          usersDiv.appendChild(newDiv);
+        }
+      });
+    })
+    .catch((error) => {
+      console.error("Erro durante a requisição:", error);
+    });
 }
 
 function closeUser() {
