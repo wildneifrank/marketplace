@@ -101,15 +101,17 @@ fetch(url + "restaurants")
   .then((data) => {
     usersData = data;
     data.forEach((item) => {
-      let newDiv = document.createElement("div");
-      newDiv.innerHTML = `<div class="w-full h-auto text-md flex gap-5 py-2 px-3 border-t border-purple-800">
+      if (!item.deleted) {
+        let newDiv = document.createElement("div");
+        newDiv.innerHTML = `<div class="w-full h-auto text-md flex gap-5 py-2 px-3 border-t border-purple-800">
       <div class="w-1/6">${item.id}</div>
       <div class="w-3/6">${item.name}</div>
       <div class="w-2/6">${item.email}</div>
       <div class="w-1/12"><i class="fa-solid fa-pen-to-square cursor-pointer text-purple-800 hover:text-purple-950 duration-500 ease-in-out dark:text-white dark:hover:text-slate-300" onclick="showUser(${item.id})"></i></div>
       <div class="w-1/12"><i class="fa-solid fa-trash cursor-pointer text-purple-800 hover:text-purple-950 duration-500 ease-in-out dark:text-white dark:hover:text-slate-300"></i></div>
     </div>`;
-      usersDiv.appendChild(newDiv);
+        usersDiv.appendChild(newDiv);
+      }
     });
   })
   .catch((error) => {
@@ -157,10 +159,10 @@ function showUser(id) {
   </div>
   <select id="status" class="border-purple-800 focus:border-purple-800 dark:border-white dark:focus:border-white rounded-md text-purple-800 dark:text-white text-lg font-semibold duration-500 ease-in-out bg-white dark:bg-slate-900 outline-none" >
     <option value="active" ${
-      item.status === "active" ? "selected" : ""
+      item.status === true ? "selected" : ""
     }>Ativo</option>
     <option value="inactive" ${
-      item.status === "inactive" ? "selected" : ""
+      item.status === false ? "selected" : ""
     }>Bloqueado</option>
   </select>
 
@@ -175,32 +177,48 @@ function closeUser() {
 // Produtos
 const productsDiv = document.querySelector("#productsDiv");
 let productsData = [];
-fetch(url + "products")
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error(`Erro na requisição: ${response.status}`);
-    }
-    return response.json();
-  })
-  .then((data) => {
-    productsData = data;
-    data.forEach((item) => {
-      let newDiv = document.createElement("div");
-      newDiv.innerHTML = `<div class="w-full h-auto text-md flex gap-5 py-2 px-3 border-t border-purple-800">
+function getProducts() {
+  fetch(url + "products")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Erro na requisição: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      productsData = data;
+      data.forEach((item) => {
+        if (!item.deleted) {
+          let newDiv = document.createElement("div");
+          newDiv.innerHTML = `<div class="w-full h-auto text-md flex gap-5 py-2 px-3 border-t border-purple-800">
       <div class="w-1/6">${item.id}</div>
       <div class="w-3/6">${item.name}</div>
       <div class="w-2/6">$${item.price}</div>
       <div class="w-1/12"><i class="fa-solid fa-pen-to-square cursor-pointer text-purple-800 hover:text-purple-950 duration-500 ease-in-out dark:text-white dark:hover:text-slate-300" onclick="showProduct(${item.id})"></i></div>
-      <div class="w-1/12"><i class="fa-solid fa-trash cursor-pointer text-purple-800 hover:text-purple-950 duration-500 ease-in-out dark:text-white dark:hover:text-slate-300"></i></div>
+      <div class="w-1/12"><i class="fa-solid fa-trash cursor-pointer text-purple-800 hover:text-purple-950 duration-500 ease-in-out dark:text-white dark:hover:text-slate-300" onclick="showDeletedProduct(${item.id})"></i></div>
     </div>`;
-      productsDiv.appendChild(newDiv);
+          productsDiv.appendChild(newDiv);
+        }
+      });
+    })
+    .catch((error) => {
+      console.error("Erro durante a requisição:", error);
     });
-  })
-  .catch((error) => {
-    console.error("Erro durante a requisição:", error);
-  });
+}
+getProducts();
 
 const productsScene = document.querySelector("#products");
+function showDeletedProduct(id) {
+  let newDiv = document.createElement("div");
+  newDiv.className =
+    "absolute top-[35%] left-1/3 w-4/12 h-auto bg-white rounded-lg shadow-xl dark:bg-slate-900 duration-500 ease-in-out flex flex-col gap-2 px-5 py-6 text-lg font-semibold";
+  newDiv.innerHTML = `<div class="w-6 py-1 flex justify-center items-center border border-purple-800 dark:border-white duration-500 ease-in-out cursor-pointer dark:hover:bg-slate-800 hover:bg-purple-800 group rounded-md" onclick="closeProduct()"><i class="fa-solid fa-xmark text-purple-800 dark:text-white group-hover:text-white duration-500 ease-in-out"></i></div>
+  <div class="text-purple-800 dark:text-white duration-500 ease-in-out">
+    Tem certeza em excluir o produto ${id}?
+  </div>
+  <div class="w-full h-auto px-4 py-2 text-center border border-purple-800 text-purple-800 text-lg font-semibold hover:text-white hover:bg-purple-800 duration-500 ease-in-out cursor-pointer rounded-lg  dark:border-white dark:text-white dark:hover:bg-slate-800 mt-2" onclick="deletedProduct(${id})" >Excluir</div>  `;
+  productsScene.appendChild(newDiv);
+}
 function showProduct(id) {
   const item = productsData.find((item) => item.id == id);
   let newDiv = document.createElement("form");
@@ -241,10 +259,10 @@ function showProduct(id) {
   </div>
   <select id="status" class="border-purple-800 focus:border-purple-800 dark:border-white dark:focus:border-white rounded-md text-purple-800 dark:text-white text-lg font-semibold duration-500 ease-in-out bg-white dark:bg-slate-900 outline-none" >
     <option value="active" ${
-      item.status === "active" ? "selected" : ""
+      item.status === true ? "selected" : ""
     }>Ativo</option>
     <option value="inactive" ${
-      item.status === "inactive" ? "selected" : ""
+      item.status === false ? "selected" : ""
     }>Bloqueado</option>
   </select>
 
@@ -252,6 +270,62 @@ function showProduct(id) {
   productsScene.appendChild(newDiv);
 }
 
+function deletedProduct(id) {
+  fetch(url + `products/${id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Erro na requisição: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data.message); // Exibe a mensagem recebida
+    })
+    .catch((error) => {
+      console.error("Erro durante a requisição:", error);
+    });
+  closeProduct();
+  updateProducts();
+}
+
+function updateProducts() {
+  // Limpe o conteúdo da div antes de adicionar os novos dados
+  productsDiv.innerHTML = "";
+
+  // Faça a requisição dos dados novamente e atualize a interface
+  fetch(url + "products")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Erro na requisição: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      productsData = data;
+      data.forEach((item) => {
+        if (!item.deleted) {
+          let newDiv = document.createElement("div");
+          newDiv.id = `product_${item.id}`; // Adicione um ID único à div
+          newDiv.innerHTML = `<div class="w-full h-auto text-md flex gap-5 py-2 px-3 border-t border-purple-800">
+            <div class="w-1/6">${item.id}</div>
+            <div class="w-3/6">${item.name}</div>
+            <div class="w-2/6">$${item.price}</div>
+            <div class="w-1/12"><i class="fa-solid fa-pen-to-square cursor-pointer text-purple-800 hover:text-purple-950 duration-500 ease-in-out dark:text-white dark:hover:text-slate-300" onclick="showProduct(${item.id})"></i></div>
+            <div class="w-1/12"><i class="fa-solid fa-trash cursor-pointer text-purple-800 hover:text-purple-950 duration-500 ease-in-out dark:text-white dark:hover:text-slate-300" onclick="showDeletedProduct(${item.id})"></i></div>
+          </div>`;
+          productsDiv.appendChild(newDiv);
+        }
+      });
+    })
+    .catch((error) => {
+      console.error("Erro durante a requisição:", error);
+    });
+}
 function closeProduct() {
   productsScene.removeChild(productsScene.lastChild);
 }

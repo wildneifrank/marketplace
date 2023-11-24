@@ -34,6 +34,22 @@ class RestaurantController {
         res.send("Restaurante não encontrado");
       });
   }
+  async getRestaurants(req, res) {
+    fetch(url + "restaurants")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Erro na solicitação");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        res.status(200).send(data);
+      })
+      .catch((error) => {
+        console.error("Erro:", error);
+        res.send("Restaurante não encontrado");
+      });
+  }
 }
 
 module.exports = new RestaurantController();

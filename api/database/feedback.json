@@ -6,7 +6,7 @@
     "tel": "85992231334",
     "message": "Ola, tenho duvida sobre os preços",
     "restaurant_id": 1,
-    "deleted": "false"
+    "deleted": false
   },
   {
     "id": 2,
@@ -15,6 +15,6 @@
     "tel": "8592412786",
     "message": "Otimo restaurante",
     "restaurant_id": 2,
-    "deleted": "false"
+    "deleted": false
   }
 ]

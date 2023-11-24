@@ -2,6 +2,8 @@ const routes = require("express").Router();
 const HomeController = require("../controller/home_controller");
 const AuthController = require("../controller/auth_controller");
 const RestaurantController = require("../controller/restaurant_controller");
+const ProductController = require("../controller/product_controller");
+const FeedbackController = require("../controller/feedback_controller");
 
 routes.get("/", HomeController.index);
 routes.get("/login", HomeController.login);
@@ -11,9 +13,13 @@ routes.get("/user", AuthController.user);
 routes.get("/pesquisa", RestaurantController.search);
 routes.get("/restaurante/:id", RestaurantController.template);
 
-// Admin
-routes.get("/admin/products", AuthController.getProducts);
-routes.get("/admin/restaurants", AuthController.getRestaurants);
-routes.get("/admin/feedbacks", AuthController.getFeedbacks);
+// Admin - Products
+routes.get("/admin/products", ProductController.getProducts);
+routes.delete("/admin/products/:id", ProductController.deletedProduct);
+// Admin - Restaurants
+routes.get("/admin/restaurants", RestaurantController.getRestaurants);
+
+// Admin - Feedbacks
+routes.get("/admin/feedbacks", FeedbackController.getFeedbacks);
 
 module.exports = routes;

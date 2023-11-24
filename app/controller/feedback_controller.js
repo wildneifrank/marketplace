@@ -2,15 +2,9 @@ const fetch = require("node-fetch");
 
 const url = "http://localhost:8800/";
 
-class AuthController {
-  async user(req, res) {
-    res.render("pages/user/index");
-  }
-  async admin(req, res) {
-    res.render("pages/admin/index");
-  }
-  async getProducts(req, res) {
-    fetch(url + "products")
+class FeedbackController {
+  async getFeedbacks(req, res) {
+    fetch(url + "feedbacks")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Erro na solicitação");
@@ -22,9 +16,9 @@ class AuthController {
       })
       .catch((error) => {
         console.error("Erro:", error);
-        res.send("Produtos não encontrados");
+        res.send("Feedbacks não encontrados");
       });
   }
 }
 
-module.exports = new AuthController();
+module.exports = new FeedbackController();
