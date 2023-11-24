@@ -6,6 +6,15 @@ class Product {
     const products = db.all();
     return products;
   }
+
+  static deleteProduct(id) {
+    const db = new DataAccess("product");
+    try {
+      db.delete(id);
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
 }
 
 module.exports = Product;

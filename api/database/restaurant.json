@@ -10,7 +10,8 @@
     "image": "https://picsum.photos/150/150",
     "products": [],
     "feedbacks": [],
-    "status": "active"
+    "status": "active",
+    "deleted": "false"
   },
   {
     "id": 2,
@@ -23,7 +24,8 @@
     "image": "https://picsum.photos/150/150",
     "products": [],
     "feedbacks": [],
-    "status": "inactive"
+    "status": "inactive",
+    "deleted": "false"
   },
   {
     "id": 3,
@@ -36,7 +38,8 @@
     "image": "https://picsum.photos/150/150",
     "products": [],
     "feedbacks": [],
-    "status": "active"
+    "status": "active",
+    "deleted": "false"
   },
   {
     "id": 4,
@@ -49,7 +52,8 @@
     "image": "https://picsum.photos/150/150",
     "products": [],
     "feedbacks": [],
-    "status": "active"
+    "status": "active",
+    "deleted": "false"
   },
   {
     "id": 5,
@@ -62,7 +66,8 @@
     "image": "https://picsum.photos/150/150",
     "products": [],
     "feedbacks": [],
-    "status": "active"
+    "status": "active",
+    "deleted": "false"
   },
   {
     "id": 6,
@@ -75,7 +80,8 @@
     "image": "https://picsum.photos/150/150",
     "products": [],
     "feedbacks": [],
-    "status": "active"
+    "status": "active",
+    "deleted": "false"
   },
   {
     "id": 7,
@@ -88,6 +94,7 @@
     "image": "https://picsum.photos/150/150",
     "products": [],
     "feedbacks": [],
-    "status": "active"
+    "status": "active",
+    "deleted": "false"
   }
 ]

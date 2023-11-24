@@ -4,7 +4,10 @@ const ProductController = require("../controller/product_controller.js");
 const FeedbackController = require("../controller/feedback_controller.js");
 
 routes.get("/restaurants", RestaurantController.getRestaurants);
-routes.get("/products", ProductController.getProducts);
+
 routes.get("/feedbacks", FeedbackController.getFeedbacks);
 
+// Produtos
+routes.get("/products", ProductController.getProducts);
+routes.delete("/products/:id", ProductController.deleteProduct);
 module.exports = routes;
