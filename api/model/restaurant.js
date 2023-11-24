@@ -14,6 +14,14 @@ class Restaurant {
       throw new Error(error);
     }
   }
+  static updateRestaurant(id, json) {
+    const db = new DataAccess("restaurant");
+    try {
+      db.update(id, json);
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
 }
 
 module.exports = Restaurant;

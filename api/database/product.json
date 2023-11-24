@@ -27,7 +27,7 @@
     "image_link": "",
     "restaurant_id": 1,
     "status": true,
-    "deleted": true
+    "deleted": false
   },
   {
     "id": 4,

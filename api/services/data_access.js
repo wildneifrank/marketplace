@@ -29,6 +29,13 @@ class DataAccess {
     data["deleted"] = true;
     this.save();
   }
+  update(id, json) {
+    if (this.data.length < id) {
+      throw new Error();
+    }
+    this.data[id - 1] = { ...this.data[id - 1], ...json };
+    this.save();
+  }
   save() {
     writeFile(this.path, this.data);
     this.reload_data();

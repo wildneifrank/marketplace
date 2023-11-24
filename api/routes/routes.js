@@ -24,4 +24,6 @@ routes.delete("/products/:id", ProductController.deleteProduct);
 // Restaurante
 routes.get("/restaurants", RestaurantController.getRestaurants);
 routes.delete("/restaurants/:id", RestaurantController.deleteRestaurant);
+routes.put("/restaurants/:id", RestaurantController.updateRestaurant);
+
 module.exports = routes;

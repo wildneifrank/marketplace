@@ -16,6 +16,17 @@ class RestaurantController {
       res.status(401).send({ message: "Erro ao deletar restaurante!" });
     }
   }
+  async updateRestaurant(req, res) {
+    const id = req.params.id;
+    const json = req.body;
+    res.setHeader("Content-Type", "application/json");
+    try {
+      Restaurant.updateRestaurant(id, json);
+      res.status(200).send({ message: "Restaurante atualizado com sucesso!" });
+    } catch (error) {
+      res.status(401).send({ message: "Erro ao atualizar restaurante!" });
+    }
+  }
 }
 
 module.exports = new RestaurantController();

@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "name": "GTi Engenharia Jr.",
+    "name": "GTi",
     "email": "gtiengenhariajr@gmail.com",
     "address": "Av. Humberto Monte, Campus do Pici (UFC) - Bloco 725 - Pici, Fortaleza - CE, 60440-593",
     "number": "(88) 99665-9102",
@@ -15,8 +15,8 @@
   },
   {
     "id": 2,
-    "name": "Empresa ABC",
-    "email": "empresaabc@gmail.com",
+    "name": "Apple",
+    "email": "teste@teste.com",
     "address": "Rua XYZ, Cidade ABC - Estado, 12345-678",
     "number": "(99) 98765-4321",
     "aboutUs": "Descrição da Empresa ABC...",
@@ -85,7 +85,7 @@
   },
   {
     "id": 7,
-    "name": "Tech Innovators",
+    "name": "GTi",
     "email": "techinnovators@gmail.com",
     "address": "Avenida da Inovação, Cidade Tech - Estado, 23456-789",
     "number": "(33) 56789-0123",
