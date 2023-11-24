@@ -69,8 +69,30 @@ class RestaurantController {
       })
       .catch((error) => {
         console.error("Erro durante a requisição:", error);
-        res.send("Erro ao deletar produto.");
+        res.send("Erro ao deletar restaurante.");
       });
+  }
+  async updateRestaurant(req, res) {
+    const id = req.params.id;
+    const json = req.body;
+    try {
+      const response = await fetch(url + `restaurants/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(json),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Erro na requisição: ${response.status}`);
+      }
+      const data = await response.json();
+      res.status(200).send(data);
+    } catch (error) {
+      console.error("Erro durante a requisição:", error);
+      res.status(500).send("Erro ao atualizar restaurante.");
+    }
   }
 }
 

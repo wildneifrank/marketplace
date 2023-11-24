@@ -8,6 +8,7 @@ const routes = require("./routes/routes");
 
 app.use(express.static(staticPath));
 app.set("view engine", "ejs");
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(routes);
 

@@ -197,35 +197,37 @@ function showUser(id) {
   <div class="w-6 py-1 flex justify-center items-center border border-purple-800 dark:border-white duration-500 ease-in-out cursor-pointer dark:hover:bg-slate-800 hover:bg-purple-800 group rounded-md" onclick="closeUser()"><i class="fa-solid fa-xmark text-purple-800 dark:text-white group-hover:text-white duration-500 ease-in-out"></i></div>
   <div class="flex flex-col gap-1">
     <label for="name" class="text-purple-800 dark:text-white duration-500 ease-in-out">Empresa</label>
-    <input type="text" name="name" id="name" value="${
-      item.name
-    }" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-900 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800">
+    <input type="text" name="name" id="name_${item.id}" value="${
+    item.name
+  }" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-900 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800">
   </div>
   <div class="flex flex-col gap-1">
     <label for="email" class="text-purple-800 dark:text-white duration-500 ease-in-out">Email</label>
-    <input type="email" name="email" id="email" value="${
-      item.email
-    }" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-900 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800">
+    <input type="email" name="email" id="email_${item.id}" value="${
+    item.email
+  }" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-900 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800">
   </div>
   <div class="flex flex-col gap-1">
     <label for="tel" class="text-purple-800 dark:text-white duration-500 ease-in-out">Telefone</label>
-    <input type="tel" name="tel" id="tel" value="${
-      item.number
-    }" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-900 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800">
+    <input type="tel" name="tel" id="tel_${item.id}" value="${
+    item.number
+  }" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-900 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800">
   </div>
   <div class="flex flex-col gap-1">
     <label for="message" class="text-purple-800 dark:text-white duration-500 ease-in-out">Descrição</label>
-    <input type="text" name="message" id="message" value="${
-      item.aboutUs
-    }" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-900 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800">
+    <input type="text" name="message" id="message_${item.id}" value="${
+    item.aboutUs
+  }" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-900 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800">
   </div>
   <div class="flex flex-col gap-1">
     <label for="id" class="text-purple-800 dark:text-white duration-500 ease-in-out">Endereço</label>
-    <input type="string" name="id" id="id" value="${
-      item.address
-    }" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-900 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800">
+    <input type="text" name="address" id="address_${item.id}" value="${
+    item.address
+  }" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-900 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800">
   </div>
-  <select id="status" class="border-purple-800 focus:border-purple-800 dark:border-white dark:focus:border-white rounded-md text-purple-800 dark:text-white text-lg font-semibold duration-500 ease-in-out bg-white dark:bg-slate-900 outline-none" >
+  <select id="status_${
+    item.id
+  }" class="border-purple-800 focus:border-purple-800 dark:border-white dark:focus:border-white rounded-md text-purple-800 dark:text-white text-lg font-semibold duration-500 ease-in-out bg-white dark:bg-slate-900 outline-none" >
     <option value="active" ${
       item.status === true ? "selected" : ""
     }>Ativo</option>
@@ -234,8 +236,52 @@ function showUser(id) {
     }>Bloqueado</option>
   </select>
 
-  <div class="w-full h-auto px-4 py-2 text-center border border-purple-800 text-purple-800 text-lg font-semibold hover:text-white hover:bg-purple-800 duration-500 ease-in-out cursor-pointer rounded-lg  dark:border-white dark:text-white dark:hover:bg-slate-800 mt-2" onclick="updatedUser()" >Atualizar</div>   `;
+  <div class="w-full h-auto px-4 py-2 text-center border border-purple-800 text-purple-800 text-lg font-semibold hover:text-white hover:bg-purple-800 duration-500 ease-in-out cursor-pointer rounded-lg  dark:border-white dark:text-white dark:hover:bg-slate-800 mt-2" onclick="sendUserData(${
+    item.id
+  })" >Atualizar</div>   `;
   usersScene.appendChild(newDiv);
+}
+
+function sendUserData(id) {
+  const name = document.querySelector(`#name_${id}`).value;
+  const email = document.querySelector(`#email_${id}`).value;
+  const tel = document.querySelector(`#tel_${id}`).value;
+  const message = document.querySelector(`#message_${id}`).value;
+  const address = document.querySelector(`#address_${id}`).value;
+  const status = document.querySelector(`#status_${id}`).value;
+  if (!name || !email || !tel || !message || !address || !status) {
+    alert("Por favor, preencha todos os campos do formulário.");
+    return false;
+  }
+  const json = {
+    name,
+    email,
+    tel,
+    message,
+    address,
+    status: status === "active" ? true : false,
+  };
+  fetch(url + `restaurants/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(json),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Erro na requisição: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data.message);
+    })
+    .catch((error) => {
+      console.error("Erro durante a requisição:", error);
+    });
+  updatedUser();
+  closeUser();
 }
 
 function showDeletedUser(id) {

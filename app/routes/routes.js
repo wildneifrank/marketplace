@@ -19,6 +19,7 @@ routes.delete("/admin/products/:id", ProductController.deletedProduct);
 // Admin - Restaurants
 routes.get("/admin/restaurants", RestaurantController.getRestaurants);
 routes.delete("/admin/restaurants/:id", RestaurantController.deletedRestaurant);
+routes.put("/admin/restaurants/:id", RestaurantController.updateRestaurant);
 
 // Admin - Feedbacks
 routes.get("/admin/feedbacks", FeedbackController.getFeedbacks);
