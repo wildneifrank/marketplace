@@ -16,6 +16,17 @@ class ProductController {
       res.status(401).send({ message: "Erro ao deletar produto!" });
     }
   }
+  async updateProduct(req, res) {
+    const id = req.params.id;
+    const json = req.body;
+    res.setHeader("Content-Type", "application/json");
+    try {
+      Product.updateProduct(id, json);
+      res.status(200).send({ message: "Produto atualizado com sucesso!" });
+    } catch (error) {
+      res.status(401).send({ message: "Erro ao atualizar produto!" });
+    }
+  }
 }
 
 module.exports = new ProductController();

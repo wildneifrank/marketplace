@@ -72,7 +72,7 @@ class RestaurantController {
         res.send("Erro ao deletar restaurante.");
       });
   }
-  async updateRestaurant(req, res) {
+  async updatedRestaurant(req, res) {
     const id = req.params.id;
     const json = req.body;
     try {

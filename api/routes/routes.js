@@ -20,6 +20,7 @@ routes.delete("/feedbacks/:id", FeedbackController.deleteProduct);
 // Produtos
 routes.get("/products", ProductController.getProducts);
 routes.delete("/products/:id", ProductController.deleteProduct);
+routes.put("/products/:id", ProductController.updateProduct);
 
 // Restaurante
 routes.get("/restaurants", RestaurantController.getRestaurants);

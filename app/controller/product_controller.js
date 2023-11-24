@@ -41,6 +41,28 @@ class ProductController {
         res.send("Erro ao deletar produto.");
       });
   }
+  async updatedProduct(req, res) {
+    const id = req.params.id;
+    const json = req.body;
+    try {
+      const response = await fetch(url + `products/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(json),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Erro na requisição: ${response.status}`);
+      }
+      const data = await response.json();
+      res.status(200).send(data);
+    } catch (error) {
+      console.error("Erro durante a requisição:", error);
+      res.status(500).send("Erro ao atualizar produto.");
+    }
+  }
 }
 
 module.exports = new ProductController();

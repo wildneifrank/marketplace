@@ -2,10 +2,10 @@
   {
     "id": 1,
     "name": "Pizza",
-    "price": 20,
+    "price": "20",
     "description": "Sabor Calabresa",
-    "image_link": "",
-    "restaurant_id": 1,
+    "image_link": "https://picsum.photos/200/300",
+    "restaurant_id": "1",
     "status": true,
     "deleted": false
   },

@@ -15,6 +15,14 @@ class Product {
       throw new Error(error);
     }
   }
+  static updateProduct(id, json) {
+    const db = new DataAccess("product");
+    try {
+      db.update(id, json);
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
 }
 
 module.exports = Product;

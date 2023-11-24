@@ -197,35 +197,35 @@ function showUser(id) {
   <div class="w-6 py-1 flex justify-center items-center border border-purple-800 dark:border-white duration-500 ease-in-out cursor-pointer dark:hover:bg-slate-800 hover:bg-purple-800 group rounded-md" onclick="closeUser()"><i class="fa-solid fa-xmark text-purple-800 dark:text-white group-hover:text-white duration-500 ease-in-out"></i></div>
   <div class="flex flex-col gap-1">
     <label for="name" class="text-purple-800 dark:text-white duration-500 ease-in-out">Empresa</label>
-    <input type="text" name="name" id="name_${item.id}" value="${
+    <input type="text" name="name" id="name_user_${item.id}" value="${
     item.name
   }" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-900 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800">
   </div>
   <div class="flex flex-col gap-1">
     <label for="email" class="text-purple-800 dark:text-white duration-500 ease-in-out">Email</label>
-    <input type="email" name="email" id="email_${item.id}" value="${
+    <input type="email" name="email" id="email_user_${item.id}" value="${
     item.email
   }" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-900 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800">
   </div>
   <div class="flex flex-col gap-1">
     <label for="tel" class="text-purple-800 dark:text-white duration-500 ease-in-out">Telefone</label>
-    <input type="tel" name="tel" id="tel_${item.id}" value="${
+    <input type="tel" name="tel" id="tel_user_${item.id}" value="${
     item.number
   }" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-900 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800">
   </div>
   <div class="flex flex-col gap-1">
     <label for="message" class="text-purple-800 dark:text-white duration-500 ease-in-out">Descrição</label>
-    <input type="text" name="message" id="message_${item.id}" value="${
+    <input type="text" name="message" id="message_user_${item.id}" value="${
     item.aboutUs
   }" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-900 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800">
   </div>
   <div class="flex flex-col gap-1">
     <label for="id" class="text-purple-800 dark:text-white duration-500 ease-in-out">Endereço</label>
-    <input type="text" name="address" id="address_${item.id}" value="${
+    <input type="text" name="address" id="address_user_${item.id}" value="${
     item.address
   }" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-900 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800">
   </div>
-  <select id="status_${
+  <select id="status_user_${
     item.id
   }" class="border-purple-800 focus:border-purple-800 dark:border-white dark:focus:border-white rounded-md text-purple-800 dark:text-white text-lg font-semibold duration-500 ease-in-out bg-white dark:bg-slate-900 outline-none" >
     <option value="active" ${
@@ -243,12 +243,12 @@ function showUser(id) {
 }
 
 function sendUserData(id) {
-  const name = document.querySelector(`#name_${id}`).value;
-  const email = document.querySelector(`#email_${id}`).value;
-  const tel = document.querySelector(`#tel_${id}`).value;
-  const message = document.querySelector(`#message_${id}`).value;
-  const address = document.querySelector(`#address_${id}`).value;
-  const status = document.querySelector(`#status_${id}`).value;
+  const name = document.querySelector(`#name_user_${id}`).value;
+  const email = document.querySelector(`#email_user_${id}`).value;
+  const tel = document.querySelector(`#tel_user_${id}`).value;
+  const message = document.querySelector(`#message_user_${id}`).value;
+  const address = document.querySelector(`#address_user_${id}`).value;
+  const status = document.querySelector(`#status_user_${id}`).value;
   if (!name || !email || !tel || !message || !address || !status) {
     alert("Por favor, preencha todos os campos do formulário.");
     return false;
@@ -405,35 +405,43 @@ function showProduct(id) {
   <div class="w-6 py-1 flex justify-center items-center border border-purple-800 dark:border-white duration-500 ease-in-out cursor-pointer dark:hover:bg-slate-800 hover:bg-purple-800 group rounded-md" onclick="closeProduct()"><i class="fa-solid fa-xmark text-purple-800 dark:text-white group-hover:text-white duration-500 ease-in-out"></i></div>
   <div class="flex flex-col gap-1">
     <label for="name" class="text-purple-800 dark:text-white duration-500 ease-in-out">Produto</label>
-    <input type="text" name="name" id="name" value="${
-      item.name
-    }" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-900 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800">
+    <input type="text" name="name" id="name_product_${item.id}" value="${
+    item.name
+  }" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-900 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800">
   </div>
   <div class="flex flex-col gap-1">
-    <label for="email" class="text-purple-800 dark:text-white duration-500 ease-in-out">Preço</label>
-    <input type="email" name="email" id="email" value="${
-      item.price
-    }" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-900 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800">
+    <label for="price" class="text-purple-800 dark:text-white duration-500 ease-in-out">Preço</label>
+    <input type="text" name="price" id="price_product_${item.id}" value="${
+    item.price
+  }" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-900 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800">
   </div>
   <div class="flex flex-col gap-1">
-    <label for="tel" class="text-purple-800 dark:text-white duration-500 ease-in-out">Descrição</label>
-    <input type="tel" name="tel" id="tel" value="${
-      item.description
-    }" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-900 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800">
+    <label for="description" class="text-purple-800 dark:text-white duration-500 ease-in-out">Descrição</label>
+    <input type="text" name="description" id="description_product_${
+      item.id
+    }" value="${
+    item.description
+  }" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-900 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800">
   </div>
   <div class="flex flex-col gap-1">
-    <label for="message" class="text-purple-800 dark:text-white duration-500 ease-in-out">Id do Restaurante</label>
-    <input type="text" name="message" id="message" value="${
-      item.restaurant_id
-    }" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-900 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800">
+    <label for="restaurant_id" class="text-purple-800 dark:text-white duration-500 ease-in-out">Id do Restaurante</label>
+    <input type="text" name="restaurant_id" id="restaurant_id_product_${
+      item.id
+    }" value="${
+    item.restaurant_id
+  }" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-900 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800">
   </div>
   <div class="flex flex-col gap-1">
-    <label for="id" class="text-purple-800 dark:text-white duration-500 ease-in-out">Link da Imagem</label>
-    <input type="string" name="id" id="id" value="${
-      item.image_link
-    }" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-900 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800">
+    <label for="image_link" class="text-purple-800 dark:text-white duration-500 ease-in-out">Link da Imagem</label>
+    <input type="text" name="image_link" id="image_link_product_${
+      item.id
+    }" value="${
+    item.image_link
+  }" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-900 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800">
   </div>
-  <select id="status" class="border-purple-800 focus:border-purple-800 dark:border-white dark:focus:border-white rounded-md text-purple-800 dark:text-white text-lg font-semibold duration-500 ease-in-out bg-white dark:bg-slate-900 outline-none" >
+  <select id="status_product_${
+    item.id
+  }" class="border-purple-800 focus:border-purple-800 dark:border-white dark:focus:border-white rounded-md text-purple-800 dark:text-white text-lg font-semibold duration-500 ease-in-out bg-white dark:bg-slate-900 outline-none" >
     <option value="active" ${
       item.status === true ? "selected" : ""
     }>Ativo</option>
@@ -442,8 +450,63 @@ function showProduct(id) {
     }>Bloqueado</option>
   </select>
 
-  <div class="w-full h-auto px-4 py-2 text-center border border-purple-800 text-purple-800 text-lg font-semibold hover:text-white hover:bg-purple-800 duration-500 ease-in-out cursor-pointer rounded-lg  dark:border-white dark:text-white dark:hover:bg-slate-800 mt-2" onclick="updatedProduct()" >Atualizar</div>   `;
+  <div class="w-full h-auto px-4 py-2 text-center border border-purple-800 text-purple-800 text-lg font-semibold hover:text-white hover:bg-purple-800 duration-500 ease-in-out cursor-pointer rounded-lg  dark:border-white dark:text-white dark:hover:bg-slate-800 mt-2" onclick="sendProductData(${
+    item.id
+  })" >Atualizar</div>   `;
   productsScene.appendChild(newDiv);
+}
+
+function sendProductData(id) {
+  const name = document.querySelector(`#name_product_${id}`).value;
+  const price = document.querySelector(`#price_product_${id}`).value;
+  const description = document.querySelector(
+    `#description_product_${id}`
+  ).value;
+  const restaurant_id = document.querySelector(
+    `#restaurant_id_product_${id}`
+  ).value;
+  const image_link = document.querySelector(`#image_link_product_${id}`).value;
+  const status = document.querySelector(`#status_product_${id}`).value;
+  if (
+    !name ||
+    !price ||
+    !description ||
+    !restaurant_id ||
+    !image_link ||
+    !status
+  ) {
+    alert("Por favor, preencha todos os campos do formulário.");
+    return false;
+  }
+  const json = {
+    name,
+    price,
+    description,
+    restaurant_id,
+    image_link,
+    status: status === "active" ? true : false,
+  };
+  fetch(url + `products/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(json),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Erro na requisição: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data.message);
+    })
+    .catch((error) => {
+      console.error("Erro durante a requisição:", error);
+    });
+  updateProducts();
+  closeProduct();
 }
 
 function deletedProduct(id) {
