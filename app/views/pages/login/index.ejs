@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="/js/hide.js"></script>
+    <script defer src="/js/signin.js"></script>
     <title>Login</title>
     <script>
         tailwind.config = {
@@ -38,14 +39,14 @@
                     <form method="post" class="w-full flex flex-col items-start justify-center my-4">
                         <div class="w-full flex flex-col items-start justify-center my-4">
                             <label class="text-slate-800 dark:text-white duration-500 ease-in-out mb-2" for="usuario">Usuário</label>
-                            <input class="w-full rounded-lg p-3 bg-white text-slate-800 dark:bg-slate-700 dark:text-white border-slate-300 border text-base shadow-md focus:outline-none box-border placeholder-white::placeholder duration-500 ease-in-out" type="text" name="usuario" placeholder="Usuário">
+                            <input class="w-full rounded-lg p-3 bg-white text-slate-800 dark:bg-slate-700 dark:text-white border-slate-300 border text-base shadow-md focus:outline-none box-border placeholder-white::placeholder duration-500 ease-in-out" type="text" name="usuario" id="user" placeholder="Usuário">
                         </div>
                         <div class="w-full flex flex-col items-start justify-center my-4">
                             <label class="text-slate-800 dark:text-white duration-500 ease-in-out mb-2" for="senha">Senha</label>
-                            <input class="w-full rounded-lg p-3 bg-white text-slate-800 dark:bg-slate-700 dark:text-white border-slate-300 border text-base shadow-md focus:outline-none box-border placeholder-white::placeholder duration-500 ease-in-out" type="password" name="senha" placeholder="Senha">
+                            <input class="w-full rounded-lg p-3 bg-white text-slate-800 dark:bg-slate-700 dark:text-white border-slate-300 border text-base shadow-md focus:outline-none box-border placeholder-white::placeholder duration-500 ease-in-out" type="password" name="senha" id="pass" placeholder="Senha">
                         </div>
                     </form>
-                    <button class="w-full py-4 my-4 rounded-md focus:outline-none text-uppercase font-semibold tracking-wider text-white bg-purple-700 cursor-pointer shadow-lg">Logar</button>
+                    <button class="w-full py-4 my-4 rounded-md focus:outline-none text-uppercase font-semibold tracking-wider text-white bg-purple-700 cursor-pointer shadow-lg" id="botao">Logar</button>
                     <p class="text-slate-800 dark:text-white">Ainda não tem uma conta?<a href="#"id="ocultarLink" class="text-purple-700 no-underline ml-4">Crie uma aqui</a></p>
                 </div>
 
