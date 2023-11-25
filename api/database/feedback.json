@@ -61,5 +61,14 @@
     "message": "Comida saborosa!",
     "restaurant_id": 1,
     "deleted": false
+  },
+  {
+    "id": 8,
+    "name": "Carlos Matheus",
+    "email": "carlos.matheus@alu.ufc.br",
+    "tel": "8540028922",
+    "message": "Adorei o serviço",
+    "restaurant_id": 5,
+    "deleted": false
   }
 ]

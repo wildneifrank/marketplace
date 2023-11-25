@@ -15,7 +15,8 @@ routes.delete("/delete", checkToken, deleteProduct);
 
 // Feedbacks
 routes.get("/feedbacks", FeedbackController.getFeedbacks);
-routes.delete("/feedbacks/:id", FeedbackController.deleteProduct);
+routes.delete("/feedbacks/:id", FeedbackController.deleteFeedback);
+routes.post("/feedbacks", FeedbackController.createFeedback);
 
 // Produtos
 routes.get("/products", ProductController.getProducts);

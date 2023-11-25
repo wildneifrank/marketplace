@@ -14,6 +14,14 @@ class Feedback {
       throw new Error(error);
     }
   }
+  static createFeedback(json) {
+    const db = new DataAccess("feedback");
+    try {
+      db.create(json);
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
 }
 
 module.exports = Feedback;

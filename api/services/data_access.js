@@ -21,14 +21,24 @@ class DataAccess {
 
     return data;
   }
+
   all() {
     return this.data;
   }
+
+  create(json) {
+    let new_id = this.data.length + 1;
+    json["id"] = new_id;
+    this.data.push(json);
+    this.save();
+  }
+
   delete(id) {
     let data = this.find(id);
     data["deleted"] = true;
     this.save();
   }
+
   update(id, json) {
     if (this.data.length < id) {
       throw new Error();
