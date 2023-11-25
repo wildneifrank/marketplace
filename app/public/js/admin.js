@@ -28,6 +28,7 @@ const url = "http://localhost:3001/admin/";
 // Feedbacks
 const feedbacksDiv = document.querySelector("#feedbacksDiv");
 let feedbacksData = [];
+const feedbacksAmountDiv = document.querySelector("#feedbacksAmount");
 fetch(url + "feedbacks")
   .then((response) => {
     if (!response.ok) {
@@ -37,8 +38,10 @@ fetch(url + "feedbacks")
   })
   .then((data) => {
     feedbacksData = data;
+    let amount = 0;
     data.forEach((item) => {
       if (!item.deleted) {
+        amount++;
         let newDiv = document.createElement("div");
         newDiv.innerHTML = `<div class="w-full h-auto text-md flex gap-5 py-2 px-3 border-t border-purple-800">
       <div class="w-1/6">${item.id}</div>
@@ -50,6 +53,7 @@ fetch(url + "feedbacks")
         feedbacksDiv.appendChild(newDiv);
       }
     });
+    feedbacksAmountDiv.innerHTML = `${amount}`;
   })
   .catch((error) => {
     console.error("Erro durante a requisição:", error);
@@ -133,19 +137,22 @@ function updatedFeedback() {
     })
     .then((data) => {
       feedbacksData = data;
+      let amount = 0;
       data.forEach((item) => {
         if (!item.deleted) {
+          amount++;
           let newDiv = document.createElement("div");
           newDiv.innerHTML = `<div class="w-full h-auto text-md flex gap-5 py-2 px-3 border-t border-purple-800">
-        <div class="w-1/6">${item.id}</div>
-        <div class="w-3/6">${item.name}</div>
-        <div class="w-2/6">${item.email}</div>
-        <div class="w-1/12"><i class="fa-solid fa-eye cursor-pointer text-purple-800 hover:text-purple-950 duration-500 ease-in-out dark:text-white dark:hover:text-slate-300" onclick="showFeedback(${item.id})"></i></div>
-        <div class="w-1/12"><i class="fa-solid fa-trash cursor-pointer text-purple-800 hover:text-purple-950 duration-500 ease-in-out dark:text-white dark:hover:text-slate-300" onclick="showDeletedFeedback(${item.id})"></i></div>
-      </div>`;
+      <div class="w-1/6">${item.id}</div>
+      <div class="w-3/6">${item.name}</div>
+      <div class="w-2/6">${item.email}</div>
+      <div class="w-1/12"><i class="fa-solid fa-eye cursor-pointer text-purple-800 hover:text-purple-950 duration-500 ease-in-out dark:text-white dark:hover:text-slate-300" onclick="showFeedback(${item.id})"></i></div>
+      <div class="w-1/12"><i class="fa-solid fa-trash cursor-pointer text-purple-800 hover:text-purple-950 duration-500 ease-in-out dark:text-white dark:hover:text-slate-300" onclick="showDeletedFeedback(${item.id})"></i></div>
+    </div>`;
           feedbacksDiv.appendChild(newDiv);
         }
       });
+      feedbacksAmountDiv.innerHTML = `${amount}`;
     })
     .catch((error) => {
       console.error("Erro durante a requisição:", error);
@@ -159,6 +166,7 @@ function closeFeedback() {
 // Usuários
 const usersDiv = document.querySelector("#usersDiv");
 let usersData = [];
+const usersAmountDiv = document.querySelector("#usersAmount");
 fetch(url + "restaurants")
   .then((response) => {
     if (!response.ok) {
@@ -168,8 +176,10 @@ fetch(url + "restaurants")
   })
   .then((data) => {
     usersData = data;
+    let amount = 0;
     data.forEach((item) => {
       if (!item.deleted) {
+        amount++;
         let newDiv = document.createElement("div");
         newDiv.innerHTML = `<div class="w-full h-auto text-md flex gap-5 py-2 px-3 border-t border-purple-800">
       <div class="w-1/6">${item.id}</div>
@@ -181,6 +191,7 @@ fetch(url + "restaurants")
         usersDiv.appendChild(newDiv);
       }
     });
+    usersAmountDiv.innerHTML = `${amount}`;
   })
   .catch((error) => {
     console.error("Erro durante a requisição:", error);
@@ -329,19 +340,22 @@ function updatedUser() {
     })
     .then((data) => {
       usersData = data;
+      let amount = 0;
       data.forEach((item) => {
         if (!item.deleted) {
+          amount++;
           let newDiv = document.createElement("div");
           newDiv.innerHTML = `<div class="w-full h-auto text-md flex gap-5 py-2 px-3 border-t border-purple-800">
-        <div class="w-1/6">${item.id}</div>
-        <div class="w-3/6">${item.name}</div>
-        <div class="w-2/6">${item.email}</div>
-        <div class="w-1/12"><i class="fa-solid fa-pen-to-square cursor-pointer text-purple-800 hover:text-purple-950 duration-500 ease-in-out dark:text-white dark:hover:text-slate-300" onclick="showUser(${item.id})"></i></div>
-        <div class="w-1/12"><i class="fa-solid fa-trash cursor-pointer text-purple-800 hover:text-purple-950 duration-500 ease-in-out dark:text-white dark:hover:text-slate-300" onclick="showDeletedUser(${item.id})"></i></div>
-      </div>`;
+      <div class="w-1/6">${item.id}</div>
+      <div class="w-3/6">${item.name}</div>
+      <div class="w-2/6">${item.email}</div>
+      <div class="w-1/12"><i class="fa-solid fa-pen-to-square cursor-pointer text-purple-800 hover:text-purple-950 duration-500 ease-in-out dark:text-white dark:hover:text-slate-300" onclick="showUser(${item.id})"></i></div>
+      <div class="w-1/12"><i class="fa-solid fa-trash cursor-pointer text-purple-800 hover:text-purple-950 duration-500 ease-in-out dark:text-white dark:hover:text-slate-300" onclick="showDeletedUser(${item.id})"></i></div>
+    </div>`;
           usersDiv.appendChild(newDiv);
         }
       });
+      usersAmountDiv.innerHTML = `${amount}`;
     })
     .catch((error) => {
       console.error("Erro durante a requisição:", error);
@@ -355,6 +369,7 @@ function closeUser() {
 // Produtos
 const productsDiv = document.querySelector("#productsDiv");
 let productsData = [];
+const productsAmountDiv = document.querySelector("#productsAmount");
 
 fetch(url + "products")
   .then((response) => {
@@ -365,8 +380,10 @@ fetch(url + "products")
   })
   .then((data) => {
     productsData = data;
+    let amount = 0;
     data.forEach((item) => {
       if (!item.deleted) {
+        amount++;
         let newDiv = document.createElement("div");
         newDiv.innerHTML = `<div class="w-full h-auto text-md flex gap-5 py-2 px-3 border-t border-purple-800">
       <div class="w-1/6">${item.id}</div>
@@ -378,6 +395,7 @@ fetch(url + "products")
         productsDiv.appendChild(newDiv);
       }
     });
+    productsAmountDiv.innerHTML = `${amount}`;
   })
   .catch((error) => {
     console.error("Erro durante a requisição:", error);
@@ -543,19 +561,22 @@ function updateProducts() {
     })
     .then((data) => {
       productsData = data;
+      let amount = 0;
       data.forEach((item) => {
         if (!item.deleted) {
+          amount++;
           let newDiv = document.createElement("div");
           newDiv.innerHTML = `<div class="w-full h-auto text-md flex gap-5 py-2 px-3 border-t border-purple-800">
-            <div class="w-1/6">${item.id}</div>
-            <div class="w-3/6">${item.name}</div>
-            <div class="w-2/6">$${item.price}</div>
-            <div class="w-1/12"><i class="fa-solid fa-pen-to-square cursor-pointer text-purple-800 hover:text-purple-950 duration-500 ease-in-out dark:text-white dark:hover:text-slate-300" onclick="showProduct(${item.id})"></i></div>
-            <div class="w-1/12"><i class="fa-solid fa-trash cursor-pointer text-purple-800 hover:text-purple-950 duration-500 ease-in-out dark:text-white dark:hover:text-slate-300" onclick="showDeletedProduct(${item.id})"></i></div>
-          </div>`;
+      <div class="w-1/6">${item.id}</div>
+      <div class="w-3/6">${item.name}</div>
+      <div class="w-2/6">$${item.price}</div>
+      <div class="w-1/12"><i class="fa-solid fa-pen-to-square cursor-pointer text-purple-800 hover:text-purple-950 duration-500 ease-in-out dark:text-white dark:hover:text-slate-300" onclick="showProduct(${item.id})"></i></div>
+      <div class="w-1/12"><i class="fa-solid fa-trash cursor-pointer text-purple-800 hover:text-purple-950 duration-500 ease-in-out dark:text-white dark:hover:text-slate-300" onclick="showDeletedProduct(${item.id})"></i></div>
+    </div>`;
           productsDiv.appendChild(newDiv);
         }
       });
+      productsAmountDiv.innerHTML = `${amount}`;
     })
     .catch((error) => {
       console.error("Erro durante a requisição:", error);
