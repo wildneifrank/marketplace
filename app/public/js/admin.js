@@ -29,39 +29,49 @@ const url = "http://localhost:3001/admin/";
 const feedbacksDiv = document.querySelector("#feedbacksDiv");
 let feedbacksData = [];
 const feedbacksAmountDiv = document.querySelector("#feedbacksAmount");
-
-fetch(url + "feedbacks")
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error(`Erro na requisição: ${response.status}`);
-    }
-    return response.json();
-  })
-  .then((data) => {
-    feedbacksData = data;
-    let amount = 0;
-    data.forEach((item) => {
-      if (!item.deleted) {
-        amount++;
-        let newDiv = document.createElement("div");
-        newDiv.innerHTML = `<div class="w-full h-auto text-md flex gap-5 py-2 px-3 border-t border-purple-800">
-      <div class="w-1/6">${item.id}</div>
-      <div class="w-3/6">${item.name}</div>
-      <div class="w-2/6">${item.email}</div>
-      <div class="w-1/12"><i class="fa-solid fa-eye cursor-pointer text-purple-800 hover:text-purple-950 duration-500 ease-in-out dark:text-white dark:hover:text-slate-300" onclick="showFeedback(${item.id})"></i></div>
-      <div class="w-1/12"><i class="fa-solid fa-trash cursor-pointer text-purple-800 hover:text-purple-950 duration-500 ease-in-out dark:text-white dark:hover:text-slate-300" onclick="showDeletedFeedback(${item.id})"></i></div>
-    </div>`;
-        feedbacksDiv.appendChild(newDiv);
-      }
-    });
-    feedbacksAmountDiv.innerHTML = `${amount}`;
-  })
-  .catch((error) => {
-    console.error("Erro durante a requisição:", error);
-  });
-
 const feedbacksScene = document.querySelector("#feedbacks");
 
+// Usuários - Pagination
+let feedbacksPosition = 0;
+function rightFeedbacks() {
+  if (!((feedbacksPosition + 1) * limit > feedbacksData.length)) {
+    feedbacksPosition++;
+    paginationFeedbacks();
+  }
+}
+function leftFeedbacks() {
+  if (!(feedbacksPosition == 0)) {
+    feedbacksPosition--;
+    paginationFeedbacks();
+  }
+}
+
+function paginationFeedbacks() {
+  feedbacksDiv.innerHTML = "";
+  for (
+    let index = feedbacksPosition * limit;
+    index < (feedbacksPosition + 1) * limit;
+    index++
+  ) {
+    if (!feedbacksData[index]) {
+      break;
+    }
+    let newDiv = document.createElement("div");
+    newDiv.innerHTML = `<div class="w-full h-auto text-md flex gap-5 py-2 px-3 border-t border-purple-800">
+      <div class="w-1/6">${feedbacksData[index].id}</div>
+      <div class="w-3/6">${feedbacksData[index].name}</div>
+      <div class="w-2/6">${feedbacksData[index].email}</div>
+      <div class="w-1/12"><i class="fa-solid fa-eye cursor-pointer text-purple-800 hover:text-purple-950 duration-500 ease-in-out dark:text-white dark:hover:text-slate-300" onclick="showFeedback(${feedbacksData[index].id})"></i></div>
+      <div class="w-1/12"><i class="fa-solid fa-trash cursor-pointer text-purple-800 hover:text-purple-950 duration-500 ease-in-out dark:text-white dark:hover:text-slate-300" onclick="showDeletedFeedback(${feedbacksData[index].id})"></i></div>
+    </div>`;
+    feedbacksDiv.appendChild(newDiv);
+  }
+  document.querySelector("#currentFeedbacksPosition").innerHTML = `${
+    feedbacksPosition + 1
+  }`;
+}
+
+// Feedbacks - Popup p/ view
 function showFeedback(id) {
   const item = feedbacksData.find((item) => item.id == id);
   let newDiv = document.createElement("form");
@@ -93,6 +103,7 @@ function showFeedback(id) {
   feedbacksScene.appendChild(newDiv);
 }
 
+// Feedbacks - PopUp p/ delete
 function showDeletedFeedback(id) {
   let newDiv = document.createElement("div");
   newDiv.className =
@@ -104,6 +115,13 @@ function showDeletedFeedback(id) {
     <div class="w-full h-auto px-4 py-2 text-center border border-purple-800 text-purple-800 text-lg font-semibold hover:text-white hover:bg-purple-800 duration-500 ease-in-out cursor-pointer rounded-lg  dark:border-white dark:text-white dark:hover:bg-slate-800 mt-2" onclick="deletedFeedback(${id})" >Excluir</div>  `;
   feedbacksScene.appendChild(newDiv);
 }
+
+// Feedbacks - Fechar PopUp
+function closeFeedback() {
+  feedbacksScene.removeChild(feedbacksScene.lastChild);
+}
+
+// Feedbacks - Deletar feedback
 function deletedFeedback(id) {
   fetch(url + `feedbacks/${id}`, {
     method: "DELETE",
@@ -124,10 +142,11 @@ function deletedFeedback(id) {
       console.error("Erro durante a requisição:", error);
     });
   closeFeedback();
-  updatedFeedback();
+  getFeedbacks();
 }
 
-function updatedFeedback() {
+// Feedbacks - Pegar dados
+function getFeedbacks() {
   feedbacksDiv.innerHTML = "";
   fetch(url + "feedbacks")
     .then((response) => {
@@ -137,22 +156,16 @@ function updatedFeedback() {
       return response.json();
     })
     .then((data) => {
-      feedbacksData = data;
+      feedbacksData = [];
       let amount = 0;
       data.forEach((item) => {
         if (!item.deleted) {
+          feedbacksData.push(item);
           amount++;
-          let newDiv = document.createElement("div");
-          newDiv.innerHTML = `<div class="w-full h-auto text-md flex gap-5 py-2 px-3 border-t border-purple-800">
-      <div class="w-1/6">${item.id}</div>
-      <div class="w-3/6">${item.name}</div>
-      <div class="w-2/6">${item.email}</div>
-      <div class="w-1/12"><i class="fa-solid fa-eye cursor-pointer text-purple-800 hover:text-purple-950 duration-500 ease-in-out dark:text-white dark:hover:text-slate-300" onclick="showFeedback(${item.id})"></i></div>
-      <div class="w-1/12"><i class="fa-solid fa-trash cursor-pointer text-purple-800 hover:text-purple-950 duration-500 ease-in-out dark:text-white dark:hover:text-slate-300" onclick="showDeletedFeedback(${item.id})"></i></div>
-    </div>`;
-          feedbacksDiv.appendChild(newDiv);
         }
       });
+      feedbacksPosition = 0;
+      paginationFeedbacks();
       feedbacksAmountDiv.innerHTML = `${amount}`;
     })
     .catch((error) => {
@@ -160,9 +173,7 @@ function updatedFeedback() {
     });
 }
 
-function closeFeedback() {
-  feedbacksScene.removeChild(feedbacksScene.lastChild);
-}
+getFeedbacks();
 
 // Usuários
 const usersDiv = document.querySelector("#usersDiv");
@@ -170,25 +181,25 @@ let usersData = [];
 const usersAmountDiv = document.querySelector("#usersAmount");
 
 // Usuários - Pagination
-let UsersPosition = 0;
+let usersPosition = 0;
 const limit = 9;
 function rightUsers() {
-  if (!((UsersPosition + 1) * limit > usersData.length)) {
-    UsersPosition++;
+  if (!((usersPosition + 1) * limit > usersData.length)) {
+    usersPosition++;
     paginationUsers();
   }
 }
 function leftUsers() {
-  if (!(UsersPosition == 0)) {
-    UsersPosition--;
+  if (!(usersPosition == 0)) {
+    usersPosition--;
     paginationUsers();
   }
 }
 function paginationUsers() {
   usersDiv.innerHTML = "";
   for (
-    let index = UsersPosition * limit;
-    index < (UsersPosition + 1) * limit;
+    let index = usersPosition * limit;
+    index < (usersPosition + 1) * limit;
     index++
   ) {
     if (!usersData[index]) {
@@ -205,7 +216,7 @@ function paginationUsers() {
     usersDiv.appendChild(newDiv);
   }
   document.querySelector("#currentUsersPosition").innerHTML = `${
-    UsersPosition + 1
+    usersPosition + 1
   }`;
 }
 
@@ -370,7 +381,7 @@ function getUsers() {
           amount++;
         }
       });
-      UsersPosition = 0;
+      usersPosition = 0;
       paginationUsers();
 
       usersAmountDiv.innerHTML = `${amount}`;

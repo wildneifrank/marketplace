@@ -15,7 +15,7 @@
     "number": "8592412786",
     "message": "Otimo restaurante",
     "restaurant_id": 2,
-    "deleted": true
+    "deleted": false
   },
   {
     "id": 3,
@@ -42,7 +42,7 @@
     "number": "9988776655",
     "message": "Preços acessíveis!",
     "restaurant_id": 1,
-    "deleted": true
+    "deleted": false
   },
   {
     "id": 6,
@@ -87,7 +87,7 @@
     "number": "85992231334",
     "message": "jhkjahdkdhskasd",
     "restaurant_id": 5,
-    "deleted": true
+    "deleted": false
   },
   {
     "id": 11,
