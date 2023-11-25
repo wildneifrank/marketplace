@@ -30,6 +30,7 @@ class RestaurantController {
           number: restaurant.number,
           aboutUs: restaurant.aboutUs,
           image: restaurant.image,
+          id: restaurant.id,
         });
       })
       .catch((error) => {

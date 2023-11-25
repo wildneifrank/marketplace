@@ -17,6 +17,7 @@ routes.get("/restaurante/:id", RestaurantController.template);
 routes.get("/admin/products", ProductController.getProducts);
 routes.delete("/admin/products/:id", ProductController.deletedProduct);
 routes.put("/admin/products/:id", ProductController.updatedProduct);
+
 // Admin - Restaurants
 routes.get("/admin/restaurants", RestaurantController.getRestaurants);
 routes.delete("/admin/restaurants/:id", RestaurantController.deletedRestaurant);
@@ -25,5 +26,6 @@ routes.put("/admin/restaurants/:id", RestaurantController.updatedRestaurant);
 // Admin - Feedbacks
 routes.get("/admin/feedbacks", FeedbackController.getFeedbacks);
 routes.delete("/admin/feedbacks/:id", FeedbackController.deletedFeedback);
+routes.post("/admin/feedbacks", FeedbackController.createFeedback);
 
 module.exports = routes;

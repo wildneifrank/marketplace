@@ -28,7 +28,8 @@ class DataAccess {
 
   create(json) {
     let new_id = this.data.length + 1;
-    json["id"] = new_id;
+    json.id = new_id;
+    json["deleted"] = false;
     this.data.push(json);
     this.save();
   }

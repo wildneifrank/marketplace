@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br" id="mode">
+<html lang="pt-br" class="scroll-smooth" id="mode">
 
 <head>
   <meta charset="UTF-8" />
@@ -17,8 +17,8 @@
 </head>
 
 <body class="dark:bg-slate-800 duration-500 ease-in-out">
-  <%- include('../../components/header'); %>
-  <main class="px-12 flex flex-col gap-5 mb-10">
+  <%- include('../../components/headerRestaurant'); %>
+  <main class="px-12 flex flex-col gap-5 mb-10" id="aboutUs">
     <div class="w-full h-auto mt-24 static flex flex-wrap gap-6">
       <aside class="sm:w-64 w-full flex items-center gap-3 flex-col text-purple-800">
         <img src="<%= image %>" class="rounded-full w-52 h-auto border-2 border-purple-800 shadow-md" alt="Logo do restaurante" />
@@ -52,7 +52,7 @@
         </div>
       </div>
     </div>
-    <div class="w-full h-auto flex flex-col gap-4 px-3">
+    <div class="w-full h-auto flex flex-col gap-4 px-3" id="products">
       <%- include('../../components/title', {title:"Cardápio"}); %>
       <div class="w-full h-auto flex gap-3 justify-start flex-wrap">
         <div class="px-4 py-2 rounded-full text-lg font-semibold shadow-md border border-purple-800  duration-500 ease-in-out text-white bg-purple-900 cursor-pointer">
@@ -85,35 +85,36 @@
       </div>
     </div>
 
-    <div class="w-full h-auto flex flex-col gap-2 px-3">
+    <div class="w-full h-auto flex flex-col gap-2 px-3" id="contacts">
       <%- include('../../components/title', {title:"Contate-nos"}) %>
       <div class="text-lg font-semibold text-purple-800 dark:text-white duration-500 ease-in-out">Tem alguma dúvida ou reclamação? Mande-nos uma mensagem.</div>
-      <form action="" class="lg:w-3/5 w-full flex flex-col gap-2 mb-5 md:mb-0" autocomplete="off">
+      <form action="" onsubmit="sendFeedback(event, '<%= id %>')" class="lg:w-3/5 w-full flex flex-col gap-2 mb-5 md:mb-0" autocomplete="off">
         <div class="w-full flex flex-col gap-2">
           <label for="name" class="text-lg text-purple-800 font-semibold dark:text-white duration-500 ease-in-out">Nome Completo</label>
-          <input type="text" name="name" id="name" placeholder="Nome" class="rounded-md font-medium text-purple-800 border-purple-800 focus:border-purple-800 focus:ring-0 dark:border-slate-300 dark:focus:border-slate-300 duration-500 ease-in-out dark:bg-slate-800 dark:text-white">
+          <input type="text" name="name" id="name_<%= id %>" placeholder="Nome" class="rounded-md font-medium text-purple-800 border-purple-800 focus:border-purple-800 focus:ring-0 dark:border-slate-300 dark:focus:border-slate-300 duration-500 ease-in-out dark:bg-slate-800 dark:text-white" minlength="3" required>
         </div>
         <div class="w-full flex gap-3 flex-wrap md:flex-nowrap">
           <div class="md:w-1/2 w-full flex flex-col gap-2">
             <label for="email" class="text-lg text-purple-800 font-semibold dark:text-white duration-500 ease-in-out">Email</label>
-            <input type="email" name="email" id="email" placeholder="Email" class="rounded-md font-medium text-purple-800 border-purple-800 focus:border-purple-800 focus:ring-0 dark:border-slate-300 dark:focus:border-slate-300 duration-500 ease-in-out dark:bg-slate-800 dark:text-white">
+            <input type="email" name="email" id="email_<%= id %>" placeholder="Email" class="rounded-md font-medium text-purple-800 border-purple-800 focus:border-purple-800 focus:ring-0 dark:border-slate-300 dark:focus:border-slate-300 duration-500 ease-in-out dark:bg-slate-800 dark:text-white" required>
           </div>
           <div class="md:w-1/2 w-full flex flex-col gap-2">
-            <label for="phone" class="text-lg text-purple-800 font-semibold dark:text-white duration-500 ease-in-out">Telefone</label>
-            <input type="tel" name="phone" id="phone" placeholder="Telefone" class="rounded-md font-medium text-purple-800 border-purple-800 focus:border-purple-800 focus:ring-0 dark:border-slate-300 dark:focus:border-slate-300 duration-500 ease-in-out dark:bg-slate-800 dark:text-white">
+            <label for="tel" class="text-lg text-purple-800 font-semibold dark:text-white duration-500 ease-in-out">Telefone</label>
+            <input type="tel" name="tel" id="tel_<%= id %>" placeholder="Telefone" class="rounded-md font-medium text-purple-800 border-purple-800 focus:border-purple-800 focus:ring-0 dark:border-slate-300 dark:focus:border-slate-300 duration-500 ease-in-out dark:bg-slate-800 dark:text-white" pattern="[0-9]{10,11}" required>
           </div>
         </div>
         <div class="w-full flex flex-col gap-2">
           <label for="message" class="text-lg text-purple-800 font-semibold dark:text-white duration-500 ease-in-out">Mensagem</label>
-          <textarea name="message" id="message" class="rounded-md font-medium h-56 p-3 text-purple-800 border-purple-800 focus:border-purple-800 focus:ring-0 dark:border-slate-300 dark:focus:border-slate-300 duration-500 ease-in-out dark:bg-slate-800 dark:text-white" placeholder="Digite uma mensagem..."></textarea>
+          <textarea name="message" id="message_<%= id %>" class="rounded-md font-medium h-56 p-3 text-purple-800 border-purple-800 focus:border-purple-800 focus:ring-0 dark:border-slate-300 dark:focus:border-slate-300 duration-500 ease-in-out dark:bg-slate-800 dark:text-white" placeholder="Digite uma mensagem..." minlength="5" required></textarea>
 
         </div>
-        <button type="submit" class="border bg-white text-lg font-semibold rounded-md shadow-md px-3 py-2 border-purple-800 text-purple-800 hover:text-white hover:bg-purple-800 duration-500 ease-in-out sm:w-2/5 md:w-1/5 w-full mt-2 dark:bg-slate-800 dark:border-slate-300 dark:text-white dark:hover:bg-purple-800">Enviar</button>
+        <button type="submit" class="border bg-white text-lg font-semibold rounded-md shadow-md px-3 py-2 border-purple-800 text-purple-800 hover:text-white hover:bg-purple-800 duration-500 ease-in-out sm:w-2/5 md:w-1/5 w-full mt-2 dark:bg-slate-800 dark:border-slate-300 dark:text-white dark:hover:bg-slate-900">Enviar</button>
       </form>
     </div>
   </main>
   <%- include('../../components/footer'); %>
   <script src="../js/accessibility.js"></script>
+  <script src="../js/restaurant.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
 </body>
 
