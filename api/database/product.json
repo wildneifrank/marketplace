@@ -1,1 +1,222 @@
-[{"id":1,"name":"Pizza","price":"20","description":"Sabor Calabresa","image_link":"https://picsum.photos/200/300","restaurant_id":"1","status":true,"deleted":false},{"id":2,"name":"Calzone","price":15,"description":"Sabor Chocolate","image_link":"","restaurant_id":1,"status":false,"deleted":false},{"id":3,"name":"Lasanha","price":25,"description":"Sabor Bolonhesa","image_link":"","restaurant_id":1,"status":true,"deleted":false},{"id":4,"name":"Salada Caesar","price":12,"description":"Salada com Frango Grelhado","image_link":"","restaurant_id":1,"status":true,"deleted":true},{"id":5,"name":"Sushi Combo","price":30,"description":"Assortment of Sushi","image_link":"","restaurant_id":1,"status":true,"deleted":false},{"id":6,"name":"Hambúrguer","price":18,"description":"Clássico com Queijo e Bacon","image_link":"","restaurant_id":1,"status":true,"deleted":false},{"id":7,"name":"Creme de Abóbora","price":8,"description":"Sopa Cremosa de Abóbora","image_link":"","restaurant_id":1,"status":true,"deleted":true}]
+[
+  {
+    "id": 1,
+    "name": "Pizza",
+    "price": "20",
+    "description": "Sabor Calabresa",
+    "image_link": "https://picsum.photos/200/300",
+    "restaurant_id": "1",
+    "status": true,
+    "deleted": false
+  },
+  {
+    "id": 2,
+    "name": "Calzone",
+    "price": 15,
+    "description": "Sabor Chocolate",
+    "image_link": "",
+    "restaurant_id": 1,
+    "status": false,
+    "deleted": false
+  },
+  {
+    "id": 3,
+    "name": "Lasanha",
+    "price": "25",
+    "description": "Sabor Bolonhesa",
+    "image_link": "https://picsum.photos/200/300",
+    "restaurant_id": "1",
+    "status": true,
+    "deleted": false
+  },
+  {
+    "id": 4,
+    "name": "Salada Caesar",
+    "price": 12,
+    "description": "Salada com Frango Grelhado",
+    "image_link": "",
+    "restaurant_id": 1,
+    "status": true,
+    "deleted": false
+  },
+  {
+    "id": 5,
+    "name": "Sushi Combo",
+    "price": 30,
+    "description": "Assortment of Sushi",
+    "image_link": "",
+    "restaurant_id": 1,
+    "status": true,
+    "deleted": false
+  },
+  {
+    "id": 6,
+    "name": "Hambúrguer",
+    "price": "18",
+    "description": "Clássico com Queijo e Bacon",
+    "image_link": "https://picsum.photos/200/300",
+    "restaurant_id": "1",
+    "status": false,
+    "deleted": false
+  },
+  {
+    "id": 7,
+    "name": "Creme de Abóbora",
+    "price": 8,
+    "description": "Sopa Cremosa de Abóbora",
+    "image_link": "",
+    "restaurant_id": 1,
+    "status": true,
+    "deleted": false
+  },
+  {
+    "id": 8,
+    "name": "Pasta Carbonara",
+    "price": 18,
+    "description": "Massa com Molho Carbonara",
+    "image_link": "https://picsum.photos/200/300",
+    "restaurant_id": 1,
+    "status": true,
+    "deleted": false
+  },
+  {
+    "id": 9,
+    "name": "Tiramisu",
+    "price": 10,
+    "description": "Sobremesa Italiana Clássica",
+    "image_link": "",
+    "restaurant_id": 1,
+    "status": true,
+    "deleted": false
+  },
+  {
+    "id": 10,
+    "name": "Frango Grelhado",
+    "price": 15,
+    "description": "Peito de Frango Grelhado com Legumes",
+    "image_link": "https://picsum.photos/200/300",
+    "restaurant_id": "1",
+    "status": false,
+    "deleted": false
+  },
+  {
+    "id": 11,
+    "name": "Milkshake de Morango",
+    "price": 8,
+    "description": "Milkshake Cremoso de Morango",
+    "image_link": "",
+    "restaurant_id": 1,
+    "status": true,
+    "deleted": false
+  },
+  {
+    "id": 12,
+    "name": "Nachos com Guacamole",
+    "price": 12,
+    "description": "Nachos Crocantes com Guacamole",
+    "image_link": "",
+    "restaurant_id": 1,
+    "status": true,
+    "deleted": false
+  },
+  {
+    "id": 13,
+    "name": "Lasanha Vegetariana",
+    "price": 22,
+    "description": "Deliciosa Lasanha com Vegetais",
+    "image_link": "https://picsum.photos/200/300",
+    "restaurant_id": 1,
+    "status": false,
+    "deleted": false
+  },
+  {
+    "id": 14,
+    "name": "Wrap de Frango",
+    "price": 14,
+    "description": "Wrap com Frango Grelhado e Vegetais",
+    "image_link": "",
+    "restaurant_id": 1,
+    "status": true,
+    "deleted": false
+  },
+  {
+    "id": 15,
+    "name": "Sorvete de Baunilha",
+    "price": 6,
+    "description": "Sorvete Clássico de Baunilha",
+    "image_link": "https://picsum.photos/200/300",
+    "restaurant_id": "1",
+    "status": true,
+    "deleted": false
+  },
+  {
+    "id": 16,
+    "name": "Salada de Frutas",
+    "price": 10,
+    "description": "Salada Refrescante de Frutas",
+    "image_link": "",
+    "restaurant_id": 1,
+    "status": false,
+    "deleted": false
+  },
+  {
+    "id": 17,
+    "name": "Sanduíche de Peito de Peru",
+    "price": 9,
+    "description": "Sanduíche com Peito de Peru e Queijo",
+    "image_link": "",
+    "restaurant_id": 1,
+    "status": true,
+    "deleted": false
+  },
+  {
+    "id": 18,
+    "name": "Ceviche de Camarão",
+    "price": 28,
+    "description": "Ceviche Fresco de Camarão",
+    "image_link": "https://picsum.photos/200/300",
+    "restaurant_id": 1,
+    "status": true,
+    "deleted": false
+  },
+  {
+    "id": 19,
+    "name": "Café Espresso",
+    "price": 3,
+    "description": "Café Forte e Aromático",
+    "image_link": "",
+    "restaurant_id": 1,
+    "status": false,
+    "deleted": false
+  },
+  {
+    "id": 20,
+    "name": "Croissant de Chocolate",
+    "price": 5,
+    "description": "Croissant Recheado com Chocolate",
+    "image_link": "https://picsum.photos/200/300",
+    "restaurant_id": "1",
+    "status": true,
+    "deleted": false
+  },
+  {
+    "id": 21,
+    "name": "Smoothie de Manga",
+    "price": 7,
+    "description": "Smoothie Refrescante de Manga",
+    "image_link": "",
+    "restaurant_id": 1,
+    "status": true,
+    "deleted": false
+  },
+  {
+    "id": 22,
+    "name": "Frango ao Curry",
+    "price": "15",
+    "description": "Frango Cozido com Molho de Curry",
+    "image_link": "https://picsum.photos/200/300",
+    "restaurant_id": "1",
+    "status": false,
+    "deleted": false
+  }
+]

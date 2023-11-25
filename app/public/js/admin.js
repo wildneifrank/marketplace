@@ -31,10 +31,10 @@ let feedbacksData = [];
 const feedbacksAmountDiv = document.querySelector("#feedbacksAmount");
 const feedbacksScene = document.querySelector("#feedbacks");
 
-// Usuários - Pagination
+// Feedbacks - Pagination
 let feedbacksPosition = 0;
 function rightFeedbacks() {
-  if (!((feedbacksPosition + 1) * limit > feedbacksData.length)) {
+  if (!(feedbacksPosition + 1 > feedbacksData.length / limit)) {
     feedbacksPosition++;
     paginationFeedbacks();
   }
@@ -184,7 +184,7 @@ const usersAmountDiv = document.querySelector("#usersAmount");
 let usersPosition = 0;
 const limit = 9;
 function rightUsers() {
-  if (!((usersPosition + 1) * limit > usersData.length)) {
+  if (!(usersPosition + 1 > usersData.length / limit)) {
     usersPosition++;
     paginationUsers();
   }
@@ -396,38 +396,48 @@ getUsers();
 const productsDiv = document.querySelector("#productsDiv");
 let productsData = [];
 const productsAmountDiv = document.querySelector("#productsAmount");
-
-fetch(url + "products")
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error(`Erro na requisição: ${response.status}`);
-    }
-    return response.json();
-  })
-  .then((data) => {
-    productsData = data;
-    let amount = 0;
-    data.forEach((item) => {
-      if (!item.deleted) {
-        amount++;
-        let newDiv = document.createElement("div");
-        newDiv.innerHTML = `<div class="w-full h-auto text-md flex gap-5 py-2 px-3 border-t border-purple-800">
-      <div class="w-1/6">${item.id}</div>
-      <div class="w-3/6">${item.name}</div>
-      <div class="w-2/6">$${item.price}</div>
-      <div class="w-1/12"><i class="fa-solid fa-pen-to-square cursor-pointer text-purple-800 hover:text-purple-950 duration-500 ease-in-out dark:text-white dark:hover:text-slate-300" onclick="showProduct(${item.id})"></i></div>
-      <div class="w-1/12"><i class="fa-solid fa-trash cursor-pointer text-purple-800 hover:text-purple-950 duration-500 ease-in-out dark:text-white dark:hover:text-slate-300" onclick="showDeletedProduct(${item.id})"></i></div>
-    </div>`;
-        productsDiv.appendChild(newDiv);
-      }
-    });
-    productsAmountDiv.innerHTML = `${amount}`;
-  })
-  .catch((error) => {
-    console.error("Erro durante a requisição:", error);
-  });
-
 const productsScene = document.querySelector("#products");
+
+// Produtos - Pagination
+let productsPosition = 0;
+function rightProducts() {
+  if (!(productsPosition + 1 > productsData.length / limit)) {
+    productsPosition++;
+    paginationProducts();
+  }
+}
+function leftProducts() {
+  if (!(productsPosition == 0)) {
+    productsPosition--;
+    paginationProducts();
+  }
+}
+function paginationProducts() {
+  productsDiv.innerHTML = "";
+  for (
+    let index = productsPosition * limit;
+    index < (productsPosition + 1) * limit;
+    index++
+  ) {
+    if (!productsData[index]) {
+      break;
+    }
+    let newDiv = document.createElement("div");
+    newDiv.innerHTML = `<div class="w-full h-auto text-md flex gap-5 py-2 px-3 border-t border-purple-800">
+      <div class="w-1/6">${productsData[index].id}</div>
+      <div class="w-3/6">${productsData[index].name}</div>
+      <div class="w-2/6">$${productsData[index].price}</div>
+      <div class="w-1/12"><i class="fa-solid fa-pen-to-square cursor-pointer text-purple-800 hover:text-purple-950 duration-500 ease-in-out dark:text-white dark:hover:text-slate-300" onclick="showProduct(${productsData[index].id})"></i></div>
+      <div class="w-1/12"><i class="fa-solid fa-trash cursor-pointer text-purple-800 hover:text-purple-950 duration-500 ease-in-out dark:text-white dark:hover:text-slate-300" onclick="showDeletedProduct(${productsData[index].id})"></i></div>
+    </div>`;
+    productsDiv.appendChild(newDiv);
+  }
+  document.querySelector("#currentProductsPosition").innerHTML = `${
+    productsPosition + 1
+  }`;
+}
+
+// Produtos - PopUp p/ Delete
 function showDeletedProduct(id) {
   let newDiv = document.createElement("div");
   newDiv.className =
@@ -439,6 +449,8 @@ function showDeletedProduct(id) {
   <div class="w-full h-auto px-4 py-2 text-center border border-purple-800 text-purple-800 text-lg font-semibold hover:text-white hover:bg-purple-800 duration-500 ease-in-out cursor-pointer rounded-lg  dark:border-white dark:text-white dark:hover:bg-slate-800 mt-2" onclick="deletedProduct(${id})" >Excluir</div>  `;
   productsScene.appendChild(newDiv);
 }
+
+// Produtos - PopUp p/ Edit
 function showProduct(id) {
   const item = productsData.find((item) => item.id == id);
   let newDiv = document.createElement("form");
@@ -500,6 +512,12 @@ function showProduct(id) {
   productsScene.appendChild(newDiv);
 }
 
+// Produtos - Fechar PopUp
+function closeProduct() {
+  productsScene.removeChild(productsScene.lastChild);
+}
+
+// Produtos - Atualizar Produto
 function sendProductData(id) {
   const name = document.querySelector(`#name_product_${id}`).value;
   const price = document.querySelector(`#price_product_${id}`).value;
@@ -549,10 +567,11 @@ function sendProductData(id) {
     .catch((error) => {
       console.error("Erro durante a requisição:", error);
     });
-  updateProducts();
+  getProducts();
   closeProduct();
 }
 
+// Produtos - Deletar Produto
 function deletedProduct(id) {
   fetch(url + `products/${id}`, {
     method: "DELETE",
@@ -573,10 +592,11 @@ function deletedProduct(id) {
       console.error("Erro durante a requisição:", error);
     });
   closeProduct();
-  updateProducts();
+  getProducts();
 }
 
-function updateProducts() {
+// Produtos - Pegar os dados
+function getProducts() {
   productsDiv.innerHTML = "";
   fetch(url + "products")
     .then((response) => {
@@ -586,28 +606,22 @@ function updateProducts() {
       return response.json();
     })
     .then((data) => {
-      productsData = data;
+      productsData = [];
       let amount = 0;
       data.forEach((item) => {
         if (!item.deleted) {
+          productsData.push(item);
           amount++;
-          let newDiv = document.createElement("div");
-          newDiv.innerHTML = `<div class="w-full h-auto text-md flex gap-5 py-2 px-3 border-t border-purple-800">
-      <div class="w-1/6">${item.id}</div>
-      <div class="w-3/6">${item.name}</div>
-      <div class="w-2/6">$${item.price}</div>
-      <div class="w-1/12"><i class="fa-solid fa-pen-to-square cursor-pointer text-purple-800 hover:text-purple-950 duration-500 ease-in-out dark:text-white dark:hover:text-slate-300" onclick="showProduct(${item.id})"></i></div>
-      <div class="w-1/12"><i class="fa-solid fa-trash cursor-pointer text-purple-800 hover:text-purple-950 duration-500 ease-in-out dark:text-white dark:hover:text-slate-300" onclick="showDeletedProduct(${item.id})"></i></div>
-    </div>`;
-          productsDiv.appendChild(newDiv);
         }
       });
+      productsPosition = 0;
+      paginationProducts();
+
       productsAmountDiv.innerHTML = `${amount}`;
     })
     .catch((error) => {
       console.error("Erro durante a requisição:", error);
     });
 }
-function closeProduct() {
-  productsScene.removeChild(productsScene.lastChild);
-}
+
+getProducts();
