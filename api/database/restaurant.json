@@ -8,8 +8,6 @@
     "aboutUs": "Lorem ipsum dolor sit amet consectetur adipisicing elit...",
     "password": "123456789",
     "image": "https://picsum.photos/150/150",
-    "products": [],
-    "feedbacks": [],
     "status": true,
     "deleted": false
   },
@@ -22,8 +20,6 @@
     "aboutUs": "Descrição da Empresa ABC...",
     "password": "abcdefgh",
     "image": "https://picsum.photos/150/150",
-    "products": [],
-    "feedbacks": [],
     "status": true,
     "deleted": false
   },
@@ -36,8 +32,6 @@
     "aboutUs": "Descrição da Companhia 123...",
     "password": "ijklmnop",
     "image": "https://picsum.photos/150/150",
-    "products": [],
-    "feedbacks": [],
     "status": true,
     "deleted": false
   },
@@ -50,8 +44,6 @@
     "aboutUs": "Descrição da Tech Solutions...",
     "password": "password123",
     "image": "https://picsum.photos/150/150",
-    "products": [],
-    "feedbacks": [],
     "status": true,
     "deleted": false
   },
@@ -64,8 +56,6 @@
     "aboutUs": "Descrição da Inovação S.A....",
     "password": "inovar@123",
     "image": "https://picsum.photos/150/150",
-    "products": [],
-    "feedbacks": [],
     "status": true,
     "deleted": false
   },
@@ -78,8 +68,6 @@
     "aboutUs": "Descrição da Engenharia Pro...",
     "password": "proeng123",
     "image": "https://picsum.photos/150/150",
-    "products": [],
-    "feedbacks": [],
     "status": true,
     "deleted": false
   },
@@ -92,8 +80,6 @@
     "aboutUs": "Descrição da Tech Innovators...",
     "password": "tech1234",
     "image": "https://picsum.photos/150/150",
-    "products": [],
-    "feedbacks": [],
     "status": true,
     "deleted": false
   },
@@ -106,8 +92,6 @@
     "aboutUs": "Descrição da Tech Innovators...",
     "password": "inovar@123",
     "image": "https://picsum.photos/150/150",
-    "products": [],
-    "feedbacks": [],
     "status": true,
     "deleted": false
   },
@@ -120,8 +104,6 @@
     "aboutUs": "Descrição da Inovação S.A....",
     "password": "proeng123",
     "image": "https://picsum.photos/150/150",
-    "products": [],
-    "feedbacks": [],
     "status": true,
     "deleted": false
   },
@@ -134,8 +116,6 @@
     "aboutUs": "Descrição da Inovação S.A....",
     "password": "tech1234",
     "image": "https://picsum.photos/150/150",
-    "products": [],
-    "feedbacks": [],
     "status": true,
     "deleted": false
   },
@@ -148,8 +128,6 @@
     "aboutUs": "Descrição da Inovação S.A....",
     "password": "inovar@123",
     "image": "https://picsum.photos/150/150",
-    "products": [],
-    "feedbacks": [],
     "status": true,
     "deleted": false
   },
@@ -162,8 +140,6 @@
     "aboutUs": "Descrição da Engenharia Pro...",
     "password": "proeng123",
     "image": "https://picsum.photos/150/150",
-    "products": [],
-    "feedbacks": [],
     "status": false,
     "deleted": false
   },
@@ -176,8 +152,6 @@
     "aboutUs": "Descrição da Engenharia Pro...",
     "password": "tech1234",
     "image": "https://picsum.photos/150/150",
-    "products": [],
-    "feedbacks": [],
     "status": true,
     "deleted": false
   },
@@ -190,8 +164,6 @@
     "aboutUs": "Descrição da Tech Solutions Jr...",
     "password": "password123",
     "image": "https://picsum.photos/150/150",
-    "products": [],
-    "feedbacks": [],
     "status": true,
     "deleted": false
   },
@@ -204,8 +176,6 @@
     "aboutUs": "Descrição da Inovação Tech Jr....",
     "password": "inovar@123",
     "image": "https://picsum.photos/150/150",
-    "products": [],
-    "feedbacks": [],
     "status": true,
     "deleted": false
   },
@@ -218,8 +188,6 @@
     "aboutUs": "Descrição da Engenharia Pro Tech...",
     "password": "protech123",
     "image": "https://picsum.photos/150/150",
-    "products": [],
-    "feedbacks": [],
     "status": false,
     "deleted": false
   },
@@ -232,8 +200,6 @@
     "aboutUs": "Descrição da Tech Innovators Solutions...",
     "password": "techsolutions1234",
     "image": "https://picsum.photos/150/150",
-    "products": [],
-    "feedbacks": [],
     "status": true,
     "deleted": false
   },
@@ -246,8 +212,6 @@
     "aboutUs": "Descrição da Tech Jr. Solutions...",
     "password": "inovar@123",
     "image": "https://picsum.photos/150/150",
-    "products": [],
-    "feedbacks": [],
     "status": true,
     "deleted": false
   },
@@ -260,8 +224,6 @@
     "aboutUs": "Descrição da Inovação Tech S.A....",
     "password": "protech123",
     "image": "https://picsum.photos/150/150",
-    "products": [],
-    "feedbacks": [],
     "status": true,
     "deleted": false
   },
@@ -274,8 +236,6 @@
     "aboutUs": "Descrição da Inovação Tech Solutions...",
     "password": "techsolutions1234",
     "image": "https://picsum.photos/150/150",
-    "products": [],
-    "feedbacks": [],
     "status": true,
     "deleted": false
   },
@@ -288,8 +248,6 @@
     "aboutUs": "Descrição da Inovação Pro....",
     "password": "protech123",
     "image": "https://picsum.photos/150/150",
-    "products": [],
-    "feedbacks": [],
     "status": false,
     "deleted": false
   },
@@ -302,8 +260,6 @@
     "aboutUs": "Descrição da Inovação Jr....",
     "password": "tech1234",
     "image": "https://picsum.photos/150/150",
-    "products": [],
-    "feedbacks": [],
     "status": true,
     "deleted": false
   }
