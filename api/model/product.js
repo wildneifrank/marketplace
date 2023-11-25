@@ -23,6 +23,14 @@ class Product {
       throw new Error(error);
     }
   }
+  static createProduct(json) {
+    const db = new DataAccess("product");
+    try {
+      db.create(json);
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
 }
 
 module.exports = Product;

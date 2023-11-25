@@ -22,6 +22,7 @@ routes.post("/feedbacks", FeedbackController.createFeedback);
 routes.get("/products", ProductController.getProducts);
 routes.delete("/products/:id", ProductController.deleteProduct);
 routes.put("/products/:id", ProductController.updateProduct);
+routes.post("/products", ProductController.createProduct);
 
 // Restaurante
 routes.get("/restaurants", RestaurantController.getRestaurants);

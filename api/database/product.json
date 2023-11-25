@@ -218,5 +218,14 @@
     "restaurant_id": "1",
     "status": false,
     "deleted": false
+  },
+  {
+    "id": 23,
+    "name": "Pizza de Chocolate",
+    "price": 30,
+    "description": "Saborosa pizza de chocolate com M&M",
+    "image_link": "https://picsum.photos/200/300",
+    "restaurant_id": 1,
+    "deleted": false
   }
 ]

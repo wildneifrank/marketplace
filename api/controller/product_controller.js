@@ -27,6 +27,16 @@ class ProductController {
       res.status(401).send({ message: "Erro ao atualizar produto!" });
     }
   }
+  async createProduct(req, res) {
+    const json = req.body;
+    res.setHeader("Content-Type", "application/json");
+    try {
+      Product.createProduct(json);
+      res.status(200).send({ message: "Produto criado com sucesso!" });
+    } catch (error) {
+      res.status(401).send({ message: "Erro ao criar produto!" });
+    }
+  }
 }
 
 module.exports = new ProductController();
