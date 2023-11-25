@@ -262,5 +262,17 @@
     "image": "https://picsum.photos/150/150",
     "status": true,
     "deleted": false
+  },
+  {
+    "id": 23,
+    "name": "Tech Solutions Ltda",
+    "email": "techsolutions@gmail.com",
+    "address": "Rua da Tecnologia, Cidade Tech - Estado, 98765-432",
+    "number": "(66) 12345-6789",
+    "aboutUs": "Descrição da Tech Solutions...",
+    "password": "$2b$10$/YKQJ3FpNNPzPum.R88v1eyAHruf9z7n/.sdugBU8GcOFPRN5jPJG",
+    "image": "https://picsum.photos/150/150",
+    "status": false,
+    "deleted": false
   }
 ]

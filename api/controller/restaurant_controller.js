@@ -2,7 +2,9 @@ const Restaurant = require("../model/restaurant");
 
 class RestaurantController {
   async getRestaurants(req, res) {
-    const data = Restaurant.getRestaurants();
+    const data = Restaurant.getRestaurants().map(
+      ({ password, ...rest }) => rest
+    );
     res.setHeader("Content-Type", "application/json");
     return res.status(200).send(JSON.stringify(data));
   }
@@ -25,6 +27,16 @@ class RestaurantController {
       res.status(200).send({ message: "Restaurante atualizado com sucesso!" });
     } catch (error) {
       res.status(401).send({ message: "Erro ao atualizar restaurante!" });
+    }
+  }
+  async createRestaurant(req, res) {
+    const json = req.body;
+    res.setHeader("Content-Type", "application/json");
+    try {
+      Restaurant.createRestaurant(json);
+      res.status(200).send({ message: "Restaurante criado com sucesso!" });
+    } catch (error) {
+      res.status(401).send({ message: "Erro ao criar restaurante!" });
     }
   }
 }

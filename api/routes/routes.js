@@ -27,5 +27,6 @@ routes.put("/products/:id", ProductController.updateProduct);
 routes.get("/restaurants", RestaurantController.getRestaurants);
 routes.delete("/restaurants/:id", RestaurantController.deleteRestaurant);
 routes.put("/restaurants/:id", RestaurantController.updateRestaurant);
+routes.post("/restaurants", RestaurantController.createRestaurant);
 
 module.exports = routes;
