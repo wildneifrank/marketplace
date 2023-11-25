@@ -29,6 +29,7 @@ const url = "http://localhost:3001/admin/";
 const feedbacksDiv = document.querySelector("#feedbacksDiv");
 let feedbacksData = [];
 const feedbacksAmountDiv = document.querySelector("#feedbacksAmount");
+
 fetch(url + "feedbacks")
   .then((response) => {
     if (!response.ok) {
@@ -77,8 +78,8 @@ function showFeedback(id) {
     <input type="email" name="email" id="email" value="${item.email}" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-900 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800" disabled>
   </div>
   <div class="flex flex-col gap-1">
-    <label for="tel" class="text-purple-800 dark:text-white duration-500 ease-in-out">Telefone</label>
-    <input type="tel" name="tel" id="tel" value="${item.tel}" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-900 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800" disabled>
+    <label for="number" class="text-purple-800 dark:text-white duration-500 ease-in-out">Telefone</label>
+    <input type="tel" name="number" id="number" value="${item.number}" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-900 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800" disabled>
   </div>
   <div class="flex flex-col gap-1">
     <label for="message" class="text-purple-800 dark:text-white duration-500 ease-in-out">Mensagem</label>
@@ -167,36 +168,48 @@ function closeFeedback() {
 const usersDiv = document.querySelector("#usersDiv");
 let usersData = [];
 const usersAmountDiv = document.querySelector("#usersAmount");
-fetch(url + "restaurants")
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error(`Erro na requisição: ${response.status}`);
-    }
-    return response.json();
-  })
-  .then((data) => {
-    usersData = data;
-    let amount = 0;
-    data.forEach((item) => {
-      if (!item.deleted) {
-        amount++;
-        let newDiv = document.createElement("div");
-        newDiv.innerHTML = `<div class="w-full h-auto text-md flex gap-5 py-2 px-3 border-t border-purple-800">
-      <div class="w-1/6">${item.id}</div>
-      <div class="w-3/6">${item.name}</div>
-      <div class="w-2/6">${item.email}</div>
-      <div class="w-1/12"><i class="fa-solid fa-pen-to-square cursor-pointer text-purple-800 hover:text-purple-950 duration-500 ease-in-out dark:text-white dark:hover:text-slate-300" onclick="showUser(${item.id})"></i></div>
-      <div class="w-1/12"><i class="fa-solid fa-trash cursor-pointer text-purple-800 hover:text-purple-950 duration-500 ease-in-out dark:text-white dark:hover:text-slate-300" onclick="showDeletedUser(${item.id})"></i></div>
-    </div>`;
-        usersDiv.appendChild(newDiv);
-      }
-    });
-    usersAmountDiv.innerHTML = `${amount}`;
-  })
-  .catch((error) => {
-    console.error("Erro durante a requisição:", error);
-  });
 
+// Usuários - Pagination
+let UsersPosition = 0;
+const limit = 9;
+function rightUsers() {
+  if (!((UsersPosition + 1) * limit > usersData.length)) {
+    UsersPosition++;
+    paginationUsers();
+  }
+}
+function leftUsers() {
+  if (!(UsersPosition == 0)) {
+    UsersPosition--;
+    paginationUsers();
+  }
+}
+function paginationUsers() {
+  usersDiv.innerHTML = "";
+  for (
+    let index = UsersPosition * limit;
+    index < (UsersPosition + 1) * limit;
+    index++
+  ) {
+    if (!usersData[index]) {
+      break;
+    }
+    let newDiv = document.createElement("div");
+    newDiv.innerHTML = `<div class="w-full h-auto text-md flex gap-5 py-2 px-3 border-t border-purple-800">
+    <div class="w-1/6">${usersData[index].id}</div>
+    <div class="w-3/6">${usersData[index].name}</div>
+    <div class="w-2/6">${usersData[index].email}</div>
+    <div class="w-1/12"><i class="fa-solid fa-pen-to-square cursor-pointer text-purple-800 hover:text-purple-950 duration-500 ease-in-out dark:text-white dark:hover:text-slate-300" onclick="showUser(${usersData[index].id})"></i></div>
+    <div class="w-1/12"><i class="fa-solid fa-trash cursor-pointer text-purple-800 hover:text-purple-950 duration-500 ease-in-out dark:text-white dark:hover:text-slate-300" onclick="showDeletedUser(${usersData[index].id})"></i></div>
+  </div>`;
+    usersDiv.appendChild(newDiv);
+  }
+  document.querySelector("#currentUsersPosition").innerHTML = `${
+    UsersPosition + 1
+  }`;
+}
+
+// Usuários - PopUp p/edit
 const usersScene = document.querySelector("#users");
 function showUser(id) {
   const item = usersData.find((item) => item.id == id);
@@ -219,14 +232,14 @@ function showUser(id) {
   }" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-900 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800">
   </div>
   <div class="flex flex-col gap-1">
-    <label for="tel" class="text-purple-800 dark:text-white duration-500 ease-in-out">Telefone</label>
-    <input type="tel" name="tel" id="tel_user_${item.id}" value="${
+    <label for="number" class="text-purple-800 dark:text-white duration-500 ease-in-out">Telefone</label>
+    <input type="tel" name="number" id="number_user_${item.id}" value="${
     item.number
   }" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-900 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800">
   </div>
   <div class="flex flex-col gap-1">
-    <label for="message" class="text-purple-800 dark:text-white duration-500 ease-in-out">Descrição</label>
-    <input type="text" name="message" id="message_user_${item.id}" value="${
+    <label for="aboutUs" class="text-purple-800 dark:text-white duration-500 ease-in-out">Descrição</label>
+    <input type="text" name="aboutUs" id="aboutUs_user_${item.id}" value="${
     item.aboutUs
   }" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-900 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800">
   </div>
@@ -253,22 +266,41 @@ function showUser(id) {
   usersScene.appendChild(newDiv);
 }
 
+// Usuários - PopUp p/ Delete
+function showDeletedUser(id) {
+  let newDiv = document.createElement("div");
+  newDiv.className =
+    "absolute top-[35%] left-1/3 w-4/12 h-auto bg-white rounded-lg shadow-xl dark:bg-slate-900 duration-500 ease-in-out flex flex-col gap-2 px-5 py-6 text-lg font-semibold";
+  newDiv.innerHTML = `<div class="w-6 py-1 flex justify-center items-center border border-purple-800 dark:border-white duration-500 ease-in-out cursor-pointer dark:hover:bg-slate-800 hover:bg-purple-800 group rounded-md" onclick="closeUser()"><i class="fa-solid fa-xmark text-purple-800 dark:text-white group-hover:text-white duration-500 ease-in-out"></i></div>
+    <div class="text-purple-800 dark:text-white duration-500 ease-in-out">
+      Tem certeza em excluir o restaurante ${id}?
+    </div>
+    <div class="w-full h-auto px-4 py-2 text-center border border-purple-800 text-purple-800 text-lg font-semibold hover:text-white hover:bg-purple-800 duration-500 ease-in-out cursor-pointer rounded-lg  dark:border-white dark:text-white dark:hover:bg-slate-800 mt-2" onclick="deletedUser(${id})" >Excluir</div>  `;
+  usersScene.appendChild(newDiv);
+}
+
+// Usuários - Fechar PopUp
+function closeUser() {
+  usersScene.removeChild(usersScene.lastChild);
+}
+
+// Usuários - getUsers
 function sendUserData(id) {
   const name = document.querySelector(`#name_user_${id}`).value;
   const email = document.querySelector(`#email_user_${id}`).value;
-  const tel = document.querySelector(`#tel_user_${id}`).value;
-  const message = document.querySelector(`#message_user_${id}`).value;
+  const number = document.querySelector(`#number_user_${id}`).value;
+  const aboutUs = document.querySelector(`#aboutUs_user_${id}`).value;
   const address = document.querySelector(`#address_user_${id}`).value;
   const status = document.querySelector(`#status_user_${id}`).value;
-  if (!name || !email || !tel || !message || !address || !status) {
+  if (!name || !email || !number || !aboutUs || !address || !status) {
     alert("Por favor, preencha todos os campos do formulário.");
     return false;
   }
   const json = {
     name,
     email,
-    tel,
-    message,
+    number,
+    aboutUs,
     address,
     status: status === "active" ? true : false,
   };
@@ -291,21 +323,11 @@ function sendUserData(id) {
     .catch((error) => {
       console.error("Erro durante a requisição:", error);
     });
-  updatedUser();
+  getUsers();
   closeUser();
 }
 
-function showDeletedUser(id) {
-  let newDiv = document.createElement("div");
-  newDiv.className =
-    "absolute top-[35%] left-1/3 w-4/12 h-auto bg-white rounded-lg shadow-xl dark:bg-slate-900 duration-500 ease-in-out flex flex-col gap-2 px-5 py-6 text-lg font-semibold";
-  newDiv.innerHTML = `<div class="w-6 py-1 flex justify-center items-center border border-purple-800 dark:border-white duration-500 ease-in-out cursor-pointer dark:hover:bg-slate-800 hover:bg-purple-800 group rounded-md" onclick="closeUser()"><i class="fa-solid fa-xmark text-purple-800 dark:text-white group-hover:text-white duration-500 ease-in-out"></i></div>
-    <div class="text-purple-800 dark:text-white duration-500 ease-in-out">
-      Tem certeza em excluir o restaurante ${id}?
-    </div>
-    <div class="w-full h-auto px-4 py-2 text-center border border-purple-800 text-purple-800 text-lg font-semibold hover:text-white hover:bg-purple-800 duration-500 ease-in-out cursor-pointer rounded-lg  dark:border-white dark:text-white dark:hover:bg-slate-800 mt-2" onclick="deletedUser(${id})" >Excluir</div>  `;
-  usersScene.appendChild(newDiv);
-}
+// Usuários - DeletedUser
 function deletedUser(id) {
   fetch(url + `restaurants/${id}`, {
     method: "DELETE",
@@ -326,10 +348,11 @@ function deletedUser(id) {
       console.error("Erro durante a requisição:", error);
     });
   closeUser();
-  updatedUser();
+  getUsers();
 }
 
-function updatedUser() {
+// Usuários - Pegar dados
+function getUsers() {
   usersDiv.innerHTML = "";
   fetch(url + "restaurants")
     .then((response) => {
@@ -339,32 +362,24 @@ function updatedUser() {
       return response.json();
     })
     .then((data) => {
-      usersData = data;
+      usersData = [];
       let amount = 0;
       data.forEach((item) => {
         if (!item.deleted) {
+          usersData.push(item);
           amount++;
-          let newDiv = document.createElement("div");
-          newDiv.innerHTML = `<div class="w-full h-auto text-md flex gap-5 py-2 px-3 border-t border-purple-800">
-      <div class="w-1/6">${item.id}</div>
-      <div class="w-3/6">${item.name}</div>
-      <div class="w-2/6">${item.email}</div>
-      <div class="w-1/12"><i class="fa-solid fa-pen-to-square cursor-pointer text-purple-800 hover:text-purple-950 duration-500 ease-in-out dark:text-white dark:hover:text-slate-300" onclick="showUser(${item.id})"></i></div>
-      <div class="w-1/12"><i class="fa-solid fa-trash cursor-pointer text-purple-800 hover:text-purple-950 duration-500 ease-in-out dark:text-white dark:hover:text-slate-300" onclick="showDeletedUser(${item.id})"></i></div>
-    </div>`;
-          usersDiv.appendChild(newDiv);
         }
       });
+      UsersPosition = 0;
+      paginationUsers();
+
       usersAmountDiv.innerHTML = `${amount}`;
     })
     .catch((error) => {
       console.error("Erro durante a requisição:", error);
     });
 }
-
-function closeUser() {
-  usersScene.removeChild(usersScene.lastChild);
-}
+getUsers();
 
 // Produtos
 const productsDiv = document.querySelector("#productsDiv");
