@@ -20,6 +20,9 @@ class RestaurantController {
       })
       .then((data) => {
         const restaurant = data.find((item) => item.id == id);
+        if (restaurant.deleted || !restaurant.status) {
+          throw new Error();
+        }
         res.render("pages/restaurant/index", {
           name: restaurant.name,
           email: restaurant.email,
