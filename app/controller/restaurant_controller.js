@@ -34,8 +34,7 @@ class RestaurantController {
         });
       })
       .catch((error) => {
-        console.error("Erro:", error);
-        res.send("Restaurante não encontrado");
+        res.render("pages/404/index");
       });
   }
   async getRestaurants(req, res) {
