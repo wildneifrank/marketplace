@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body class="dark:bg-slate-800 duration-500 ease-in-out">
+<body class="dark:bg-slate-800 duration-500 ease-in-out" onload="getProducts('<%= id %>')">
   <%- include('../../components/headerRestaurant'); %>
   <main class="px-12 flex flex-col gap-5 mb-10" id="aboutUs">
     <div class="w-full h-auto mt-24 static flex flex-wrap gap-6">
@@ -54,33 +54,16 @@
     </div>
     <div class="w-full h-auto flex flex-col gap-4 px-3" id="products">
       <%- include('../../components/title', {title:"Cardápio"}); %>
-      <div class="w-full h-auto flex gap-3 justify-start flex-wrap">
-        <div class="px-4 py-2 rounded-full text-lg font-semibold shadow-md border border-purple-800  duration-500 ease-in-out text-white bg-purple-900 cursor-pointer">
-          Todos
-        </div>
-        <div class="px-4 py-2 rounded-full text-lg font-semibold shadow-md border border-purple-800 text-purple-800 duration-500 ease-in-out hover:text-white hover:bg-purple-900 cursor-pointer dark:text-white">
-          Pizzas
-        </div>
-        <div class="px-4 py-2 rounded-full text-lg font-semibold shadow-md border border-purple-800 text-purple-800 duration-500 ease-in-out hover:text-white hover:bg-purple-900 cursor-pointer dark:text-white">
-          Bebidas
-        </div>
-        <div class="px-4 py-2 rounded-full text-lg font-semibold shadow-md border border-purple-800 text-purple-800 duration-500 ease-in-out hover:text-white hover:bg-purple-900 cursor-pointer dark:text-white">
-          Acompanhamentos
-        </div>
+      <div class="w-full flex flex-wrap gap-5" id="productsDiv">
+        
       </div>
-      <div class="w-full flex flex-wrap gap-5">
-        <% for(let i = 0; i < 6; i++) {%>
-        <%- include('../../components/cardTemplate', { img:'https://picsum.photos/200/150',
-         title:'Pizza de Calabresa', description:'Contém queijo, molho de tomate, calabresa...', 
-         price:'$30.00'}); %>
-        <% } %>
-      </div>
-      <div class="w-full flex gap-3">
-        <div class="w-10 h-10 flex justify-center items-center rounded-full border border-purple-800 hover:bg-purple-800 duration-500 ease-in-out cursor-pointer group">
-          <i class="fa-solid fa-angle-left text-purple-800 group-hover:text-white duration-500 ease-in-out"></i>
+      <div class="flex gap-2">
+        <div class="text-purple-800 dark:text-white rounded-full border border-purple-800 dark:border-white w-7 h-7 hover:bg-purple-800 hover:text-white dark:hover:bg-slate-900 duration-500 ease-in-out cursor-pointer flex justify-center items-center" onclick="leftProducts()">
+          <i class="fa-solid fa-arrow-left"></i>
         </div>
-        <div class="w-10 h-10 flex justify-center items-center rounded-full border border-purple-800 hover:bg-purple-800 duration-500 ease-in-out cursor-pointer group">
-          <i class="fa-solid fa-angle-right text-purple-800 group-hover:text-white duration-500 ease-in-out"></i>
+        <div id="currentProductsPosition" class="text-purple-800 dark:text-white duration-500 ease-in-out text-lg"></div>
+        <div class="text-purple-800 dark:text-white rounded-full border border-purple-800 dark:border-white w-7 h-7 hover:bg-purple-800 hover:text-white dark:hover:bg-slate-900 duration-500 ease-in-out cursor-pointer flex justify-center items-center" onclick="rightProducts()">
+          <i class="fa-solid fa-arrow-right"></i>
         </div>
       </div>
     </div>

@@ -89,7 +89,7 @@ function showFeedback(id) {
   </div>
   <div class="flex flex-col gap-1">
     <label for="number" class="text-purple-800 dark:text-white duration-500 ease-in-out">Telefone</label>
-    <input type="tel" name="number" id="number" value="${item.number}" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-900 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800" disabled>
+    <input type="tel" name="number" id="number" value="${item.tel}" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-900 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800" disabled>
   </div>
   <div class="flex flex-col gap-1">
     <label for="message" class="text-purple-800 dark:text-white duration-500 ease-in-out">Mensagem</label>

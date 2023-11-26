@@ -17,6 +17,7 @@ routes.get("/restaurante/:id", RestaurantController.template);
 routes.get("/admin/products", ProductController.getProducts);
 routes.delete("/admin/products/:id", ProductController.deletedProduct);
 routes.put("/admin/products/:id", ProductController.updatedProduct);
+routes.get("/admin/products/:id", ProductController.getRestaurantProducts);
 
 // Admin - Restaurants
 routes.get("/admin/restaurants", RestaurantController.getRestaurants);
