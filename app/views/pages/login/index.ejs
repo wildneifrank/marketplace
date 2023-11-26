@@ -1,88 +1,97 @@
 <!DOCTYPE html>
-<html lang="en" id="mode">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script defer src="/js/hide.js"></script>
-    <script defer src="/js/signin.js"></script>
-    <title>Login</title>
-    <script>
-        tailwind.config = {
-          darkMode: 'class',
-    }
-    </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<body class="m-0 font-sans box-border">
-    <div class="w-screen h-screen bg-white flex justify-center items-center dark:bg-slate-900 duration-500 ease-in-out">
-        <div class="w-1/2 h-screen flex justify-center items-center flex-col">
-            <h1 class="text-5xl text-purple-700">Faça login<br>E sirva-se</h1>
-            <img class="w-2/3" src="images/pizza.svg" alt="pizza">
-        </div>
-        <div class="w-1/2 h-screen flex justify-center items-center">
-            
-            <div class="w-3/5 flex justify-center items-center flex-col p-8 bg-slate-200 rounded-lg shadow-lg dark:bg-slate-800 duration-500 ease-in-out">
-                <div class="flex justify-center items-center flex-col" id="minhaDiv">
-                    <div class="flex justify-between items-center">
-                        <h1 class="text-4xl text-purple-700 font-bold  mr-5">LOGIN</h1>
-                        <div class="ml-5">
-                            <i class="fa-solid fa-sun w-8 p-2 text-center rounded-full bg-white text-purple-800 cursor-pointer hover:text-white hover:bg-purple-700 duration-500 ease-in-out toggle"></i>
-                            <i class="fa-solid fa-moon w-8 p-2 text-center rounded-full bg-purple-800 text-white cursor-pointer hover:text-purple-800 hover:bg-white duration-500 ease-in-out toggle hidden"></i>
-                        </div>
-                        <div class="ml-5">
-                            <i class="fa-solid fa-a text-white"></i>
-                            <i class="fa-solid fa-plus text-purple-800 p-1 rounded-full cursor-pointer duration-500 ease-in-out bg-white hover:text-white hover:bg-purple-700 dark:text-white dark:bg-purple-800 dark:hover:bg-white dark:hover:text-purple-800" id="increase-font"></i>
-                            <i class="fa-solid fa-minus text-purple-800 p-1 rounded-full cursor-pointer duration-500 ease-in-out bg-white hover:text-white hover:bg-purple-700 dark:text-white dark:bg-purple-800 dark:hover:bg-white dark:hover:text-purple-800 " id="decrease-font"></i>
-                        </div>
-                    </div>
-                    <form method="post" class="w-full flex flex-col items-start justify-center my-4">
-                        <div class="w-full flex flex-col items-start justify-center my-4">
-                            <label class="text-slate-800 dark:text-white duration-500 ease-in-out mb-2" for="usuario">Usuário</label>
-                            <input class="w-full rounded-lg p-3 bg-white text-slate-800 dark:bg-slate-700 dark:text-white border-slate-300 border text-base shadow-md focus:outline-none box-border placeholder-white::placeholder duration-500 ease-in-out" type="text" name="usuario" id="user" placeholder="Usuário">
-                        </div>
-                        <div class="w-full flex flex-col items-start justify-center my-4">
-                            <label class="text-slate-800 dark:text-white duration-500 ease-in-out mb-2" for="senha">Senha</label>
-                            <input class="w-full rounded-lg p-3 bg-white text-slate-800 dark:bg-slate-700 dark:text-white border-slate-300 border text-base shadow-md focus:outline-none box-border placeholder-white::placeholder duration-500 ease-in-out" type="password" name="senha" id="pass" placeholder="Senha">
-                        </div>
-                    </form>
-                    <button class="w-full py-4 my-4 rounded-md focus:outline-none text-uppercase font-semibold tracking-wider text-white bg-purple-700 cursor-pointer shadow-lg" id="botao">Logar</button>
-                    <p class="text-slate-800 dark:text-white">Ainda não tem uma conta?<a href="#"id="ocultarLink" class="text-purple-700 no-underline ml-4">Crie uma aqui</a></p>
-                </div>
+<html lang="pt-br" id="mode">
 
-                <div class="justify-center items-center flex-col hidden" id="minhaDiv2">
-                    <div class="flex justify-center items-center">
-                        <h1 class="text-4xl text-purple-700z font-bold">CADASTRO</h1>
-                    </div>
-                    <div class="ml-0">
-                        <i class="fa-solid fa-sun w-8 p-2 text-center rounded-full bg-white text-purple-800 cursor-pointer hover:text-white hover:bg-purple-700 duration-500 ease-in-out toggle"></i>
-                        <i class="fa-solid fa-moon w-8 p-2 text-center rounded-full bg-purple-800 text-white cursor-pointer hover:text-purple-800 hover:bg-white duration-500 ease-in-out toggle hidden"></i>
-                    </div>
-                    <div class="ml-0">
-                        <i class="fa-solid fa-a text-white"></i>
-                        <i class="fa-solid fa-plus text-purple-800 p-1 rounded-full cursor-pointer duration-500 ease-in-out bg-white hover:text-white hover:bg-purple-700 dark:text-white dark:bg-purple-800 dark:hover:bg-white dark:hover:text-purple-800" id="increase-font"></i>
-                        <i class="fa-solid fa-minus text-purple-800 p-1 rounded-full cursor-pointer duration-500 ease-in-out bg-white hover:text-white hover:bg-purple-700 dark:text-white dark:bg-purple-800 dark:hover:bg-white dark:hover:text-purple-800 " id="decrease-font"></i>
-                    </div>
-                    <form method="post" class="w-full flex flex-col items-start justify-center my-4">
-                        <div class="w-full flex flex-col items-start justify-center my-4">
-                            <label class="text-slate-800 dark:text-white duration-500 ease-in-out mb-2">Email</label>
-                            <input class="w-full rounded-lg p-3 bg-white text-slate-800 dark:bg-slate-700 dark:text-white border-slate-300 border text-base shadow-md focus:outline-none box-border placeholder-white::placeholder duration-500 ease-in-out" type="text" name="email" placeholder="email">
-                        </div>
-                        <div class="w-full flex flex-col items-start justify-center my-4">
-                            <label class="text-slate-800 dark:text-white duration-500 ease-in-out mb-2" for="senha">Senha</label>
-                            <input class="w-full rounded-lg p-3 bg-white text-slate-800 dark:bg-slate-700 dark:text-white border-slate-300 border text-base shadow-md focus:outline-none box-border placeholder-white::placeholder duration-500 ease-in-out" type="password" name="senha" placeholder="Senha">
-                        </div>
-                        <!-- <div class="w-full flex flex-col items-start justify-center my-4">
-                            <label class="text-white mb-2" for="senha">Confirmar senha</label>
-                            <input class="w-full rounded-lg p-3 bg-gray-700 text-white text-base shadow-md focus:outline-none box-border placeholder-white::placeholder" type="password" name="senha" placeholder="Confirmar senha">
-                        </div> -->
-                    </form>
-                    <button class="w-full py-4 my-4 rounded-md focus:outline-none text-uppercase font-semibold tracking-wider text-white bg-purple-700 cursor-pointer shadow-lg">Cadastro</button>
-                    <p class="text-slate-800 dark:text-white">Já possui uma conta?<a href="#"id="ocultarLink2" class="text-purple-700 no-underline ml-4">Click aqui</a></p>
-                </div>
-            </div>
-        </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Login</title>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body class="m-0 font-sans box-border">
+  <div class="w-screen h-screen bg-white flex justify-center items-center dark:bg-slate-900 duration-500 ease-in-out" id="loginDiv">
+    <div class="w-1/2 h-screen flex justify-center items-center flex-col">
+      <h1 class="text-5xl text-purple-700">Faça login<br>E sirva-se</h1>
+      <img class="w-2/3" src="images/pizza.svg" alt="pizza">
     </div>
-    <script src="js/accessibility.js"></script>
+    <div class="w-1/2 h-screen flex justify-center items-center">
+
+      <div class="w-3/5 flex justify-center items-center flex-col p-8 bg-slate-200 rounded-lg shadow-lg dark:bg-slate-800 duration-500 ease-in-out">
+        <div class="flex justify-center items-center flex-col">
+          <div class="flex justify-between items-center">
+            <h1 class="text-4xl text-purple-700 font-bold  mr-5">LOGIN</h1>
+            <div class="ml-5">
+              <i class="fa-solid fa-sun w-8 p-2 text-center rounded-full bg-white text-purple-800 cursor-pointer hover:text-white hover:bg-purple-700 duration-500 ease-in-out toggle"></i>
+              <i class="fa-solid fa-moon w-8 p-2 text-center rounded-full bg-purple-800 text-white cursor-pointer hover:text-purple-800 hover:bg-white duration-500 ease-in-out toggle hidden"></i>
+            </div>
+            <div class="ml-5">
+              <i class="fa-solid fa-a text-white"></i>
+              <i class="fa-solid fa-plus text-purple-800 p-1 rounded-full cursor-pointer duration-500 ease-in-out bg-white hover:text-white hover:bg-purple-700 dark:text-white dark:bg-purple-800 dark:hover:bg-white dark:hover:text-purple-800" id="increase-font"></i>
+              <i class="fa-solid fa-minus text-purple-800 p-1 rounded-full cursor-pointer duration-500 ease-in-out bg-white hover:text-white hover:bg-purple-700 dark:text-white dark:bg-purple-800 dark:hover:bg-white dark:hover:text-purple-800 " id="decrease-font"></i>
+            </div>
+          </div>
+          <form method="post" class="w-full flex flex-col items-start justify-center my-4">
+            <div class="w-full flex flex-col items-start justify-center my-4">
+              <label class="text-slate-800 dark:text-white duration-500 ease-in-out mb-2" for="usuario">Usuário</label>
+              <input class="w-full rounded-lg p-3 bg-white text-slate-800 dark:bg-slate-700 dark:text-white border-slate-300 border text-base shadow-md focus:outline-none box-border placeholder-white::placeholder duration-500 ease-in-out" type="text" name="usuario" id="user" placeholder="Usuário">
+            </div>
+            <div class="w-full flex flex-col items-start justify-center my-4">
+              <label class="text-slate-800 dark:text-white duration-500 ease-in-out mb-2" for="senha">Senha</label>
+              <input class="w-full rounded-lg p-3 bg-white text-slate-800 dark:bg-slate-700 dark:text-white border-slate-300 border text-base shadow-md focus:outline-none box-border placeholder-white::placeholder duration-500 ease-in-out" type="password" name="senha" id="password" placeholder="Senha">
+            </div>
+          </form>
+          <button class="w-full py-4 my-4 rounded-md focus:outline-none text-uppercase font-semibold tracking-wider text-white bg-purple-700 cursor-pointer shadow-lg" id="loginBtn">Logar</button>
+          <p class="text-slate-800 dark:text-white duration-500 ease-in-out">Ainda não tem uma conta?<span id="loginLink" class="text-purple-700 no-underline ml-4 cursor-pointer" onclick="closeLogin()">Crie uma aqui</span></p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="w-screen h-screen bg-white justify-center items-center dark:bg-slate-900 duration-500 ease-in-out hidden" id="registerDiv">
+    <div class="justify-center items-center flex flex-col bg-slate-300 dark:bg-slate-800 duration-500 ease-in-out p-8 rounded-lg shadow-md gap-1">
+      <div class="flex justify-center items-center">
+        <h1 class="text-4xl text-purple-700 font-bold dark:text-white duration-500 ease-in-out">CADASTRO</h1>
+      </div>
+      <div class="flex gap-5 justify-center items-center">
+        <div>
+          <i class="fa-solid fa-sun w-8 p-2 text-center rounded-full bg-white text-purple-800 cursor-pointer hover:text-white hover:bg-purple-700 duration-500 ease-in-out toggle"></i>
+          <i class="fa-solid fa-moon w-8 p-2 text-center rounded-full bg-purple-800 text-white cursor-pointer hover:text-purple-800 hover:bg-white duration-500 ease-in-out toggle hidden"></i>
+        </div>
+        <div>
+          <i class="fa-solid fa-a text-white"></i>
+          <i class="fa-solid fa-plus text-purple-800 p-1 rounded-full cursor-pointer duration-500 ease-in-out bg-white hover:text-white hover:bg-purple-700 dark:text-white dark:bg-purple-800 dark:hover:bg-white dark:hover:text-purple-800" id="increase-font"></i>
+          <i class="fa-solid fa-minus text-purple-800 p-1 rounded-full cursor-pointer duration-500 ease-in-out bg-white hover:text-white hover:bg-purple-700 dark:text-white dark:bg-purple-800 dark:hover:bg-white dark:hover:text-purple-800 " id="decrease-font"></i>
+        </div>
+      </div>
+      <form method="post" class="w-full flex flex-col items-start justify-center gap-2">
+        <div class="w-full flex flex-col items-start justify-center ">
+          <label class="text-slate-800 dark:text-white duration-500 ease-in-out mb-2">Email</label>
+          <input class="w-full rounded-lg p-3 bg-white text-slate-800 dark:bg-slate-700 dark:text-white border-slate-300 border text-base shadow-md focus:outline-none box-border placeholder-white::placeholder duration-500 ease-in-out" type="text" name="email" placeholder="Email">
+        </div>
+        <div class="w-full flex flex-col items-start justify-center ">
+          <label class="text-slate-800 dark:text-white duration-500 ease-in-out mb-2" for="senha">Senha</label>
+          <input class="w-full rounded-lg p-3 bg-white text-slate-800 dark:bg-slate-700 dark:text-white border-slate-300 border text-base shadow-md focus:outline-none box-border placeholder-white::placeholder duration-500 ease-in-out" type="password" name="senha" placeholder="Senha">
+        </div>
+        <div class="w-full flex flex-col items-start justify-center ">
+          <label class="text-slate-800 dark:text-white duration-500 ease-in-out mb-2" for="senha">Confirmar senha</label>
+          <input class="w-full rounded-lg p-3 bg-white text-slate-800 dark:bg-slate-700 dark:text-white border-slate-300 border text-base shadow-md focus:outline-none box-border placeholder-white::placeholder duration-500 ease-in-out" type="password" name="senha" placeholder="Confirmar senha">
+
+        </div>
+        <button class="w-full py-4  rounded-md focus:outline-none text-uppercase font-semibold tracking-wider text-white bg-purple-700 cursor-pointer shadow-lg">Cadastro</button>
+        <p class="text-slate-800 dark:text-white duration-500 ease-in-out">Já possui uma conta?<span id="registerLink" class="text-purple-700 no-underline ml-4 cursor-pointer" onclick="closeRegister()">Clique aqui</span></p>
+      </form>
+
+    </div>
+  </div>
+
+  <script src="js/login.js"></script>
+  <script src="js/accessibility.js"></script>
 </body>
+
 </html>
