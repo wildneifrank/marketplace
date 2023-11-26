@@ -9,6 +9,9 @@ class AuthController {
   async admin(req, res) {
     res.render("pages/admin/index");
   }
+  async notFound(req, res) {
+    res.render("pages/404/index");
+  }
   async getProducts(req, res) {
     fetch(url + "products")
       .then((response) => {

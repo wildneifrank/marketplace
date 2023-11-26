@@ -81,7 +81,7 @@ function paginationProducts() {
       ${productsData[index].description}
     </Span>
     <span>
-      ${productsData[index].price}
+      $${productsData[index].price}
     </span>
   </div>`;
     productsDiv.appendChild(newDiv);

@@ -12,6 +12,7 @@ routes.get("/admin", AuthController.admin);
 routes.get("/user", AuthController.user);
 routes.get("/pesquisa", RestaurantController.search);
 routes.get("/restaurante/:id", RestaurantController.template);
+routes.get("/:string", AuthController.notFound);
 
 // Admin - Products
 routes.get("/admin/products", ProductController.getProducts);
