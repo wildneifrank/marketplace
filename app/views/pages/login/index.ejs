@@ -52,44 +52,44 @@
         <h1 class="text-4xl text-purple-700 font-bold">CADASTRO</h1>
       </div>
 
-      <form method="post" class="w-full flex flex-col items-start justify-center gap-1">
+      <form method="post" onsubmit="sendRegisterData(event)" class="w-full flex flex-col items-start justify-center gap-1">
         <div class="flex gap-2 w-full">
           <div class="w-full">
             <label for="name" class="text-slate-800 dark:text-white duration-500 ease-in-out mb-2">Nome</label>
-            <input class="w-full rounded-lg p-2 bg-white text-slate-800 dark:bg-slate-700 dark:text-white border-slate-300 border text-base shadow-md focus:outline-none box-border placeholder-white::placeholder duration-500 ease-in-out" type="text" id="name" name="name" placeholder="Nome">
+            <input required class="w-full rounded-lg p-2 bg-white text-slate-800 dark:bg-slate-700 dark:text-white border-slate-300 border text-base shadow-md focus:outline-none box-border placeholder-white::placeholder duration-500 ease-in-out" type="text" id="name" name="name" placeholder="Nome">
           </div>
           <div class="w-full">
             <label for="tel" class="text-slate-800 dark:text-white duration-500 ease-in-out mb-2">Telefone</label>
-            <input class="w-full rounded-lg p-2 bg-white text-slate-800 dark:bg-slate-700 dark:text-white border-slate-300 border text-base shadow-md focus:outline-none box-border placeholder-white::placeholder duration-500 ease-in-out" type="tel" id="tel" name="tel" placeholder="Telefone">
+            <input required class="w-full rounded-lg p-2 bg-white text-slate-800 dark:bg-slate-700 dark:text-white border-slate-300 border text-base shadow-md focus:outline-none box-border placeholder-white::placeholder duration-500 ease-in-out" type="tel" id="tel" name="tel" placeholder="Telefone">
           </div>
         </div>
         <div class="flex gap-2 w-full">
           <div class="w-full">
             <label for="email" class="text-slate-800 dark:text-white duration-500 ease-in-out mb-2">Email</label>
-            <input class="w-full rounded-lg p-2 bg-white text-slate-800 dark:bg-slate-700 dark:text-white border-slate-300 border text-base shadow-md focus:outline-none box-border placeholder-white::placeholder duration-500 ease-in-out" type="email" name="email" placeholder="Email">
+            <input required class="w-full rounded-lg p-2 bg-white text-slate-800 dark:bg-slate-700 dark:text-white border-slate-300 border text-base shadow-md focus:outline-none box-border placeholder-white::placeholder duration-500 ease-in-out" type="email" name="email" id="email" placeholder="Email">
           </div>
           <div class="w-full">
             <label for="image" class="text-slate-800 dark:text-white duration-500 ease-in-out mb-2">Link da Logo</label>
-            <input class="w-full rounded-lg p-2 bg-white text-slate-800 dark:bg-slate-700 dark:text-white border-slate-300 border text-base shadow-md focus:outline-none box-border placeholder-white::placeholder duration-500 ease-in-out" type="url" name="image" placeholder="Link da Imagem da Logo">
+            <input required class="w-full rounded-lg p-2 bg-white text-slate-800 dark:bg-slate-700 dark:text-white border-slate-300 border text-base shadow-md focus:outline-none box-border placeholder-white::placeholder duration-500 ease-in-out" type="url" name="image" id="image" placeholder="Link da Imagem da Logo">
           </div>
         </div>
         <div class="w-full flex flex-col items-start justify-center ">
           <label for="address" class="text-slate-800 dark:text-white duration-500 ease-in-out mb-2">Endereço</label>
-          <input class="w-full rounded-lg p-2 bg-white text-slate-800 dark:bg-slate-700 dark:text-white border-slate-300 border text-base shadow-md focus:outline-none box-border placeholder-white::placeholder duration-500 ease-in-out" type="text" name="address" id="address" placeholder="Endereço">
+          <input required class="w-full rounded-lg p-2 bg-white text-slate-800 dark:bg-slate-700 dark:text-white border-slate-300 border text-base shadow-md focus:outline-none box-border placeholder-white::placeholder duration-500 ease-in-out" type="text" name="address" id="address" placeholder="Endereço">
         </div>
 
         <div class="w-full flex flex-col items-start justify-center ">
           <label for="aboutUs" class="text-slate-800 dark:text-white duration-500 ease-in-out mb-2">Descrição</label>
-          <input class="w-full rounded-lg p-2 bg-white text-slate-800 dark:bg-slate-700 dark:text-white border-slate-300 border text-base shadow-md focus:outline-none box-border placeholder-white::placeholder duration-500 ease-in-out" type="text" id="aboutUs" name="aboutUs" placeholder="Descrição do Restaurante">
+          <input minlength="20" required class="w-full rounded-lg p-2 bg-white text-slate-800 dark:bg-slate-700 dark:text-white border-slate-300 border text-base shadow-md focus:outline-none box-border placeholder-white::placeholder duration-500 ease-in-out" type="text" id="aboutUs" name="aboutUs" placeholder="Descrição do Restaurante">
         </div>
         <div class="flex gap-2">
           <div class="w-full">
             <label for="password" class="text-slate-800 dark:text-white duration-500 ease-in-out mb-2">Senha</label>
-            <input class="w-full rounded-lg p-2 bg-white text-slate-800 dark:bg-slate-700 dark:text-white border-slate-300 border text-base shadow-md focus:outline-none box-border placeholder-white::placeholder duration-500 ease-in-out" type="password" id="password" name="password" placeholder="Senha">
+            <input minlength="8" required class="w-full rounded-lg p-2 bg-white text-slate-800 dark:bg-slate-700 dark:text-white border-slate-300 border text-base shadow-md focus:outline-none box-border placeholder-white::placeholder duration-500 ease-in-out" type="password" id="registerPassword" name="password" placeholder="Senha">
           </div>
           <div class="w-full">
             <label for="passwordConfirmation" class="text-slate-800 dark:text-white duration-500 ease-in-out mb-2">Confirmar senha</label>
-            <input class="w-full rounded-lg p-2 bg-white text-slate-800 dark:bg-slate-700 dark:text-white border-slate-300 border text-base shadow-md focus:outline-none box-border placeholder-white::placeholder duration-500 ease-in-out" type="password" name="passwordConfirmation" id="passwordConfirmation" placeholder="Confirme a senha">
+            <input minlength="8" required class="w-full rounded-lg p-2 bg-white text-slate-800 dark:bg-slate-700 dark:text-white border-slate-300 border text-base shadow-md focus:outline-none box-border placeholder-white::placeholder duration-500 ease-in-out" type="password" name="passwordConfirmation" id="passwordConfirmation" placeholder="Confirme a senha">
           </div>
         </div>
 

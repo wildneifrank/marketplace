@@ -93,7 +93,6 @@ function paginationProducts() {
 
 // Pegar os dados dos Produtos
 function getProducts(id) {
-  console.log("entro", id);
   fetch(url + `products/${id}`)
     .then((response) => {
       if (!response.ok) {

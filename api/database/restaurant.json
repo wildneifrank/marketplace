@@ -274,5 +274,17 @@
     "image": "https://picsum.photos/150/150",
     "status": false,
     "deleted": false
+  },
+  {
+    "id": 24,
+    "name": "Pizzaria dos Irmãos",
+    "email": "pizzaria.irmaos@gmail.com",
+    "address": "623 Avenida Valparaíso",
+    "number": "32690855",
+    "aboutUs": "Pizzaria especializada em pizza com massas italianas.",
+    "password": "$2b$10$KIjrIVnOlg4ACi0mFdyPJuS5LowVQ25WUGnkC44sW5WALiV1wPNa2",
+    "image": "https://picsum.photos/150/150",
+    "status": true,
+    "deleted": false
   }
 ]
