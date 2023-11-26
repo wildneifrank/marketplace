@@ -32,15 +32,11 @@
         </div>
       </div>
     </div>
-    <div class="h-auto flex flex-col px-12 py-7 gap-5 overflow-x-hidden dark:bg-slate-800 duration-500 ease-in-out">
+    <div class="h-auto flex flex-col px-12 py-7 gap-5 overflow-x-hidden dark:bg-slate-800 duration-500 ease-in-out" id="restaurants">
       <div class="w-full h-auto flex flex-col gap-5 px-12">
         <%- include('../../components/title', {title:"Melhores Restaurantes"}); %>
 
         <div class="h-auto flex gap-5 w-fit duration-500 ease-in-out" id="restaurantsCarousel">
-          <% for(let k=0; k < 7; k++ ) { %>
-          <%- include('../../components/cardRestaurant', { imageLink: 'https://picsum.photos/200/200' ,
-                companyTitle: 'GTi Engenharia jr.' , companyDescription: 'Empresa de desenvolvimento web' }) %>
-          <% } %>
         </div>
         <div class="w-full flex justify-center gap-3">
           <div class="bg-purple-800 w-10 h-10 flex justify-center items-center rounded-full hover:bg-purple-900 duration-500 ease-in-out cursor-pointer restaurants" id="leftRestaurant">
@@ -52,7 +48,7 @@
         </div>
       </div>
 
-      <div class="h-auto w-full flex flex-col px-12 py-7 gap-5 overflow-x-hidden">
+      <div class="h-auto w-full flex flex-col px-12 py-7 gap-5 overflow-x-hidden" id="products">
         <%- include('../../components/title', {title:"Produtos"}); %>
         <div class=" h-auto flex gap-5 w-fit duration-500 ease-in-out" id="productsCarousel">
           <% for(let k=0; k < 7; k++ ) { %>

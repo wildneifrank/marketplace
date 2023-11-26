@@ -2,9 +2,15 @@ const Restaurant = require("../model/restaurant");
 
 class RestaurantController {
   async getRestaurants(req, res) {
-    const data = Restaurant.getRestaurants().map(
-      ({ password, ...rest }) => rest
+    const allRestaurants = Restaurant.getRestaurants();
+
+    const filteredRestaurants = allRestaurants.filter(
+      (restaurant) => !restaurant.deleted
     );
+    const data = filteredRestaurants.map(
+      ({ password, deleted, ...rest }) => rest
+    );
+
     res.setHeader("Content-Type", "application/json");
     return res.status(200).send(JSON.stringify(data));
   }

@@ -20,7 +20,7 @@ class RestaurantController {
       })
       .then((data) => {
         const restaurant = data.find((item) => item.id == id);
-        if (restaurant.deleted || !restaurant.status) {
+        if (!restaurant.status) {
           throw new Error();
         }
         res.render("pages/restaurant/index", {
@@ -117,6 +117,24 @@ class RestaurantController {
     } catch (error) {
       console.error("Erro durante a requisição:", error);
       res.status(500).send("Erro ao criar restaurante.");
+    }
+  }
+  async getBestRestaurants(req, res) {
+    try {
+      const response = await fetch(url + "restaurants");
+      if (!response.ok) {
+        throw new Error("Erro na solicitação");
+      }
+      const data = await response.json();
+      for (let i = data.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [data[i], data[j]] = [data[j], data[i]];
+      }
+      const restaurants = data.slice(0, 6);
+      res.status(200).send(restaurants);
+    } catch (error) {
+      console.error("Erro:", error);
+      res.send("Restaurante não encontrado");
     }
   }
 }

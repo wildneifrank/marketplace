@@ -25,6 +25,7 @@ routes.get("/admin/restaurants", RestaurantController.getRestaurants);
 routes.delete("/admin/restaurants/:id", RestaurantController.deletedRestaurant);
 routes.put("/admin/restaurants/:id", RestaurantController.updatedRestaurant);
 routes.post("/admin/restaurants", RestaurantController.createRestaurant);
+routes.get("/admin/restaurants/best", RestaurantController.getBestRestaurants);
 
 // Admin - Feedbacks
 routes.get("/admin/feedbacks", FeedbackController.getFeedbacks);
