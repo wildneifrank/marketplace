@@ -130,7 +130,10 @@ class RestaurantController {
         const j = Math.floor(Math.random() * (i + 1));
         [data[i], data[j]] = [data[j], data[i]];
       }
-      const restaurants = data.slice(0, 6);
+      const filteredRestaurants = data.filter(
+        (restaurant) => restaurant.status
+      );
+      const restaurants = filteredRestaurants.slice(0, 6);
       res.status(200).send(restaurants);
     } catch (error) {
       console.error("Erro:", error);

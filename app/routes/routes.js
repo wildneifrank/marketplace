@@ -19,13 +19,14 @@ routes.get("/admin/products", ProductController.getProducts);
 routes.delete("/admin/products/:id", ProductController.deletedProduct);
 routes.put("/admin/products/:id", ProductController.updatedProduct);
 routes.get("/admin/products/:id", ProductController.getRestaurantProducts);
+routes.get("/admin/bestProducts", ProductController.getBestProducts);
 
 // Admin - Restaurants
 routes.get("/admin/restaurants", RestaurantController.getRestaurants);
 routes.delete("/admin/restaurants/:id", RestaurantController.deletedRestaurant);
 routes.put("/admin/restaurants/:id", RestaurantController.updatedRestaurant);
 routes.post("/admin/restaurants", RestaurantController.createRestaurant);
-routes.get("/admin/restaurants/best", RestaurantController.getBestRestaurants);
+routes.get("/admin/bestRestaurants", RestaurantController.getBestRestaurants);
 
 // Admin - Feedbacks
 routes.get("/admin/feedbacks", FeedbackController.getFeedbacks);

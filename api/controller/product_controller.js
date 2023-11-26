@@ -2,8 +2,10 @@ const Product = require("../model/product");
 
 class ProductController {
   async getProducts(req, res) {
-    const data = Product.getProducts();
+    const allProducts = Product.getProducts();
     res.setHeader("Content-Type", "application/json");
+    const filteredProducts = allProducts.filter((product) => !product.deleted);
+    const data = filteredProducts.map(({ deleted, ...rest }) => rest);
     return res.status(200).send(JSON.stringify(data));
   }
   async deleteProduct(req, res) {
