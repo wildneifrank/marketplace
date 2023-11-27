@@ -33,6 +33,11 @@ class Restaurant {
       throw new Error(error);
     }
   }
+  static findRestaurant(email) {
+    const data = this.getRestaurants();
+    const restaurant = data.filter((item) => item.email === email);
+    return restaurant;
+  }
 }
 
 function cryptography(password) {

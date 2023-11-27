@@ -1,10 +1,10 @@
-const user = document.querySelector("#user");
+const email = document.querySelector("#userEmail");
 const password = document.querySelector("#password");
-const button = document.querySelector("#loginBtn");
-const url = "http://localhost:3001/admin/";
+const url = "http://localhost:3001/";
 
-async function Signin() {
-  const data = { login: user.value, password: password.value };
+async function login(event) {
+  event.preventDefault();
+  const data = { email: email.value, password: password.value };
   const options = {
     method: "POST",
     headers: {
@@ -13,7 +13,7 @@ async function Signin() {
     body: JSON.stringify(data),
   };
   try {
-    const response = await fetch("http://localhost:8800/signin", options);
+    const response = await fetch(url + "login", options);
     if (response.status === 200) {
       const tokenPackage = await response.json();
       localStorage.setItem("token", tokenPackage.token);
@@ -23,9 +23,6 @@ async function Signin() {
     console.error("Erro:", error);
   }
 }
-button.addEventListener("click", () => {
-  Signin();
-});
 
 function closeLogin() {
   const loginDiv = document.getElementById("loginDiv");
@@ -68,7 +65,7 @@ function sendRegisterData(event) {
     password,
     image,
   };
-  fetch(url + `restaurants`, {
+  fetch(url + `admin/restaurants`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

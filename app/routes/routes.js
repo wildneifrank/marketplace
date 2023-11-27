@@ -6,13 +6,10 @@ const ProductController = require("../controller/product_controller");
 const FeedbackController = require("../controller/feedback_controller");
 
 routes.get("/", HomeController.index);
-routes.get("/login", HomeController.login);
-routes.get("/registro", HomeController.register);
 routes.get("/admin", AuthController.admin);
 routes.get("/user", AuthController.user);
 routes.get("/pesquisa", RestaurantController.search);
 routes.get("/restaurante/:id", RestaurantController.template);
-routes.get("/:string", AuthController.notFound);
 
 // Admin - Products
 routes.get("/admin/products", ProductController.getProducts);
@@ -33,4 +30,11 @@ routes.get("/admin/feedbacks", FeedbackController.getFeedbacks);
 routes.delete("/admin/feedbacks/:id", FeedbackController.deletedFeedback);
 routes.post("/admin/feedbacks", FeedbackController.createFeedback);
 
+// Auth
+routes.post("/login", AuthController.auth);
+routes.get("/login", HomeController.login);
+routes.get("/registro", HomeController.register);
+
+// Not found
+routes.get("/:string", AuthController.notFound);
 module.exports = routes;

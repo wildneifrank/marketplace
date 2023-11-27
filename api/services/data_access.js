@@ -34,6 +34,21 @@ class DataAccess {
     this.save();
   }
 
+  token(json) {
+    let new_id = this.data.length + 1;
+    json.id = new_id;
+    this.data.push(json);
+    this.save();
+  }
+
+  where(key, value) {
+    let record = this.data.filter((item) =>
+      item[key].toLowerCase().includes(value.toLowerCase())
+    );
+
+    return record;
+  }
+
   delete(id) {
     let data = this.find(id);
     data["deleted"] = true;

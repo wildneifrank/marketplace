@@ -4,14 +4,10 @@ const ProductController = require("../controller/product_controller.js");
 const FeedbackController = require("../controller/feedback_controller.js");
 const SigninAccess = require("../services/signin_access.js");
 const checkToken = require("../controller/check_token.js");
-const createProduct = require("../services/create_product.js");
-const editProduct = require("../services/edit_product.js");
-const deleteProduct = require("../services/delete_product.js");
+
+const AuthController = require("../controller/auth_controller.js");
 
 routes.post("/signin", SigninAccess);
-routes.post("/add", checkToken, createProduct);
-routes.post("/edit", checkToken, editProduct);
-routes.delete("/delete", checkToken, deleteProduct);
 
 // Feedbacks
 routes.get("/feedbacks", FeedbackController.getFeedbacks);
@@ -29,5 +25,28 @@ routes.get("/restaurants", RestaurantController.getRestaurants);
 routes.delete("/restaurants/:id", RestaurantController.deleteRestaurant);
 routes.put("/restaurants/:id", RestaurantController.updateRestaurant);
 routes.post("/restaurants", RestaurantController.createRestaurant);
+
+// Auth
+routes.post("/auth", AuthController.authenticate);
+
+// Middleware p/ Autenticação
+function authenticate(req, res, next) {
+  const token = req.cookies["token"];
+
+  if (!token) {
+    res.status(401);
+    return res.end();
+  }
+
+  const user = Authentication.validate_token(token);
+
+  if (!user) {
+    res.status(401);
+    return res.end();
+  }
+
+  res.locals.user = user;
+  next();
+}
 
 module.exports = routes;

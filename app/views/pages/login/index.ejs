@@ -19,7 +19,7 @@
   <%- include('../../components/headerPages'); %>
   <div class="w-full h-auto flex justify-center items-center pt-20" id="loginDiv">
     <div class="w-1/2 h-auto flex justify-center items-center flex-col">
-      <h1 class="text-5xl text-purple-700">Faça login<br>E sirva-se</h1>
+      <h1 class="text-5xl text-purple-700">Faça o login<br>E sirva-se</h1>
       <img class="w-2/3" src="images/pizza.svg" alt="pizza">
     </div>
     <div class="w-1/2 h-auto flex justify-center items-center">
@@ -29,18 +29,19 @@
           <div class="flex justify-between items-center">
             <h1 class="text-4xl text-purple-700 font-bold  mr-5">LOGIN</h1>
           </div>
-          <form method="post" class="w-full flex flex-col items-start justify-center my-4">
-            <div class="w-full flex flex-col items-start justify-center my-4">
-              <label class="text-slate-800 dark:text-white duration-500 ease-in-out mb-2" for="usuario">Usuário</label>
-              <input class="w-full rounded-lg p-2 bg-white text-slate-800 dark:bg-slate-700 dark:text-white border-slate-300 border text-base shadow-md focus:outline-none box-border placeholder-white::placeholder duration-500 ease-in-out" type="text" name="usuario" id="user" placeholder="Usuário">
+          <form onsubmit="login(event)" class="w-full flex flex-col items-start justify-center my-4 gap-2">
+            <div class="w-full flex flex-col items-start justify-center">
+              <label class="text-purple-800 font-semibold dark:text-white duration-500 ease-in-out mb-2" for="email">Usuário</label>
+              <input class="w-full rounded-lg p-2 bg-white text-purple-800 font-semibold dark:bg-slate-700 dark:text-white border-slate-300 border text-base shadow-md focus:outline-none box-border placeholder-white::placeholder duration-500 ease-in-out" type="email" name="email" id="userEmail" placeholder="Email" required>
             </div>
-            <div class="w-full flex flex-col items-start justify-center my-4">
-              <label class="text-slate-800 dark:text-white duration-500 ease-in-out mb-2" for="senha">Senha</label>
-              <input class="w-full rounded-lg p-2 bg-white text-slate-800 dark:bg-slate-700 dark:text-white border-slate-300 border text-base shadow-md focus:outline-none box-border placeholder-white::placeholder duration-500 ease-in-out" type="password" name="senha" id="password" placeholder="Senha">
+            <div class="w-full flex flex-col items-start justify-center">
+              <label class="text-purple-800 font-semibold dark:text-white duration-500 ease-in-out mb-2" for="senha">Senha</label>
+              <input class="w-full rounded-lg p-2 bg-white text-purple-800 font-semibold dark:bg-slate-700 dark:text-white border-slate-300 border text-base shadow-md focus:outline-none box-border placeholder-white::placeholder duration-500 ease-in-out" type="password" name="senha" id="password" placeholder="Senha" required>
             </div>
+            <button type="submit" class="w-full py-4 my-4 rounded-md focus:outline-none text-uppercase font-semibold tracking-wider text-white bg-purple-700 cursor-pointer shadow-lg" id="loginBtn">Logar</button>
+            <p class="text-slate-800 dark:text-white duration-500 ease-in-out">Ainda não tem uma conta?<span id="loginLink" class="text-purple-700 no-underline ml-4 cursor-pointer" onclick="closeLogin()">Crie uma aqui</span></p>
           </form>
-          <button class="w-full py-4 my-4 rounded-md focus:outline-none text-uppercase font-semibold tracking-wider text-white bg-purple-700 cursor-pointer shadow-lg" id="loginBtn">Logar</button>
-          <p class="text-slate-800 dark:text-white duration-500 ease-in-out">Ainda não tem uma conta?<span id="loginLink" class="text-purple-700 no-underline ml-4 cursor-pointer" onclick="closeLogin()">Crie uma aqui</span></p>
+
         </div>
 
       </div>

@@ -28,6 +28,27 @@ class AuthController {
         res.send("Produtos não encontrados");
       });
   }
+  async auth(req, res) {
+    const json = req.body;
+    try {
+      const response = await fetch(url + `auth`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(json),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Erro na requisição: ${response.status}`);
+      }
+      const data = await response.json();
+      res.status(200).send(data);
+    } catch (error) {
+      console.error("Erro durante a requisição:", error);
+      res.status(500).send("Erro ao criar restaurante.");
+    }
+  }
 }
 
 module.exports = new AuthController();
