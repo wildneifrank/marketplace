@@ -25,10 +25,9 @@ class Authenticate {
       "session_token",
       user_session_token.toString()
     )[0];
-
     try {
-      var decoded = jwt.verify(register.session_token, "shhhhh");
-      const user = User.find(decoded.sub);
+      var decoded = jwt.verify(register.session_token, secretKey);
+      const user = User.findRestaurant(decoded.email)[0];
 
       return user;
     } catch (error) {

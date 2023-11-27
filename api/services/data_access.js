@@ -42,8 +42,8 @@ class DataAccess {
   }
 
   where(key, value) {
-    let record = this.data.filter((item) =>
-      item[key].toLowerCase().includes(value.toLowerCase())
+    let record = this.data.filter(
+      (item) => item[key].toLowerCase() == value.toLowerCase()
     );
 
     return record;

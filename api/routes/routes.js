@@ -6,6 +6,7 @@ const SigninAccess = require("../services/signin_access.js");
 const checkToken = require("../controller/check_token.js");
 
 const AuthController = require("../controller/auth_controller.js");
+const Authentication = require("../services/auth.js");
 
 routes.post("/signin", SigninAccess);
 
@@ -28,7 +29,7 @@ routes.post("/restaurants", RestaurantController.createRestaurant);
 
 // Auth
 routes.post("/auth", AuthController.authenticate);
-
+routes.post("/validateToken", AuthController.validateTokenAuth);
 // Middleware p/ Autenticação
 function authenticate(req, res, next) {
   const token = req.cookies["token"];
