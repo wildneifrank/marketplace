@@ -46,7 +46,7 @@ class AuthController {
       res.status(200).send(data);
     } catch (error) {
       console.error("Erro durante a requisição:", error);
-      res.status(500).send("Erro ao criar restaurante.");
+      res.status(500).send("Erro ao realizar o login.");
     }
   }
 }
