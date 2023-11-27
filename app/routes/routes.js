@@ -34,6 +34,7 @@ routes.post("/admin/feedbacks", FeedbackController.createFeedback);
 routes.post("/login", AuthController.auth);
 routes.get("/login", HomeController.login);
 routes.get("/registro", HomeController.register);
+routes.post("/sessionValidate", AuthController.sessionValidate);
 
 // Not found
 routes.get("/:string", AuthController.notFound);

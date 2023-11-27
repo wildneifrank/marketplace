@@ -15,10 +15,8 @@ class AuthController {
     });
   }
   async validateTokenAuth(req, res) {
-    // const session_token = req.cookies["session_token"]
     const session_token = req.body.token;
     const user = Authentication.validate_token(session_token);
-
     if (user) {
       const { deleted, status, password, ...data } = user;
       res.status(200);

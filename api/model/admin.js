@@ -10,9 +10,7 @@ class Admin {
   static updateAdmin(id, json) {
     const db = new DataAccess("admin");
     if (json.password) {
-      console.log("entrou");
       json.password = cryptography(json.password);
-      console.log(json);
     }
     try {
       db.update(id, json);
