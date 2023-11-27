@@ -37,12 +37,20 @@ class RestaurantController {
   }
   async createRestaurant(req, res) {
     const json = req.body;
+    const emailExists = Restaurant.findRestaurant(json.email);
     res.setHeader("Content-Type", "application/json");
     try {
+      if (emailExists) {
+        throw new Error();
+      }
       Restaurant.createRestaurant(json);
       res.status(200).send({ message: "Restaurante criado com sucesso!" });
     } catch (error) {
-      res.status(401).send({ message: "Erro ao criar restaurante!" });
+      if (!emailExists) {
+        res.status(401).send({ message: "Erro ao criar restaurante!" });
+      }
+
+      res.status(401).send({ message: "Email já existente!" });
     }
   }
 }

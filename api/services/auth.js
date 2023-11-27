@@ -1,4 +1,5 @@
 const User = require("../model/restaurant");
+const Admin = require("../model/admin");
 const DataAccessor = require("./data_access");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
@@ -7,12 +8,26 @@ const secretKey = "By$dwQ;m9[kU72.Pa^u!Ep42:FYPS*Rk$NaYf}oBNLm0_Qs]";
 class Authenticate {
   static login(email, password) {
     const user = User.findRestaurant(email)[0];
+    const admin = Admin.getAdmin()[0];
 
-    const hashDecrypt = bcrypt.compare(password, user.password);
+    if (!user && admin) {
+      return bcrypt.compare(password, admin.password).then((hashDecrypt) => {
+        if (hashDecrypt) {
+          const token = generate_jwt(admin);
+          return token;
+        }
+        return false;
+      });
+    }
 
-    if (user && hashDecrypt) {
-      const token = generate_jwt(user);
-      return token;
+    if (user) {
+      return bcrypt.compare(password, user.password).then((hashDecrypt) => {
+        if (hashDecrypt) {
+          const token = generate_jwt(user);
+          return token;
+        }
+        return false;
+      });
     }
 
     return false;

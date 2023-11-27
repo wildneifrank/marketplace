@@ -3,7 +3,7 @@
     "id": 1,
     "name": "GTi Engenharia Jr.",
     "email": "gti@gmail.com",
-    "password": "12345678",
+    "password": "$2b$10$PDRcyURP2X8nK77.QYvKeO26MPDWZfZfErmJcNBcEgwECvQuj4TPK",
     "image_link": "https://picsum.photos/200/300"
   }
 ]

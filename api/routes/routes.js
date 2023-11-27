@@ -2,6 +2,7 @@ const routes = require("express").Router();
 const RestaurantController = require("../controller/restaurant_controller.js");
 const ProductController = require("../controller/product_controller.js");
 const FeedbackController = require("../controller/feedback_controller.js");
+const AdminController = require("../controller/admin_controller.js");
 const SigninAccess = require("../services/signin_access.js");
 const checkToken = require("../controller/check_token.js");
 
@@ -26,6 +27,10 @@ routes.get("/restaurants", RestaurantController.getRestaurants);
 routes.delete("/restaurants/:id", RestaurantController.deleteRestaurant);
 routes.put("/restaurants/:id", RestaurantController.updateRestaurant);
 routes.post("/restaurants", RestaurantController.createRestaurant);
+
+// Admin
+routes.get("/admin", AdminController.getAdmin);
+routes.put("/admin/:id", AdminController.updateAdmin);
 
 // Auth
 routes.post("/auth", AuthController.authenticate);
