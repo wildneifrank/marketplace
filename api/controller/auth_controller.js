@@ -6,11 +6,8 @@ class AuthController {
     const password = req.body.password;
     Authentication.login(email, password).then((token) => {
       if (token) {
-        const data = {
-          token,
-        };
-        res.status(200);
-        res.send(JSON.stringify(data));
+        res.status(200).cookie("token", token, { httpOnly: true });
+        res.json({ message: "Login bem-sucedido" });
         return res.end();
       }
       res.status(401);

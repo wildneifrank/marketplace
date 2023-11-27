@@ -33,17 +33,17 @@ class Authenticate {
     return false;
   }
 
-  static validate_token(user_session_token) {
+  static validate_token(session_token) {
     const db = new DataAccessor("token");
 
-    const register = db.where(
-      "session_token",
-      user_session_token.toString()
-    )[0];
+    const register = db.where("session_token", session_token.toString())[0];
     try {
-      var decoded = jwt.verify(register.session_token, secretKey);
+      const decoded = jwt.verify(register.session_token, secretKey);
+      const admin = Admin.getAdmin()[0];
+      if (admin.email == decoded.email) {
+        return admin;
+      }
       const user = User.findRestaurant(decoded.email)[0];
-
       return user;
     } catch (error) {
       return false;
