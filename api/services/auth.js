@@ -62,9 +62,7 @@ class Authenticate {
     const db = new DataAccessor("token");
     const register = db.where("session_token", user_session_token)[0];
     db.delete_session(register.id);
-
     const valid = Authenticate.validate_token(user_session_token);
-
     return !valid;
   }
 }

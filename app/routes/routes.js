@@ -35,6 +35,7 @@ routes.post("/login", AuthController.auth);
 routes.get("/login", HomeController.login);
 routes.get("/registro", HomeController.register);
 routes.post("/sessionValidate", AuthController.sessionValidate);
+routes.delete("/logout", AuthController.logout);
 
 // Not found
 routes.get("/:string", AuthController.notFound);

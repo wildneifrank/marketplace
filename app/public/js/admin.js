@@ -625,3 +625,23 @@ function getProducts() {
 }
 
 getProducts();
+
+// Auth - Logout
+function logout() {
+  fetch("http://localhost:3001/logout", {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Erro na requisição: ${response.status}`);
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      window.location.href = "/";
+      console.error("Erro durante a requisição:", error);
+    });
+}

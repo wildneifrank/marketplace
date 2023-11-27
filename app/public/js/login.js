@@ -21,9 +21,11 @@ async function login(event) {
       } else {
         window.location.href = "/admin";
       }
+    } else {
+      window.alert("As senhas devem ser compatíveis!");
     }
   } catch (error) {
-    console.error("Erro:", error);
+    console.log(error);
   }
 }
 

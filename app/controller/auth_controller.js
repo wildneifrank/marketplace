@@ -129,8 +129,35 @@ class AuthController {
         .cookie("role", data.role, { httpOnly: true })
         .send({ message: "Login feito com sucesso!" });
     } catch (error) {
-      console.error("Erro durante a requisição:", error);
       res.status(500).send("Erro ao realizar o login.");
+    }
+  }
+
+  async logout(req, res) {
+    const token = req.cookies.token;
+    const json = {
+      token,
+    };
+    try {
+      const response = await fetch(url + `logout`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(json),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Erro na requisição: ${response.status}`);
+      }
+      const data = await response.json();
+      res
+        .status(200)
+        .cookie("token", "", { httpOnly: true })
+        .cookie("role", "", { httpOnly: true })
+        .send({ message: "Logout feito com sucesso!" });
+    } catch (error) {
+      res.status(404).send({ message: "Acesso negado!" });
     }
   }
 }

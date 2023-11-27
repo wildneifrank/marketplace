@@ -35,6 +35,8 @@ routes.put("/admin/:id", AdminController.updateAdmin);
 // Auth
 routes.post("/auth", AuthController.authenticate);
 routes.post("/validateToken", AuthController.validateTokenAuth);
+routes.delete("/logout", AuthController.logout);
+
 // Middleware p/ Autenticação
 function authenticate(req, res, next) {
   const token = req.cookies["token"];

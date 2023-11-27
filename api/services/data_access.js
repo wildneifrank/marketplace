@@ -41,6 +41,15 @@ class DataAccess {
     this.save();
   }
 
+  delete_session(id) {
+    let record = this.find(id);
+    const existing_ids = this.data.map(({ id }) => id);
+    let index = existing_ids.indexOf(record["id"]);
+
+    this.data.splice(index, 1);
+    this.save();
+  }
+
   where(key, value) {
     let record = this.data.filter(
       (item) => item[key].toLowerCase() == value.toLowerCase()

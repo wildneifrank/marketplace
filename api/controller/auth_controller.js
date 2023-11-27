@@ -27,6 +27,12 @@ class AuthController {
     res.status(401);
     return res.end();
   }
+  async logout(req, res) {
+    const session_token = req.body.token;
+    Authentication.logout(session_token);
+    res.status(200);
+    return res.end();
+  }
 }
 
 module.exports = new AuthController();
