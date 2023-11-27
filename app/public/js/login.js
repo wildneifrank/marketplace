@@ -15,9 +15,12 @@ async function login(event) {
   try {
     const response = await fetch(url + "login", options);
     if (response.status === 200) {
-      const tokenPackage = await response.json();
-      localStorage.setItem("token", tokenPackage.token);
-      window.location.href = "/user";
+      const data = await response.json();
+      if (data.role == "user") {
+        window.location.href = "/user";
+      } else {
+        window.location.href = "/admin";
+      }
     }
   } catch (error) {
     console.error("Erro:", error);

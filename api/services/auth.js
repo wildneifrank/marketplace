@@ -13,8 +13,12 @@ class Authenticate {
     if (!user && admin) {
       return bcrypt.compare(password, admin.password).then((hashDecrypt) => {
         if (hashDecrypt) {
-          const token = generate_jwt(admin);
-          return token;
+          const tokenJWT = generate_jwt(admin);
+          const data = {
+            token: tokenJWT,
+            role: "admin",
+          };
+          return data;
         }
         return false;
       });
@@ -23,8 +27,12 @@ class Authenticate {
     if (user) {
       return bcrypt.compare(password, user.password).then((hashDecrypt) => {
         if (hashDecrypt) {
-          const token = generate_jwt(user);
-          return token;
+          const tokenJWT = generate_jwt(user);
+          const data = {
+            token: tokenJWT,
+            role: "user",
+          };
+          return data;
         }
         return false;
       });

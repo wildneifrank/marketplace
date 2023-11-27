@@ -7,6 +7,20 @@ class AuthController {
     res.render("pages/user/index");
   }
   async admin(req, res) {
+    // fetch(url + "validationToken")
+    //   .then((response) => {
+    //     if (!response.ok) {
+    //       throw new Error("Erro na solicitação");
+    //     }
+    //     return response.json();
+    //   })
+    //   .then((data) => {
+    //     res.status(200).send(data);
+    //   })
+    //   .catch((error) => {
+    //     console.error("Erro:", error);
+    //     res.send("Produtos não encontrados");
+    //   });
     res.render("pages/admin/index");
   }
   async notFound(req, res) {
@@ -43,7 +57,11 @@ class AuthController {
         throw new Error(`Erro na requisição: ${response.status}`);
       }
       const data = await response.json();
-      res.status(200).send(data);
+      res
+        .status(200)
+        .cookie("token", data.token, { httpOnly: true })
+        .cookie("role", data.role, { httpOnly: true })
+        .send({ message: "Login feito com sucesso!" });
     } catch (error) {
       console.error("Erro durante a requisição:", error);
       res.status(500).send("Erro ao realizar o login.");
