@@ -43,7 +43,9 @@ class Authenticate {
 
   static validate_token(session_token) {
     const db = new DataAccessor("token");
-
+    if (!session_token) {
+      return false;
+    }
     const register = db.where("session_token", session_token.toString())[0];
     try {
       const decoded = jwt.verify(register.session_token, secretKey);

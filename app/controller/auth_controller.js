@@ -65,6 +65,9 @@ class AuthController {
   }
   async sessionValidate(req, res) {
     const token = req.cookies.token;
+    if (!token) {
+      return res.status(404).send({ message: "Acesso negado!" });
+    }
     const json = {
       token,
     };
@@ -133,11 +136,15 @@ class AuthController {
   }
 
   async logout(req, res) {
-    const token = req.cookies.token;
-    const json = {
-      token,
-    };
     try {
+      const token = req.cookies.token;
+
+      if (!token) {
+        throw new Error("Token não encontrado");
+      }
+
+      const json = { token };
+
       const response = await fetch(url + `logout`, {
         method: "DELETE",
         headers: {
@@ -149,14 +156,14 @@ class AuthController {
       if (!response.ok) {
         throw new Error(`Erro na requisição: ${response.status}`);
       }
-      const data = await response.json();
       res
         .status(200)
-        .cookie("token", "", { httpOnly: true })
-        .cookie("role", "", { httpOnly: true })
+        .clearCookie("token")
+        .clearCookie("role")
         .send({ message: "Logout feito com sucesso!" });
     } catch (error) {
-      res.status(404).send({ message: "Acesso negado!" });
+      console.error("Erro durante o logout:", error);
+      res.status(500).send({ message: "Erro durante o logout." });
     }
   }
 }

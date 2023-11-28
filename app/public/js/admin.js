@@ -638,10 +638,9 @@ function logout() {
       if (!response.ok) {
         throw new Error(`Erro na requisição: ${response.status}`);
       }
-      return response.json();
+      window.location.href = "/";
     })
     .catch((error) => {
-      window.location.href = "/";
       console.error("Erro durante a requisição:", error);
     });
 }

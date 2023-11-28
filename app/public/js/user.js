@@ -628,7 +628,6 @@ getProducts();
 
 // Auth - Logout
 function logout() {
-  console.log("teste");
   fetch("http://localhost:3001/logout", {
     method: "DELETE",
     headers: {
@@ -637,14 +636,11 @@ function logout() {
   })
     .then((response) => {
       if (!response.ok) {
-        console.log("erro response");
         throw new Error(`Erro na requisição: ${response.status}`);
       }
-      return response.json();
+      window.location.href = "/";
     })
     .catch((error) => {
-      window.location.href = "/";
-      console.log("window");
       console.error("Erro durante a requisição:", error);
     });
 }
