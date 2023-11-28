@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt" id="mode">
+<html lang="en" id="mode">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>User</title>
+  <title>Admin</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -19,19 +19,23 @@
   <main class="w-full h-screen flex">
     <aside class="duration-500 ease-in-out hover:w-3/6 w-1/6 h-full fixed bg-purple-800 text-white shadow-xl flex flex-col text-lg font-medium justify-between pt-32 pb-10 sm:w-1/12 sm:hover:w-4/12 lg:w-[5%] lg:hover:w-2/12 group">
       <div class="w-full h-3/6 flex flex-col gap-1 items-center justify-center">
-        <div class="flex gap-3 w-3/4 items-center bg-purple-500 px-4 py-3 rounded-lg shadow-md cursor-pointer">
+        <div class="flex gap-3 w-3/4 px-4 py-3 items-center bg-purple-500 hover:bg-purple-500 duration-500 ease-in-out rounded-lg hover:shadow-md cursor-pointer sidebar dashboard" onclick="setState('dashboard')">
           <i class="fa-solid fa-gauge text-white"></i>
           <span class="group-hover:text-lg duration-500 ease-in-out text-[0px]">Dashboard</span>
         </div>
-        <div class="flex gap-3 w-3/4 px-4 py-3 items-center hover:bg-purple-500 duration-500 ease-in-out rounded-lg hover:shadow-md cursor-pointer">
+        <div class="flex gap-3 w-3/4 px-4 py-3 items-center hover:bg-purple-500 duration-500 ease-in-out rounded-lg hover:shadow-md cursor-pointer sidebar users" onclick="setState('users')">
+          <i class="fa-solid fa-user text-white"></i>
+          <span class="group-hover:text-lg duration-500 ease-in-out text-[0px]">Usuários</span>
+        </div>
+        <div class="flex gap-3 w-3/4 px-4 py-3 items-center hover:bg-purple-500 duration-500 ease-in-out rounded-lg hover:shadow-md cursor-pointer sidebar feedbacks" onclick="setState('feedbacks')">
           <i class="fa-solid fa-message text-white"></i>
           <span class="group-hover:text-lg duration-500 ease-in-out text-[0px]">Feedbacks</span>
         </div>
-        <div class="flex gap-3 w-3/4 px-4 py-3 items-center hover:bg-purple-500 duration-500 ease-in-out rounded-lg hover:shadow-md cursor-pointer">
+        <div class="flex gap-3 w-3/4 px-4 py-3 items-center hover:bg-purple-500 duration-500 ease-in-out rounded-lg hover:shadow-md cursor-pointer sidebar products" onclick="setState('products')">
           <i class="fa-solid fa-database text-white"></i>
           <span class="group-hover:text-lg duration-500 ease-in-out text-[0px]">Produtos</span>
         </div>
-        <div class="flex gap-3 w-3/4 px-4 py-3 items-center hover:bg-purple-500 duration-500 ease-in-out rounded-lg hover:shadow-md cursor-pointer">
+        <div class="flex gap-3 w-3/4 px-4 py-3 items-center hover:bg-purple-500 duration-500 ease-in-out rounded-lg hover:shadow-md cursor-pointer sidebar settings" onclick="setState('settings')">
           <i class="fa-solid fa-gear text-white"></i>
           <span class="group-hover:text-lg duration-500 ease-in-out text-[0px]">Configurações</span>
         </div>
@@ -47,40 +51,49 @@
           </div>
         </div>
       </div>
-      <div class="flex w-full justify-center items-center">
+      <div class="flex flex-col w-full justify-center items-center">
         <div class="w-3/4 px-4 py-3 flex gap-3 items-center hover:bg-purple-500 duration-500 ease-in-out rounded-lg hover:shadow-md cursor-pointer">
           <i class="fa-solid fa-right-from-bracket text-white"></i>
-          <span class="group-hover:text-lg duration-500 ease-in-out text-[0px]">Logout</span>
+          <span class="group-hover:text-lg duration-500 ease-in-out text-[0px]" onclick="logout()">Logout</span>
         </div>
       </div>
     </aside>
-    <div class="flex-1 flex flex-col gap-5 pl-20 pr-8 py-5 dark:bg-slate-900 duration-500 ease-in-out">
-      <div class="rounded-md bg-white shadow-lg py-3 h-auto sm:py-0 sm:h-1/6 flex items-center px-6 border-slate-100 border flex-wrap dark:bg-slate-800 duration-500 ease-in-out">
+    <div class="flex-1 flex flex-col gap-5 pl-20 pr-8 py-5 scene dark:bg-slate-900 duration-500 ease-in-out" id="dashboard">
+      <div class="rounded-md bg-white shadow-lg py-3 h-auto sm:py-0 sm:h-1/6 flex items-center px-6 border-slate-100 dark:border-purple-800 border flex-wrap dark:bg-slate-800 duration-500 ease-in-out">
         <div class="w-full h-auto flex flex-col sm:w-2/3 lg:w-3/4">
-          <div class="text-md text-slate-400 font-medium dark:text-white">Principal</div>
-          <div class="text-xl text-purple-800 font-semibold dark:text-white">Dashboard</div>
+          <div class="text-md text-slate-400 font-medium">Principal</div>
+          <div class="text-xl text-purple-800 dark:text-white duration-500 ease-in-out font-semibold">Dashboard</div>
         </div>
         <div class="flex-1 flex gap-3 items-center">
-          <div class="text-lg text-purple-800 font-medium dark:text-white">Olá, GTi Engenharia Jr.</div>
-          <img src="images/ufc.png" class="w-11 h-11 rounded-full border border-purple-800 shadow-lg" alt="Imagem do User">
+          <div class="text-lg text-purple-800 dark:text-white duration-500 ease-in-out  font-medium">Olá, <%= name %></div>
+          <img src="<%= image %>" class="w-11 h-11 rounded-full border border-purple-800 shadow-lg" alt="Imagem do Admin">
         </div>
       </div>
-      <div class="rounded-md bg-white shadow-lg h-auto lg:h-2/6 p-6 border-slate-100 border dark:bg-slate-800 duration-500 ease-in-out">
-        <div class="w-full text-purple-800 text-lg font-medium h-auto dark:text-white">Estatísticas</div>
+      <div class="rounded-md bg-white shadow-lg h-auto lg:h-2/6 p-6 border-slate-100 dark:border-purple-800 border dark:bg-slate-800 duration-500 ease-in-out">
+        <div class="w-full text-purple-800 text-lg font-medium h-auto dark:text-white duration-500 ease-in-out ">Estatísticas</div>
         <div class="w-full flex gap-4 flex-1 flex-wrap">
-          <div class="flex w-full sm:w-2/5 lg:flex-1 gap-1 rounded-lg h-full text-white border border-purple-800 p-5 shadow-md">
+          <div class="flex w-full sm:w-2/5 lg:flex-1 gap-1 rounded-lg h-full text-white border border-purple-800 p-5 shadow-md dark:border-white duration-500 ease-in-out ">
             <div class="w-3/4 h-auto flex flex-col gap-1 font-semibold">
-              <div class="text-xs text-slate-500 dark:text-white">Quantidade de Produtos</div>
-              <div class="text-2xl text-purple-800 dark:text-white">34</div>
+              <div class="text-xs text-slate-500">Quantidade de Usuários</div>
+              <div class="text-2xl text-purple-800 dark:text-white duration-500 ease-in-out" id="usersAmount"></div>
+            </div>
+            <div class="w-14 h-14 p-5 flex justify-center items-center rounded-full bg-purple-800">
+              <i class="fa-solid fa-user text-white"></i>
+            </div>
+          </div>
+          <div class="flex w-full sm:w-2/5 lg:flex-1 gap-1 rounded-lg h-full text-white border border-purple-800 p-5 shadow-md dark:border-white duration-500 ease-in-out ">
+            <div class="w-3/4 h-auto flex flex-col gap-1 font-semibold">
+              <div class="text-xs text-slate-500">Quantidade de Produtos</div>
+              <div class="text-2xl text-purple-800 dark:text-white duration-500 ease-in-out " id="productsAmount"></div>
             </div>
             <div class="w-14 h-14 p-5 flex justify-center items-center rounded-full bg-purple-800">
               <i class="fa-solid fa-database text-white"></i>
             </div>
           </div>
-          <div class="flex w-full sm:w-2/5 lg:flex-1 gap-1 rounded-lg h-full text-white border border-purple-800 p-5 shadow-md">
+          <div class="flex w-full sm:w-2/5 lg:flex-1 gap-1 rounded-lg h-full text-white border border-purple-800 p-5 shadow-md dark:border-white duration-500 ease-in-out ">
             <div class="w-3/4 h-auto flex flex-col gap-1 font-semibold">
-              <div class="text-xs text-slate-500 dark:text-white">Feedbacks</div>
-              <div class="text-2xl text-purple-800 dark:text-white">7</div>
+              <div class="text-xs text-slate-500">Feedbacks</div>
+              <div class="text-2xl text-purple-800 dark:text-white duration-500 ease-in-out" id="feedbacksAmount"></div>
             </div>
             <div class="w-14 h-14 p-5 flex justify-center items-center rounded-full bg-purple-800">
               <i class="fa-solid fa-message text-white"></i>
@@ -88,50 +101,143 @@
           </div>
         </div>
       </div>
-      <div class="rounded-md bg-white shadow-lg h-auto p-6 border-slate-100 border dark:bg-slate-800 duration-500 ease-in-out">
-        <div class="w-full text-purple-800 text-lg font-medium h-auto dark:text-white">Historico de Produtos</div>
-        <div class="w-full flex gap-4 flex-1 flex-wrap">
-          <div class="flex sm:w-4/5 lg:flex-1 gap-1 rounded-lg h-full text-purple-800 border border-purple-800 p-5 shadow-md">
-            <div class="w-full">
-              <table class="w-full border-collapse">
-                <thead class="bg-purple-800 text-white">
-                  <tr>
-                    <th class="p-3 text-left">Data</th>
-                    <th class="p-3 text-left">Nome</th>
-                    <th class="p-3 text-left">Preço</th>
-                    <th class="p-3 text-left">Quantidade</th>
-                  </tr>
-                <tbody class="bg-gray-200 dark:bg-slate-800 duration-500 ease-in-out">
-                  <tr>
-                    <td class="p-3 text-base text-gray-700 dark:text-white">2023-10-12</td>
-                    <td class="p-3 text-base text-gray-700 dark:text-white">Bife à Parmegiana com Molho de Tomate</td>
-                    <td class="p-3 text-base text-gray-700 dark:text-white">$19.99</td>
-                    <td class="p-3 text-base text-gray-700 dark:text-white">20</td>
-                  </tr>
-                </tbody>
-                <tbody class="bg-gray-200 dark:bg-slate-800 duration-500 ease-in-out">
-                  <tr>
-                    <td class="p-3 text-base text-gray-700 dark:text-white">2023-10-12</td>
-                    <td class="p-3 text-base text-gray-700 dark:text-white">Bife à Parmegiana com Molho de Tomate</td>
-                    <td class="p-3 text-base text-gray-700 dark:text-white">$19.99</td>
-                    <td class="p-3 text-base text-gray-700 dark:text-white">20</td>
-                  </tr>
-                </tbody>
-                <tbody class="bg-gray-200 dark:bg-slate-800 duration-500 ease-in-out">
-                  <tr>
-                    <td class="p-3 text-base text-gray-700 dark:text-white">2023-10-12</td>
-                    <td class="p-3 text-base text-gray-700 dark:text-white">Bife à Parmegiana com Molho de Tomate</td>
-                    <td class="p-3 text-base text-gray-700 dark:text-white">$19.99</td>
-                    <td class="p-3 text-base text-gray-700 dark:text-white">20</td>
-                  </tr>
-                </tbody>
-                </thead>
-              </table>
-            </div>
+      <div class="rounded-md bg-white font-medium text-purple-800 shadow-lg h-auto px-6 py-4 flex flex-col gap-2 border-slate-100 dark:border-purple-800 border dark:bg-slate-800 duration-500 ease-in-out dark:text-white ">
+        <div class="w-full text-lg h-auto dark:text-white duration-500 ease-in-out ">Atividades Recentes</div>
+        <div class="w-full h-auto border border-purple-800 rounded-md shadow-md">
+          <div class="w-full h-auto text-md flex gap-5 bg-purple-800 text-white py-2 px-3">
+            <div class="w-2/6">Data</div>
+            <div class="w-2/6">Categoria</div>
+            <div class="w-2/6">Ação</div>
+          </div>
+          <% for( let k = 1; k <= 5; k++ ) { %>
+          <%- include("../../components/activityRow", {date: `${k}/${k}/2023`, category:`${k%2 ? "Usuários": "Produtos"}`, action: `${k%2 ? "Deletar": "Atualizar"}`}) %>
+          <% } %>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex-1 hidden flex-col gap-5 pl-20 pr-8 py-5 scene dark:bg-slate-900 duration-500 ease-in-out" id="users">
+      <div class="rounded-md bg-white shadow-lg py-5 h-auto sm:py-3 sm:h-1/6 flex items-center px-6 border-slate-100 dark:border-purple-800 border flex-wrap dark:bg-slate-800 duration-500 ease-in-out">
+        <div class="w-full h-auto flex flex-col sm:w-2/3 lg:w-3/4">
+          <div class="text-md text-slate-400 font-medium">Secundário</div>
+          <div class="text-xl text-purple-800 font-semibold dark:text-white duration-500 ease-in-out">Usuários</div>
+        </div>
+        <div class="flex-1 flex gap-3 items-center">
+          <div class="text-lg text-purple-800 font-medium dark:text-white duration-500 ease-in-out">Olá, <%= name %></div>
+          <img src="<%= image %>" class="w-11 h-11 rounded-full border border-purple-800 shadow-lg" alt="Imagem do Admin">
+        </div>
+      </div>
+      <div class="rounded-md bg-white font-medium text-purple-800 shadow-lg h-auto px-6 py-5 flex flex-col gap-2 border-slate-100 dark:border-purple-800 border dark:bg-slate-800 duration-500 ease-in-out dark:text-white">
+        <div class="w-full text-lg h-auto flex items-center justify-between">
+          <div>Lista de Usuários</div>
+        </div>
+        <div class="w-full h-auto border border-purple-800 rounded-md shadow-md">
+          <div class="w-full h-auto text-md flex gap-5 bg-purple-800 text-white py-2 px-3">
+            <div class="w-1/6">Id</div>
+            <div class="w-3/6">Email</div>
+            <div class="w-2/6">Usuário</div>
+            <div class="w-1/12 invisible">.</div>
+            <div class="w-1/12 invisible">.</div>
+          </div>
+          <div class="w-full h-auto" id="usersDiv">
+
+          </div>
+
+        </div>
+        <div class="flex gap-2">
+          <div class="text-purple-800 dark:text-white rounded-full border border-purple-800 dark:border-white w-7 h-7 hover:bg-purple-800 hover:text-white dark:hover:bg-slate-900 duration-500 ease-in-out cursor-pointer flex justify-center items-center" onclick="leftUsers()">
+            <i class="fa-solid fa-arrow-left"></i>
+          </div>
+          <div id="currentUsersPosition" class="text-purple-800 dark:text-white duration-500 ease-in-out text-lg"></div>
+          <div class="text-purple-800 dark:text-white rounded-full border border-purple-800 dark:border-white w-7 h-7 hover:bg-purple-800 hover:text-white dark:hover:bg-slate-900 duration-500 ease-in-out cursor-pointer flex justify-center items-center" onclick="rightUsers()">
+            <i class="fa-solid fa-arrow-right"></i>
           </div>
         </div>
       </div>
+    </div>
+    <div class="flex-1 hidden flex-col gap-5 pl-20 pr-8 py-5 scene dark:bg-slate-900 duration-500 ease-in-out" id="products">
+      <div class="rounded-md bg-white shadow-lg py-5 h-auto sm:py-3 sm:h-1/6 flex items-center px-6 border-slate-100 dark:border-purple-800 border flex-wrap dark:bg-slate-800 duration-500 ease-in-out">
+        <div class="w-full h-auto flex flex-col sm:w-2/3 lg:w-3/4">
+          <div class="text-md text-slate-400 font-medium">Secundário</div>
+          <div class="text-xl text-purple-800 font-semibold dark:text-white duration-500 ease-in-out">Produtos</div>
+        </div>
+        <div class="flex-1 flex gap-3 items-center">
+          <div class="text-lg text-purple-800 font-medium dark:text-white duration-500 ease-in-out">Olá, <%= name %></div>
+          <img src="<%= image %>" class="w-11 h-11 rounded-full border border-purple-800 shadow-lg" alt="Imagem do Admin">
+        </div>
+      </div>
+      <div class="rounded-md bg-white font-medium text-purple-800 shadow-lg h-auto px-6 py-5 flex flex-col gap-2 border-slate-100 dark:border-purple-800 border dark:bg-slate-800 duration-500 ease-in-out dark:text-white">
+        <div class="w-full text-lg h-auto flex items-center justify-between">
+          <div>Lista de produtos</div>
+        </div>
+        <div class="w-full h-auto border border-purple-800 rounded-md shadow-md">
+          <div class="w-full h-auto text-md flex gap-5 bg-purple-800 text-white py-2 px-3">
+            <div class="w-1/6">Id</div>
+            <div class="w-3/6">Produto</div>
+            <div class="w-2/6">Preço</div>
+            <div class="w-1/12 invisible">.</div>
+            <div class="w-1/12 invisible">.</div>
+          </div>
+          <div class="w-full h-auto" id="productsDiv">
+
+          </div>
+
+        </div>
+        <div class="flex gap-2">
+          <div class="text-purple-800 dark:text-white rounded-full border border-purple-800 dark:border-white w-7 h-7 hover:bg-purple-800 hover:text-white dark:hover:bg-slate-900 duration-500 ease-in-out cursor-pointer flex justify-center items-center" onclick="leftProducts()">
+            <i class="fa-solid fa-arrow-left"></i>
+          </div>
+          <div id="currentProductsPosition" class="text-purple-800 dark:text-white duration-500 ease-in-out text-lg"></div>
+          <div class="text-purple-800 dark:text-white rounded-full border border-purple-800 dark:border-white w-7 h-7 hover:bg-purple-800 hover:text-white dark:hover:bg-slate-900 duration-500 ease-in-out cursor-pointer flex justify-center items-center" onclick="rightProducts()">
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="flex-1 hidden flex-col gap-5 pl-20 pr-8 py-5 scene dark:bg-slate-900 duration-500 ease-in-out" id="feedbacks">
+      <div class="rounded-md bg-white shadow-lg py-5 h-auto sm:py-3 sm:h-1/6 flex items-center px-6 border-slate-100 dark:border-purple-800 border flex-wrap dark:bg-slate-800 duration-500 ease-in-out">
+        <div class="w-full h-auto flex flex-col sm:w-2/3 lg:w-3/4">
+          <div class="text-md text-slate-400 font-medium">Secundário</div>
+          <div class="text-xl text-purple-800 font-semibold dark:text-white duration-500 ease-in-out">Feedbacks</div>
+        </div>
+        <div class="flex-1 flex gap-3 items-center">
+          <div class="text-lg text-purple-800 font-medium dark:text-white duration-500 ease-in-out">Olá, <%= name %></div>
+          <img src="<%= image %>" class="w-11 h-11 rounded-full border border-purple-800 shadow-lg" alt="Imagem do Admin">
+        </div>
+      </div>
+      <div class="rounded-md bg-white font-medium text-purple-800 shadow-lg h-auto px-6 py-5 flex flex-col gap-2 border-slate-100 dark:border-purple-800 border dark:bg-slate-800 duration-500 ease-in-out dark:text-white">
+        <div class="w-full text-lg h-auto flex items-center justify-between">
+          <div>Lista de feedbacks</div>
+        </div>
+        <div class="w-full h-auto border border-purple-800 rounded-md shadow-md">
+          <div class="w-full h-auto text-md flex gap-5 bg-purple-800 text-white py-2 px-3">
+            <div class="w-1/6">Id</div>
+            <div class="w-3/6">Nome</div>
+            <div class="w-2/6">Email</div>
+            <div class="w-1/12 invisible">.</div>
+            <div class="w-1/12 invisible">.</div>
+          </div>
+          <div class="w-full h-auto" id="feedbacksDiv">
+
+          </div>
+        </div>
+        <div class="flex gap-2">
+          <div class="text-purple-800 dark:text-white rounded-full border border-purple-800 dark:border-white w-7 h-7 hover:bg-purple-800 hover:text-white dark:hover:bg-slate-900 duration-500 ease-in-out cursor-pointer flex justify-center items-center" onclick="leftFeedbacks()">
+            <i class="fa-solid fa-arrow-left"></i>
+          </div>
+          <div id="currentFeedbacksPosition" class="text-purple-800 dark:text-white duration-500 ease-in-out text-lg"></div>
+          <div class="text-purple-800 dark:text-white rounded-full border border-purple-800 dark:border-white w-7 h-7 hover:bg-purple-800 hover:text-white dark:hover:bg-slate-900 duration-500 ease-in-out cursor-pointer flex justify-center items-center" onclick="rightFeedbacks()">
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </main>
+  <script src="js/user.js"></script>
+  <script src="js/session.js"></script>
   <script src="js/accessibility.js"></script>
 </body>
 

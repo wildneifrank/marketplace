@@ -25,11 +25,10 @@ class AuthController {
         throw new Error(`Erro na requisição: ${response.status}`);
       }
       const data = await response.json();
-      res.status(200).send(JSON.stringify(data));
-      // res.status(200).render("pages/user/index", {
-      //   name: data.name,
-      //   image_link: image_link,
-      // });
+      res.status(200).render("pages/user/index", {
+        name: data.name,
+        image: data.image,
+      });
     } catch (error) {
       res.status(404).render("pages/404/index");
     }
@@ -58,7 +57,7 @@ class AuthController {
       const data = await response.json();
       res.status(200).render("pages/admin/index", {
         name: data.name,
-        image_link: data.image_link,
+        image: data.image,
       });
     } catch (error) {
       res.status(404).render("pages/404/index");
@@ -127,7 +126,7 @@ class AuthController {
         .status(200)
         .cookie("token", data.token, { httpOnly: true })
         .cookie("role", data.role, { httpOnly: true })
-        .send({ message: "Login feito com sucesso!" });
+        .send({ role: data.role });
     } catch (error) {
       res.status(500).send("Erro ao realizar o login.");
     }

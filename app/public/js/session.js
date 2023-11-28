@@ -22,7 +22,7 @@ fetch(`http://localhost:3001/sessionValidate`, {
       data.name
     }</a>
     <img src="${
-      data.image_link
+      data.image
     }" class="rounded-full w-10 h-10 border border-purple-800 dark:border-white duration-500 ease-in-out" alt="Logo - ${
       data.name
     }">
