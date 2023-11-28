@@ -28,6 +28,7 @@ class AuthController {
       res.status(200).render("pages/user/index", {
         name: data.name,
         image: data.image,
+        id: data.id,
       });
     } catch (error) {
       res.status(404).render("pages/404/index");

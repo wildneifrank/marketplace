@@ -41,6 +41,28 @@ class FeedbackController {
         res.send("Erro ao deletar feedback.");
       });
   }
+  async getRestaurantsFeedbacks(req, res) {
+    const id = req.params.id;
+    fetch(url + `feedbacks/${id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Erro na requisição: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        res.status(200).send(data);
+      })
+      .catch((error) => {
+        console.error("Erro durante a requisição:", error);
+        res.send("Erro ao pegar os feedback.");
+      });
+  }
   async createFeedback(req, res) {
     const json = req.body;
     fetch(url + `feedbacks`, {

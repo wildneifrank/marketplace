@@ -95,7 +95,7 @@
     "email": "francisco@gmail.com",
     "number": "8540028922",
     "message": "ola mundo",
-    "restaurant_id": 7,
+    "restaurant_id": 25,
     "deleted": false
   },
   {
@@ -104,8 +104,8 @@
     "email": "wildneif1@gmail.com",
     "tel": "85992231334",
     "message": "correção bug",
-    "restaurant_id": 6,
-    "deleted": true
+    "restaurant_id": 25,
+    "deleted": false
   },
   {
     "id": 13,
@@ -113,7 +113,7 @@
     "email": "chico.buarque@gmail.com",
     "tel": "85912345678",
     "message": "Ótimo restaurante, adorei ir. Recomendo a todos!",
-    "restaurant_id": 3,
+    "restaurant_id": 25,
     "deleted": false
   },
   {

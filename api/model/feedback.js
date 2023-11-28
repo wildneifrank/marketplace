@@ -22,6 +22,11 @@ class Feedback {
       throw new Error(error);
     }
   }
+  static getRestaurantsFeedbacks(id) {
+    const data = this.getFeedbacks();
+    const feedbacks = data.filter((item) => item.restaurant_id == id);
+    return feedbacks;
+  }
 }
 
 module.exports = Feedback;

@@ -29,6 +29,7 @@ routes.get("/admin/bestRestaurants", RestaurantController.getBestRestaurants);
 routes.get("/admin/feedbacks", FeedbackController.getFeedbacks);
 routes.delete("/admin/feedbacks/:id", FeedbackController.deletedFeedback);
 routes.post("/admin/feedbacks", FeedbackController.createFeedback);
+routes.get("/admin/feedbacks/:id", FeedbackController.getRestaurantsFeedbacks);
 
 // Auth
 routes.post("/login", AuthController.auth);

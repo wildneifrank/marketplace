@@ -15,6 +15,7 @@ routes.post("/signin", SigninAccess);
 routes.get("/feedbacks", FeedbackController.getFeedbacks);
 routes.delete("/feedbacks/:id", FeedbackController.deleteFeedback);
 routes.post("/feedbacks", FeedbackController.createFeedback);
+routes.get("/feedbacks/:id", FeedbackController.getRestaurantsFeedbacks);
 
 // Produtos
 routes.get("/products", ProductController.getProducts);
