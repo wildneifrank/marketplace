@@ -644,3 +644,62 @@ function logout() {
       console.error("Erro durante a requisição:", error);
     });
 }
+
+function updateAccount(event) {
+  event.preventDefault();
+  const name = document.querySelector(`#name_admin`).value;
+  const email = document.querySelector(`#email_admin`).value;
+  const image = document.querySelector(`#image_admin`).value;
+  const changePassword = document.querySelector(`#changePassword_admin`).value;
+  const password = document.querySelector(`#password_admin`).value;
+  const passwordConfirmation = document.querySelector(
+    `#passwordConfirmation_admin`
+  ).value;
+  let json = {};
+  if (changePassword == "change") {
+    if (password.length < 8) {
+      window.alert("As senhas deve conter no mínimo 8 caracteres!");
+      return 0;
+    }
+    if (password && password === passwordConfirmation) {
+      json = {
+        name,
+        email,
+        image,
+        password,
+      };
+    } else {
+      window.alert("As senhas devem ser compatíveis!");
+      return 0;
+    }
+  } else {
+    json = {
+      name,
+      email,
+      image,
+    };
+  }
+  fetch("http://localhost:3001/admin", {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(json),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Erro na requisição: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data);
+      getFeedbacks();
+      getUsers();
+      getProducts();
+      window.location.href = "/admin";
+    })
+    .catch((error) => {
+      console.error("Erro durante a requisição:", error);
+    });
+}

@@ -64,6 +64,7 @@ class AuthController {
       const data = await response.json();
       res.status(200).render("pages/admin/index", {
         name: data.name,
+        email: data.email,
         image: data.image,
       });
     } catch (error) {
@@ -139,6 +140,26 @@ class AuthController {
         .send({ role: data.role });
     } catch (error) {
       res.status(500).send("Erro ao realizar o login.");
+    }
+  }
+  async updateAdmin(req, res) {
+    const json = req.body;
+    try {
+      const response = await fetch(url + `admin/1`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(json),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Erro na requisição: ${response.status}`);
+      }
+      const data = await response.json();
+      res.status(200).send(JSON.stringify(data));
+    } catch (error) {
+      res.status(500).send("Erro ao atualizar o administrador.");
     }
   }
 

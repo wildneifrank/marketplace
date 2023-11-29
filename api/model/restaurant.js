@@ -1,5 +1,6 @@
 const DataAccess = require("../services/data_access.js");
 const bcrypt = require("bcrypt");
+const Products = require("../model/product.js");
 
 class Restaurant {
   static getRestaurants() {
@@ -9,8 +10,15 @@ class Restaurant {
   }
   static deleteRestaurant(id) {
     const db = new DataAccess("restaurant");
+    const products = Products.getProducts();
     try {
       db.delete(id);
+      const data = products.array.filter(
+        (product) => product.restaurant_id == id
+      );
+      data.forEach((product) => {
+        Products.deleteProduct(product.id);
+      });
     } catch (error) {
       throw new Error(error);
     }

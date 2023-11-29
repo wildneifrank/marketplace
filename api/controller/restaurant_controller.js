@@ -37,10 +37,12 @@ class RestaurantController {
   }
   async createRestaurant(req, res) {
     const json = req.body;
+    console.log(json);
     const emailExists = Restaurant.findRestaurant(json.email);
     res.setHeader("Content-Type", "application/json");
     try {
-      if (emailExists) {
+      if (!emailExists) {
+        console.log("entrou", emailExists);
         throw new Error();
       }
       Restaurant.createRestaurant(json);

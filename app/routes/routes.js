@@ -39,6 +39,12 @@ routes.get("/registro", HomeController.register);
 routes.post("/sessionValidate", AuthController.sessionValidate);
 routes.delete("/logout", AuthController.logout);
 
+// Admin
+routes.put("/admin", AuthController.updateAdmin);
+
+// User
+routes.get("/user/products/:id", ProductController.getUserProducts);
+
 // Not found
 routes.get("/:string", AuthController.notFound);
 module.exports = routes;

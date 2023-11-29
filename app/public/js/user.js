@@ -264,14 +264,6 @@ function showProduct(id) {
   }" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-900 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800">
   </div>
   <div class="flex flex-col gap-1">
-    <label for="restaurant_id" class="text-purple-800 dark:text-white duration-500 ease-in-out">Id do Restaurante</label>
-    <input type="text" name="restaurant_id" id="restaurant_id_product_${
-      item.id
-    }" value="${
-    item.restaurant_id
-  }" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-900 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800">
-  </div>
-  <div class="flex flex-col gap-1">
     <label for="image_link" class="text-purple-800 dark:text-white duration-500 ease-in-out">Link da Imagem</label>
     <input type="text" name="image_link" id="image_link_product_${
       item.id
@@ -370,19 +362,9 @@ function sendProductData(id) {
   const description = document.querySelector(
     `#description_product_${id}`
   ).value;
-  const restaurant_id = document.querySelector(
-    `#restaurant_id_product_${id}`
-  ).value;
   const image_link = document.querySelector(`#image_link_product_${id}`).value;
   const status = document.querySelector(`#status_product_${id}`).value;
-  if (
-    !name ||
-    !price ||
-    !description ||
-    !restaurant_id ||
-    !image_link ||
-    !status
-  ) {
+  if (!name || !price || !description || !image_link || !status) {
     alert("Por favor, preencha todos os campos do formulário.");
     return false;
   }
@@ -390,7 +372,6 @@ function sendProductData(id) {
     name,
     price,
     description,
-    restaurant_id,
     image_link,
     status: status === "active" ? true : false,
   };
@@ -445,7 +426,7 @@ function deletedProduct(id) {
 var user_id = 0;
 function getProducts(id) {
   user_id = id;
-  fetch(url + `products/${id}`)
+  fetch(`http://localhost:3001/user/products/${id}`)
     .then((response) => {
       if (!response.ok) {
         throw new Error(`Erro na requisição: ${response.status}`);

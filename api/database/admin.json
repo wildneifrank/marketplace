@@ -1,9 +1,1 @@
-[
-  {
-    "id": 1,
-    "name": "GTi Engenharia Jr.",
-    "email": "gti@gmail.com",
-    "password": "$2b$10$PDRcyURP2X8nK77.QYvKeO26MPDWZfZfErmJcNBcEgwECvQuj4TPK",
-    "image": "https://picsum.photos/200/300"
-  }
-]
+[{"id":1,"name":"GTi ","email":"gti@gmail.com","password":"$2b$10$TveXg4J8JtCkRzYOhD1PS./b36w1FzMvTr/f44AC3Hn1vU8md3mve","image":"https://picsum.photos/200/300"}]

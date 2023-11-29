@@ -101,7 +101,31 @@ class ProductController {
       const filteredData = data.filter(
         (product) => product.restaurant_id == id
       );
+      const products = filteredData.filter((product) => product.status == true);
 
+      res.status(200).send(products);
+    } catch (error) {
+      console.error("Erro durante a requisição:", error);
+      res.status(500).send("Erro ao atualizar produto.");
+    }
+  }
+  async getUserProducts(req, res) {
+    const id = req.params.id;
+    try {
+      const response = await fetch(url + `products`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(`Erro na requisição: ${response.status}`);
+      }
+      const data = await response.json();
+      const filteredData = data.filter(
+        (product) => product.restaurant_id == id
+      );
       res.status(200).send(filteredData);
     } catch (error) {
       console.error("Erro durante a requisição:", error);
