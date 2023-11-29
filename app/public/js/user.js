@@ -295,6 +295,68 @@ function showProduct(id) {
   })" >Atualizar</div>   `;
   productsScene.appendChild(newDiv);
 }
+function showNewProduct(id) {
+  let newDiv = document.createElement("form");
+  newDiv.action = "";
+  newDiv.className =
+    "absolute top-[5%] left-1/3 w-4/12 h-auto bg-white rounded-lg shadow-xl dark:bg-slate-900 duration-500 ease-in-out flex flex-col gap-2 px-5 py-6 text-lg font-semibold";
+  newDiv.innerHTML = `
+  <div class="w-6 py-1 flex justify-center items-center border border-purple-800 dark:border-white duration-500 ease-in-out cursor-pointer dark:hover:bg-slate-800 hover:bg-purple-800 group rounded-md" onclick="closeProduct()"><i class="fa-solid fa-xmark text-purple-800 dark:text-white group-hover:text-white duration-500 ease-in-out"></i></div>
+  <div class="flex flex-col gap-1">
+    <label for="name" class="text-purple-800 dark:text-white duration-500 ease-in-out">Produto</label>
+    <input required type="text" name="name" id="new_name_product" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-900 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800">
+  </div>
+  <div class="flex flex-col gap-1">
+    <label for="price" class="text-purple-800 dark:text-white duration-500 ease-in-out">Preço</label>
+    <input required type="text" pattern="[0-9]*" name="price" id="new_price_product" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-900 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800">
+  </div>
+  <div class="flex flex-col gap-1">
+    <label for="description" class="text-purple-800 dark:text-white duration-500 ease-in-out">Descrição</label>
+    <input required type="text" name="description" id="new_description_product" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-900 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800">
+  </div>
+  <div class="flex flex-col gap-1">
+    <label for="image_link" class="text-purple-800 dark:text-white duration-500 ease-in-out">Link da Imagem</label>
+    <input required type="url" name="image_link" id="new_image_link_product"  class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-900 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800">
+  </div>
+  <button type="submit" class="w-full h-auto px-4 py-2 text-center border border-purple-800 text-purple-800 text-lg font-semibold hover:text-white hover:bg-purple-800 duration-500 ease-in-out cursor-pointer rounded-lg  dark:border-white dark:text-white dark:hover:bg-slate-800 mt-2" onclick="sendNewProduct(event, ${id})">Criar</button>   `;
+  productsScene.appendChild(newDiv);
+}
+
+function sendNewProduct(event, id) {
+  event.preventDefault();
+  const name = document.querySelector("#new_name_product").value;
+  const price = parseFloat(document.querySelector("#new_price_product").value);
+  const description = document.querySelector("#new_description_product").value;
+  const image_link = document.querySelector("#new_image_link_product").value;
+  const json = {
+    name,
+    price,
+    description,
+    image_link,
+    restaurant_id: id,
+  };
+  fetch(url + `products`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(json),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Erro na requisição: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data.message);
+    })
+    .catch((error) => {
+      console.error("Erro durante a requisição:", error);
+    });
+  getProducts(id);
+  closeProduct();
+}
 
 // Produtos - Fechar PopUp
 function closeProduct() {

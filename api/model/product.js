@@ -24,6 +24,7 @@ class Product {
     }
   }
   static createProduct(json) {
+    json["status"] = false;
     const db = new DataAccess("product");
     try {
       db.create(json);

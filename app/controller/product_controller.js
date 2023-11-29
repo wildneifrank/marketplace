@@ -63,6 +63,27 @@ class ProductController {
       res.status(500).send("Erro ao atualizar produto.");
     }
   }
+  async createProduct(req, res) {
+    const json = req.body;
+    try {
+      const response = await fetch(url + `products`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(json),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Erro na requisição: ${response.status}`);
+      }
+      const data = await response.json();
+      res.status(200).send(data);
+    } catch (error) {
+      console.error("Erro durante a requisição:", error);
+      res.status(500).send("Erro ao criar produto.");
+    }
+  }
   async getRestaurantProducts(req, res) {
     const id = req.params.id;
     try {
