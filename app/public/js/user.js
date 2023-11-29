@@ -431,3 +431,69 @@ function getData(id) {
   getProducts(id);
   getFeedbacks(id);
 }
+
+function updateAccount(event, id) {
+  event.preventDefault();
+  const name = document.querySelector(`#name_${id}`).value;
+  const email = document.querySelector(`#email_${id}`).value;
+  const address = document.querySelector(`#address_${id}`).value;
+  const image = document.querySelector(`#image_${id}`).value;
+  const number = document.querySelector(`#number_${id}`).value;
+  const aboutUs = document.querySelector(`#aboutUs_${id}`).value;
+  const changePassword = document.querySelector(`#changePassword_${id}`).value;
+  const password = document.querySelector(`#password_${id}`).value;
+  const passwordConfirmation = document.querySelector(
+    `#passwordConfirmation_${id}`
+  ).value;
+  let json = {};
+  if (changePassword == "change") {
+    if (password.length < 8) {
+      window.alert("As senhas deve conter no mínimo 8 caracteres!");
+      return 0;
+    }
+    if (password && password === passwordConfirmation) {
+      json = {
+        name,
+        email,
+        address,
+        number,
+        image,
+        aboutUs,
+        password,
+      };
+    } else {
+      window.alert("As senhas devem ser compatíveis!");
+      return 0;
+    }
+  } else {
+    json = {
+      name,
+      email,
+      address,
+      number,
+      image,
+      aboutUs,
+    };
+  }
+  fetch(url + `restaurants/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(json),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Erro na requisição: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data);
+      getData(id);
+      window.location.href = "/user";
+    })
+    .catch((error) => {
+      console.error("Erro durante a requisição:", error);
+    });
+}

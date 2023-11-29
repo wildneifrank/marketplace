@@ -17,6 +17,9 @@ class Restaurant {
   }
   static updateRestaurant(id, json) {
     const db = new DataAccess("restaurant");
+    if (json.password) {
+      json.password = cryptography(json.password);
+    }
     try {
       db.update(id, json);
     } catch (error) {

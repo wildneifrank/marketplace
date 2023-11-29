@@ -24,11 +24,17 @@ class AuthController {
       if (!response.ok) {
         throw new Error(`Erro na requisição: ${response.status}`);
       }
+
       const data = await response.json();
       res.status(200).render("pages/user/index", {
         name: data.name,
         image: data.image,
+        email: data.email,
         id: data.id,
+        aboutUs: data.aboutUs,
+        address: data.address,
+        number: data.number,
+        status: data.status ? "Conta Ativa" : "Conta Bloqueada",
       });
     } catch (error) {
       res.status(404).render("pages/404/index");

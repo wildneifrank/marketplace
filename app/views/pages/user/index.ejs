@@ -185,6 +185,80 @@
       </div>
     </div>
 
+    <div class="flex-1 hidden flex-col gap-5 pl-20 pr-8 py-5 scene" id="settings">
+      <div class="rounded-md bg-white shadow-lg py-5 h-auto sm:py-3 sm:h-1/6 flex items-center px-6 border-slate-100 dark:border-purple-800 border flex-wrap dark:bg-slate-800 duration-500 ease-in-out">
+        <div class="w-full h-auto flex flex-col sm:w-2/3 lg:w-3/4">
+          <div class="text-md text-slate-400 font-medium">Secundário</div>
+          <div class="text-xl text-purple-800 font-semibold dark:text-white duration-500 ease-in-out">Feedbacks</div>
+        </div>
+        <div class="flex-1 flex gap-3 items-center">
+          <div class="text-lg text-purple-800 font-medium dark:text-white duration-500 ease-in-out">Olá, <%= name %></div>
+          <img src="<%= image %>" class="w-11 h-11 rounded-full border border-purple-800 shadow-lg" alt="Imagem do Admin">
+        </div>
+      </div>
+      <div class="rounded-md bg-white font-medium text-purple-800 shadow-lg h-auto px-6 py-5 flex flex-col gap-2 border-slate-100 dark:border-purple-800 border dark:bg-slate-800 duration-500 ease-in-out dark:text-white">
+        <div class="w-full text-lg h-auto flex items-center justify-between">
+          <div>Dados da conta</div>
+        </div>
+        <form class="w-full flex flex-col gap-2">
+          <div class="flex gap-3">
+
+            <div class="w-full">
+              <div class="flex flex-col gap-1">
+                <label for="name" class="text-purple-800 dark:text-white duration-500 ease-in-out">Empresa</label>
+                <input required type="text" name="name" id="name_<%= id %>" value="<%= name %>" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-800 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800">
+              </div>
+              <div class="flex flex-col gap-1">
+                <label for="email" class="text-purple-800 dark:text-white duration-500 ease-in-out">Email</label>
+                <input required type="email" name="email" id="email_<%= id %>" value="<%= email %>" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-800 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800">
+              </div>
+              <div class="flex flex-col gap-1">
+                <label for="number" class="text-purple-800 dark:text-white duration-500 ease-in-out">Telefone</label>
+                <input required type="tel" name="number" id="number_<%= id %>" value="<%= number %>" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-800 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800">
+              </div>
+              <div class="flex flex-col gap-1">
+                <label for="aboutUs" class="text-purple-800 dark:text-white duration-500 ease-in-out">Descrição</label>
+                <input required type="text" name="aboutUs" id="aboutUs_<%= id %>" value="<%= aboutUs %>" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-800 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800">
+              </div>
+              <div class="flex flex-col gap-1">
+                <label for="address" class="text-purple-800 dark:text-white duration-500 ease-in-out">Endereço</label>
+                <input required type="text" name="address" id="address_<%= id %>" value="<%= address%>" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-800 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800">
+              </div>
+            </div>
+            <div class="w-full">
+              <div class="flex flex-col gap-1">
+                <label for="image" class="text-purple-800 dark:text-white duration-500 ease-in-out">Link da logo</label>
+                <input required type="text" name="image" id="image_<%= id %>" value="<%= image %>" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-800 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800">
+              </div>
+              <div class="flex flex-col gap-1">
+                <label for="status" class="text-purple-800 dark:text-white duration-500 ease-in-out">Status</label>
+                <input required type="text" name="status" id="status_<%= id %>" value="<%= status %>" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-800 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800" disabled>
+              </div>
+              <div class="flex flex-col gap-1">
+                <label for="changePassword" class="text-purple-800 dark:text-white duration-500 ease-in-out">Mudar Senha</label>
+                <select name="changePassword" id="changePassword_<%= id %>" val class="border-purple-800 focus:border-purple-800 dark:border-white dark:focus:border-white rounded-md text-purple-800 dark:text-white text-lg font-semibold duration-500 ease-in-out bg-white dark:bg-slate-800 outline-none">
+                  <option value="change">Alterar</option>
+                  <option value="noChange" selected>Não alterar</option>
+                </select>
+              </div>
+              <div class="flex flex-col gap-1">
+                <label for="password" class="text-purple-800 dark:text-white duration-500 ease-in-out">Nova senha</label>
+                <input type="text" name="password" id="password_<%= id %>" value="" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-800 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800">
+              </div>
+              <div class="flex flex-col gap-1">
+                <label for="passwordConfirmation" class="text-purple-800 dark:text-white duration-500 ease-in-out">Confirme a sua nova senha</label>
+                <input type="text" name="passwordConfirmation" id="passwordConfirmation_<%= id %>" value="" class="px-3 py-2 border-purple-800 bg-white dark:bg-slate-800 border dark:border-white dark:text-white duration-500 ease-in-out rounded-lg outline-none focus:border-purple-800 text-purple-800">
+              </div>
+
+            </div>
+
+          </div>
+          <button type="submit" class="w-1/6 h-auto px-4 py-2 text-center border border-purple-800 text-purple-800 text-lg font-semibold hover:text-white hover:bg-purple-800 duration-500 ease-in-out cursor-pointer rounded-lg  dark:border-white dark:text-white dark:hover:bg-slate-900 mt-3" onclick="updateAccount(event,'<%= id %>')">Atualizar</button>
+
+        </form>
+      </div>
+    </div>
+
   </main>
   <script src="js/user.js"></script>
   <script src="js/session.js"></script>
